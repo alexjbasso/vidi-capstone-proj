@@ -31,3 +31,8 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email
         }
+
+    films = db.relationship('Film', back_populates='user', cascade="all, delete")
+    people = db.relationship('Person', back_populates='user', cascade="all, delete")
+    reviews = db.relationship('Review', back_populates='user', cascade="all, delete")
+    seen_films = db.relationship('SeenFilm', back_populates='user')

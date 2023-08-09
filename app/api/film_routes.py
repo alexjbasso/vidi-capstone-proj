@@ -62,7 +62,7 @@ def add_new_film():
     return { 'errors': validation_errors_to_error_messages(form.errors) }, 400
 
 # Edit a film
-@film_routes.route('/edit/<int:id>', methods=['PUT'])
+@film_routes.route('/<int:id>/edit', methods=['PUT'])
 @login_required
 def edit_film(id):
     form = FilmForm()
@@ -74,17 +74,30 @@ def edit_film(id):
         if film is None or film.user_id != current_user.id:
             return { 'errors': 'Film not found'}, 404
 
-        film.name = form.data['name']
-        film.artist = form.data['artist']
-        film.year = form.data['year']
-        film.genre = form.data['genre']
-        if form.data['art'] == '':
-            film.art = 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Compact_Disc.jpg'
-        else:
-            film.art = form.data['art']
+        film.title = form.data['title'],
+        film.genre = form.data['genre'],
+        film.year = form.data['year'],
+        film.duration = form.data['duration'],
+        film.synopsis = form.data['synopsis'],
+        film.key_art = form.data['key_art'],
+        film.cover_photo = form.data['cover_photo']
 
         db.session.commit()
 
         return jsonify(film.to_dict())
 
     return { 'errors': validation_errors_to_error_messages(form.errors) }, 400
+
+# Deleting an Album created by the user
+@film_routes.route('/<int:id>/delete', methods=['DELETE'])
+@login_required
+def delete_album(id):
+    film = Film.query.get(id)
+
+    if film is None or film.user_id != current_user.id:
+        return {'errors': 'Film not found'}, 404
+
+    db.session.delete(film)
+    db.session.commit()
+
+    return { 'message': 'Successfully Deleted'}

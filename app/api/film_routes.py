@@ -31,7 +31,10 @@ def get_film_by_id(id):
     Query for a film by id and returns that film in a dictionary
     """
     film = Film.query.get(id)
-    return jsonify(film.to_dict())
+    if film is not None:
+      return jsonify(film.to_dict())
+    else: 
+      return { 'errors': 'Film not found'}, 404
 
 # Add new film
 @film_routes.route('/new', methods=['POST'])
@@ -40,7 +43,7 @@ def add_new_film():
     form = FilmForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    form.data['user_id'] = current_user.id # do i need this line?
+    form.data['user_id'] = current_user.id
     if form.validate_on_submit():
 
         new_film = Film (
@@ -67,31 +70,35 @@ def add_new_film():
 def edit_film(id):
     form = FilmForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    form.data['user_id'] = current_user.id
+
 
     if form.validate_on_submit():
+
         film = Film.query.get(id)
 
         if film is None or film.user_id != current_user.id:
             return { 'errors': 'Film not found'}, 404
 
-        film.title = form.data['title'],
-        film.genre = form.data['genre'],
-        film.year = form.data['year'],
-        film.duration = form.data['duration'],
-        film.synopsis = form.data['synopsis'],
-        film.key_art = form.data['key_art'],
+        film.title = form.data['title']
+        film.genre = form.data['genre']
+        film.year = form.data['year']
+        film.duration = form.data['duration']
+        film.synopsis = form.data['synopsis']
+        film.key_art = form.data['key_art']
         film.cover_photo = form.data['cover_photo']
-
+        
         db.session.commit()
 
         return jsonify(film.to_dict())
 
     return { 'errors': validation_errors_to_error_messages(form.errors) }, 400
+    # return 'testing'
 
-# Deleting an Album created by the user
+# Deleting a film created by the user
 @film_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
-def delete_album(id):
+def delete_film(id):
     film = Film.query.get(id)
 
     if film is None or film.user_id != current_user.id:

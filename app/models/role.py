@@ -22,5 +22,6 @@ class Role(db.Model):
             'id': self.id,
             'person_id': self.person_id,
             'film_id': self.film_id,
-            'role': self.role,
+            'film': self.film.to_dict(),
+            'role': self.role
         }

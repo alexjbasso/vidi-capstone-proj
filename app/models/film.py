@@ -35,8 +35,5 @@ class Film(db.Model):
             'synopsis': self.synopsis,
             'key_art': self.key_art,
             'cover_photo': self.cover_photo,
-            'user': self.user.to_dict(),
-            # 'reviews': [review.to_dict() for review in self.reviews],
-            # 'roles': [role.to_dict() for role in self.roles],
-            # 'seen_films': [seen_film.to_dict() for seen_film in self.seen_films]
+            # 'user': self.user.to_dict(),
         }

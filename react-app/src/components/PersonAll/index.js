@@ -17,5 +17,4 @@ export default function PersonAll() {
       <h1>All People</h1>
     </div>
   )
-
 }

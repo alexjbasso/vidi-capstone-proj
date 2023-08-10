@@ -35,7 +35,7 @@ export default function FilmForm({ film, type }) {
   }
 
   const handleCancelClick = (e) => {
-    if (type === 'Update Album') {
+    if (type === 'Edit') {
       history.push(`/profile`);
     }
     else {

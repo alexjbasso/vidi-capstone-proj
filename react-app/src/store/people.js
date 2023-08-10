@@ -77,6 +77,7 @@ export const addPersonThunk = (formData) => async (dispatch) => {
       body: JSON.stringify(formData),
     });
     const newPerson = await response.json();
+    console.log("thunk:", newPerson)
     if (!response.ok) {
       throw new Error(newPerson)
     }

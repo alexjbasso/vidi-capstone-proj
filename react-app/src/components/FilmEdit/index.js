@@ -6,14 +6,9 @@ import FilmForm from "../FilmForm"
 
 export default function FilmEdit() {
   const dispatch = useDispatch();
-  let { id } = useParams()
-  const film = useSelector((state) =>
-    state.films.singleFilm[id] ? state.films.singleFilm[id] : null
-  );
-
-  const user = useSelector((state) =>
-    state.session.user ? state.session.user : null
-  );
+  const { id } = useParams()
+  const film = useSelector((state) => state.films.singleFilm[id] ? state.films.singleFilm[id] : null);
+  const user = useSelector((state) => state.session.user ? state.session.user : null);
 
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));

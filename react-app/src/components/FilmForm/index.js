@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addFilmThunk } from "../../store/films";
+import { addFilmThunk, editFilmThunk } from "../../store/films";
 
 export default function FilmForm({ film, type }) {
   const history = useHistory();
@@ -22,10 +22,9 @@ export default function FilmForm({ film, type }) {
 
     if (type === "Add") {
       film = await dispatch(addFilmThunk(formData))
-      console.log(film)
 
     } else if (type === "Edit") {
-      // album = await dispatch(updateAlbumThunk(album, formData))
+      film = await dispatch(editFilmThunk(film, formData))
     }
 
     if (film.errors) {

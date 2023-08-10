@@ -87,6 +87,27 @@ export const addFilmThunk = (formData) => async (dispatch) => {
   }
 };
 
+//Edit a Film Thunk
+export const editFilmThunk = (album, formData) => async (dispatch) => {
+  try {
+    const response = await fetch(`/api/films/${album.id}/edit`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    const editedFilm = await response.json();
+    if (!response.ok) {
+      throw new Error(editedFilm)
+    }
+    return dispatch(editFilmAction(editedFilm))
+  } catch (err) {
+    return err
+  }
+}
+
+
+
+// ===Reducer===
 const initialState = {
   allFilms: {},
   singleFilm: {}
@@ -104,6 +125,8 @@ export default function filmsReducer(state = initialState, action) {
       return { ...state, singleFilm: { [action.payload.id]: action.payload } };
     case ADD_FILM:
       return { ...state, allFilms: { ...state.allFilms, [action.payload.id]: action.payload } };
+    case EDIT_FILM:
+      return { ...state, singleFilm: { [action.payload.id]: action.payload } };
     default:
       return state;
   }

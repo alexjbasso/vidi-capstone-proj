@@ -5,6 +5,7 @@ import { getAllFilmsThunk } from '../../store/films';
 export default function Home() {
   const dispatch = useDispatch();
   const allFilms = useSelector(state => state.films.allFilms)
+  const user = useSelector((state) => state.session.user ? state.session.user : null);
 
   useEffect(() => {
     dispatch(getAllFilmsThunk());
@@ -14,7 +15,7 @@ export default function Home() {
 
   return (
     <div id="home-container">
-      <h2>Welcome back, User. Here's what we've been watching...</h2>
+      <h2>Welcome back, {user.username}. Here's what we've been watching...</h2>
     </div>
   )
 

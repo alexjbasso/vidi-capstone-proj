@@ -50,7 +50,7 @@ export const deleteFilmAction = (filmId) => {
 
 
 // ===Thunks===
-// Get All Albums Thunk
+// Get All Films Thunk
 export const getAllFilmsThunk = () => async (dispatch) => {
   const response = await fetch('/api/films');
   const films = await response.json();
@@ -58,11 +58,10 @@ export const getAllFilmsThunk = () => async (dispatch) => {
   return response;
 };
 
-// Get Album by ID Thunk
+// Get Film by ID Thunk
 export const getFilmByIdThunk = (filmId) => async (dispatch) => {
   const response = await fetch(`/api/films/${filmId}`);
   const film = await response.json();
-  console.log(film)
   if (response.ok) {
     dispatch(getFilmByIdAction(film));
   }
@@ -88,9 +87,9 @@ export const addFilmThunk = (formData) => async (dispatch) => {
 };
 
 //Edit a Film Thunk
-export const editFilmThunk = (album, formData) => async (dispatch) => {
+export const editFilmThunk = (film, formData) => async (dispatch) => {
   try {
-    const response = await fetch(`/api/films/${album.id}/edit`, {
+    const response = await fetch(`/api/films/${film.id}/edit`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -105,6 +104,17 @@ export const editFilmThunk = (album, formData) => async (dispatch) => {
   }
 }
 
+//Delete a Film Thunk
+export const deleteAlbumThunk = (filmId) => async (dispatch) => {
+  const response = await fetch(`/api/films/${filmId}/delete`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    dispatch(deleteFilmAction(filmId));
+    return response;
+  }
+};
 
 
 // ===Reducer===
@@ -127,6 +137,10 @@ export default function filmsReducer(state = initialState, action) {
       return { ...state, allFilms: { ...state.allFilms, [action.payload.id]: action.payload } };
     case EDIT_FILM:
       return { ...state, singleFilm: { [action.payload.id]: action.payload } };
+    case DELETE_FILM:
+      const allFilmsObj = { ...state.allFilms };
+      delete allFilmsObj[action.payload];
+      return { ...state, allFilms: allFilmsObj };
     default:
       return state;
   }

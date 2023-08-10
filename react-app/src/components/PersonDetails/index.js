@@ -7,7 +7,7 @@ export default function PersonDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const person = useSelector(state => state.people.singlePerson[id])
-  const [toggledRole, setToggledRole] = useState("Actor" || "Actress")
+  const [toggledRole, setToggledRole] = useState("Test")
   const [filteredFilms, setFilteredFilms] = useState([])
 
   // Adding in extra test role to this array

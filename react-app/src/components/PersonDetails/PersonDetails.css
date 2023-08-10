@@ -19,6 +19,10 @@ img {
   border: solid 1px rgb(0, 224, 84)
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 #role-header {
   margin-bottom: 3px;
 }

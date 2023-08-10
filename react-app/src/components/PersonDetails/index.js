@@ -58,7 +58,7 @@ export default function PersonDetails() {
         <div id="person-film-grid">
           {filteredFilms.map(film =>
             <div className="film-cont" key={film.film.title}>
-              <a src={`/film/${film.film.id}`}>
+              <a href={`/film/${film.film.id}`}>
                 <img className="film-grid-img" src={film.film.key_art} />
               </a>
               <span className="tooltip" key={film.film.title}>{film.film.title}</span>

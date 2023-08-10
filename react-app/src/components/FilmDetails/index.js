@@ -18,7 +18,7 @@ export default function FilmDetails() {
   return (
     <div id="film-details-container">
       <h1>Film Details</h1>
+      <h2>{film?.title}</h2>
     </div>
   )
-
 }

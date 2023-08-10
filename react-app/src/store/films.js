@@ -1,13 +1,12 @@
 // ===Action Types===
-const LOAD_FILMS = 'albums/LOAD_FILMS';
-const LOAD_FILM = 'albums/LOAD_FILM';
-const CREATE_FILM = 'albums/CREATE_FILM';
-const UPDATE_FILM = 'albums/UPDATE_FILM';
-const DELETE_FILM = 'albums/DELETE_FILM';
+const LOAD_FILMS = 'films/LOAD_FILMS';
+const LOAD_FILM = 'films/LOAD_FILM';
+const ADD_FILM = 'films/ADD_FILM';
+const EDIT_FILM = 'films/EDIT_FILM';
+const DELETE_FILM = 'films/DELETE_FILM';
 
 
 // ===Action Creators===
-
 // Get All Films Action
 export const getAllFilmsAction = (films) => {
   return {
@@ -16,7 +15,7 @@ export const getAllFilmsAction = (films) => {
   };
 };
 
-//Get Film by ID Action
+// Get Film by ID Action
 export const getFilmByIdAction = (film) => {
   return {
     type: LOAD_FILM,
@@ -24,9 +23,34 @@ export const getFilmByIdAction = (film) => {
   };
 };
 
-// ===Thunks===
+// Create Film Action
+export const addFilmAction = (film) => {
+  return {
+    type: ADD_FILM,
+    payload: film,
+  };
+};
 
-//Get All Albums Thunk
+// Edit a Film Action
+export const editFilmAction = (film) => {
+  return {
+    type: EDIT_FILM,
+    payload: film,
+  };
+};
+
+// Delete a Film Action
+export const deleteFilmAction = (filmId) => {
+  return {
+    type: DELETE_FILM,
+    payload: filmId,
+  };
+};
+
+
+
+// ===Thunks===
+// Get All Albums Thunk
 export const getAllFilmsThunk = () => async (dispatch) => {
   const response = await fetch('/api/films');
   const films = await response.json();
@@ -34,7 +58,7 @@ export const getAllFilmsThunk = () => async (dispatch) => {
   return response;
 };
 
-//Get Album by ID Thunk
+// Get Album by ID Thunk
 export const getFilmByIdThunk = (filmId) => async (dispatch) => {
   const response = await fetch(`/api/films/${filmId}`);
   const film = await response.json();
@@ -43,6 +67,24 @@ export const getFilmByIdThunk = (filmId) => async (dispatch) => {
     dispatch(getFilmByIdAction(film));
   }
   return film;
+};
+
+// Add a Film Thunk
+export const addFilmThunk = (formData) => async (dispatch) => {
+  try {
+    const response = await fetch('/api/films/new', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    const newFilm = await response.json();
+    if (!response.ok) {
+      throw new Error(newFilm)
+    }
+    return dispatch(addFilmAction(newFilm))
+  } catch (err) {
+    return err
+  }
 };
 
 const initialState = {
@@ -60,6 +102,8 @@ export default function filmsReducer(state = initialState, action) {
       return { ...state, allFilms: allFilmsObject };
     case LOAD_FILM:
       return { ...state, singleFilm: { [action.payload.id]: action.payload } };
+    case ADD_FILM:
+      return { ...state, allFilms: { ...state.allFilms, [action.payload.id]: action.payload } };
     default:
       return state;
   }

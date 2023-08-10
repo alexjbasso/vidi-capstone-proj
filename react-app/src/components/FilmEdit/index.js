@@ -1,8 +1,10 @@
+import FilmForm from "../FilmForm"
+
 export default function FilmEdit() {
 
   return (
     <div id="film-edit-container">
-      <h1>Film Edit</h1>
+      <FilmForm type="Edit" />
     </div>
   )
 }

@@ -1,0 +1,96 @@
+#person-page-container {
+  margin: 0px 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 60px
+}
+
+#person-films-container {
+  min-width: 670px;
+}
+
+img {
+  border: solid 1px rgb(153, 170, 187);
+  border-radius: 3px;
+}
+
+.film-cont img:hover {
+  border: solid 1px rgb(0, 224, 84)
+}
+
+#role-header {
+  margin-bottom: 3px;
+}
+
+#select-container {
+  border-top: 1px solid rgb(102, 119, 136);
+  border-bottom: 1px solid rgb(102, 119, 136);
+  padding: 8px 0px;
+}
+
+#role-selector {
+  background: none;
+  color: rgb(102, 119, 136);
+  border: none;
+}
+
+#person-name {
+  margin-top: 3px;
+  font-size: 22px;
+}
+
+#person-film-grid {
+  margin-top: 16px;
+  display: flex;
+  gap: 25px
+}
+
+.film-cont {
+  position: relative;
+  display: inline-block;
+}
+
+.film-grid-img {
+  width: 154px;
+  height: 229px;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: fit-content;
+  white-space: nowrap;
+  max-width: 378px;
+  background-color: #2c3440;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  /* Position above the image */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.film-cont:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+#person-details-container {
+  width: 230px;
+}
+
+#person-ft-photo {
+  width: 230px;
+  height: 345px;
+}
+
+p {
+  font-size: 13px;
+  color: rgb(136, 153, 170);
+}

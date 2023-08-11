@@ -15,8 +15,7 @@ export default function Home() {
 
   return (
     <div id="home-container">
-      <h2>Welcome back, {user.username}. Here's what we've been watching...</h2>
+      <h2>{user ? `Welcome back, ${user.username}.` : null} Here's what we've been watching...</h2>
     </div>
   )
-
 }

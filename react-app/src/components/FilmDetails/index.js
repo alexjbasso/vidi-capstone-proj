@@ -24,6 +24,8 @@ export default function FilmDetails() {
   const editors = film.roles.filter(person => person.role === 'Editor')
   const composers = film.roles.filter(person => person.role === 'Composer')
 
+  console.log(film)
+
   return (
     <div id="film-details-page-container">
 

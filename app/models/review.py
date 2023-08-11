@@ -27,5 +27,4 @@ class Review(db.Model):
             'rating': self.rating,
             'review_text': self.review_text,
             'user': self.user.to_dict(),
-            'film': self.film.to_dict()
         }

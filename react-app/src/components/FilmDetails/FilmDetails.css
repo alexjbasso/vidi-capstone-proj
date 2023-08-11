@@ -82,6 +82,15 @@
 }
 
 .review-block {
-  padding-top: 15px;
+  padding-top: 5px;
   border-bottom: 1px solid rgb(102, 119, 136);
+}
+
+.review-user {
+  color: white;
+  font-weight: 500;
+}
+
+.review-text {
+  color: white;
 }

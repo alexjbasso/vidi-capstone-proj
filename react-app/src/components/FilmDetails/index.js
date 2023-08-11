@@ -116,8 +116,8 @@ export default function FilmDetails() {
           <span id="review-header">REVIEWS</span>
           {reviews.map(review =>
             <div key={review.id} className="review-block">
-              <span className="review-attrib">Review by {review.user.username} • {review.rating} Stars</span>
-              <p>{review.review_text}</p>
+              <p className="review-attrib">Review by <span className="review-user">{review.user.username}</span> • {review.rating} Stars</p>
+              <p className="review-text">{review.review_text}</p>
             </div>)}
         </div> : null}
 

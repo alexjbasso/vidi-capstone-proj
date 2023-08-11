@@ -15,6 +15,8 @@ export default function FilmDetails() {
     dispatch(getFilmByIdThunk(id));
   }, [dispatch, id]);
 
+// if toggled role == Actor or Actress then set to cast, else set to crew
+
   useEffect(() => {
     if (film) {
       setFilteredPeople(film?.roles.filter(role => role.role === toggledRole))
@@ -24,8 +26,8 @@ export default function FilmDetails() {
 
   if (!film) return <h1>Film not found.</h1>
 
-  console.log(film)
-  console.log(filteredPeople)
+  // console.log(film)
+  // console.log(filteredPeople[0])
   return (
     <div id="film-details-page-container">
 
@@ -37,9 +39,18 @@ export default function FilmDetails() {
         <div id="film-details-top">
           <div id="film-details-cont">
             <h3>{film.title}</h3>
+            <h4>{film.year} Directed by {film.roles.find(role => role.role === 'Director')?.name}</h4>
             <p>{film.synopsis}</p>
             <div id="credits-cont">
-              Credits here
+              <span>
+                CAST
+              </span>
+              <span>
+                CREW
+              </span>
+            </div>
+            <div id="credits-block">
+              {filteredPeople.map(person => <a>{person.name}</a>)}
             </div>
             <p>{film.duration} mins</p>
           </div>

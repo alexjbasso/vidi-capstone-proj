@@ -1,6 +1,7 @@
 #film-details-page-container {
   display: flex;
   margin: 0px 21%;
+  gap: 30px;
 }
 
 #details-right-cont {
@@ -17,4 +18,12 @@
   border-radius: 3px;
   width: 230px;
   height: 345px;
+}
+
+
+#credits-cont {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid rgb(102, 119, 136);
+  padding-bottom: 5px;
 }

@@ -32,5 +32,5 @@ class Role(db.Model):
             'person_id': self.person_id,
             'film_id': self.film_id,
             'role': self.role,
-            'name:': self.person.get_name()
+            'name': self.person.get_name()
         }

@@ -24,8 +24,8 @@ export default function FilmDetails() {
   const editors = film.roles.filter(person => person.role === 'Editor')
   const composers = film.roles.filter(person => person.role === 'Composer')
   const reviews = film.reviews
-
-  console.log(reviews[0])
+  const dirNames = directors.map(director => director.name)
+  console.log(dirNames)
 
   return (
     <div id="film-details-page-container">
@@ -38,7 +38,7 @@ export default function FilmDetails() {
         <div id="film-details-top">
           <div id="film-details-cont">
             <h2 id="title-heading">{film.title}</h2>
-            <h4>Directed by {film.roles.find(role => role.role === 'Director')?.name}</h4>
+            {directors.length ? <h4>Directed by {dirNames.join(', ')}</h4> : null}
             <p>{film.synopsis}</p>
             <div id="credits-cont">
               <span className="credit-toggle"

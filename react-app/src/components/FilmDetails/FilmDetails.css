@@ -11,6 +11,11 @@
 
 #film-details-top {
   display: flex;
+  gap: 30px;
+}
+
+#film-details-cont {
+  width: 390px;
 }
 
 #key-art-cont>img {
@@ -26,4 +31,48 @@
   gap: 20px;
   border-bottom: 1px solid rgb(102, 119, 136);
   padding-bottom: 5px;
+}
+
+.credit-toggle {
+  cursor: pointer;
+}
+
+/* .credit-toggle:hover {
+  color: rgb(0, 224, 84) !important;
+} */
+
+#credits-block {
+  margin-top: 10px;
+}
+
+#credits-block a {
+  text-decoration: none;
+  color: rgb(136, 153, 170);
+  background-color: #2c3440;
+  padding: 5px;
+  font-size: 12px;
+}
+
+#cast-block {
+  display: flex;
+  gap: 5px;
+}
+
+#crew-block {
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.crew-line {
+  display: flex;
+}
+
+.role-text {
+  width: 156px;
+}
+
+#rater-cont {
+  min-width: 230px
 }

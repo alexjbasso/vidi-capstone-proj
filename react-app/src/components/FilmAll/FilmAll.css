@@ -1,0 +1,15 @@
+#film-all-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#all-films-grid {
+  display: flex;
+  gap: 10px;
+  width: 950px
+}
+
+#all-films-grid img{
+  width: 74px;
+  height: 109px;
+}

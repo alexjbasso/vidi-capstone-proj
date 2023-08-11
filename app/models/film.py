@@ -36,4 +36,5 @@ class Film(db.Model):
             'key_art': self.key_art,
             'cover_photo': self.cover_photo,
             # 'user': self.user.to_dict(),
+            'roles': [role.to_dict_film() for role in self.roles]
         }

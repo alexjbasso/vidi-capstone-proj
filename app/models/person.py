@@ -18,14 +18,18 @@ class Person(db.Model):
     updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     user = db.relationship('User', back_populates='people')
-    roles = db.relationship('Role', back_populates='person', cascade="all, delete")
+    roles = db.relationship(
+        'Role', back_populates='person', cascade="all, delete")
 
     def to_dict(self):
-      return {
-        'id': self.id,
-        'name': self.name,
-        'featured_photo': self.featured_photo,
-        'bio': self.bio,
-        'user': self.user.to_dict(),
-        'roles': [role.to_dict() for role in self.roles]
-      }
+        return {
+            'id': self.id,
+            'name': self.name,
+            'featured_photo': self.featured_photo,
+            'bio': self.bio,
+            'user': self.user.to_dict(),
+            'roles': [role.to_dict() for role in self.roles]
+        }
+
+    def get_name(self):
+        return self.name

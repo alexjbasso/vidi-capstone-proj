@@ -2,23 +2,61 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getFilmByIdThunk } from '../../store/films';
+import "./FilmDetails.css"
 
 export default function FilmDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const film = useSelector(state => state.films.singleFilm[id])
+  const [toggledRole, setToggledRole] = useState("Actor")
+  const [filteredPeople, setFilteredPeople] = useState([])
 
   useEffect(() => {
-    async function fetchData() {
-      const dispResp = await dispatch(getFilmByIdThunk(id));
-    }
-    fetchData()
+    dispatch(getFilmByIdThunk(id));
   }, [dispatch, id]);
 
+  useEffect(() => {
+    if (film) {
+      setFilteredPeople(film?.roles.filter(role => role.role === toggledRole))
+    }
+  }, [dispatch, film, toggledRole])
+
+
+  if (!film) return <h1>Film not found.</h1>
+
+  console.log(film)
+  console.log(filteredPeople)
   return (
-    <div id="film-details-container">
-      <h1>Film Details</h1>
-      <h2>{film?.title}</h2>
+    <div id="film-details-page-container">
+
+      <div id="key-art-cont">
+        <img src={film.key_art}></img>
+      </div>
+
+      <div id="details-right-cont">
+        <div id="film-details-top">
+          <div id="film-details-cont">
+            <h3>{film.title}</h3>
+            <p>{film.synopsis}</p>
+            <div id="credits-cont">
+              Credits here
+            </div>
+            <p>{film.duration} mins</p>
+          </div>
+
+          <div id="rater-cont">
+            <button>Watch Button</button>
+          </div>
+
+        </div>
+
+        <div id="reviews-cont">
+          Reviews here
+        </div>
+
+      </div>
+
+
     </div>
   )
 }

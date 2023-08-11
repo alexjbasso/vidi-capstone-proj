@@ -1,3 +1,16 @@
+#nav-container {
+  background-color: #111417;
+  display: flex;
+  height: 72px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 350px;
+}
+
+#nav-links-cont {
+  display: flex;
+  gap: 20px;
+}
 .profile-dropdown {
   position: absolute;
 }

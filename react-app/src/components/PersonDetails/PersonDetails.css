@@ -1,5 +1,5 @@
 #person-page-container {
-  margin: 0px 70px;
+  /* padding: 0px 70px; */
   display: flex;
   flex-direction: row;
   justify-content: center;

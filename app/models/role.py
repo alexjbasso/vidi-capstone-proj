@@ -25,3 +25,12 @@ class Role(db.Model):
             'film': self.film.to_dict(),
             'role': self.role
         }
+
+    def to_dict_film(self):
+        return {
+            'id': self.id,
+            'person_id': self.person_id,
+            'film_id': self.film_id,
+            'role': self.role,
+            'name:': self.person.get_name()
+        }

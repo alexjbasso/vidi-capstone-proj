@@ -15,6 +15,7 @@ export default function PersonDetails() {
   const allRoles = ['Test'];
   person?.roles.forEach(role => { if (!allRoles.includes(role.role)) allRoles.push(role.role) });
 
+  // Helper function, can be moved to own file
   const roleHeader = () => {
     let string = ""
     if (toggledRole === 'Actor' || toggledRole === 'Actress') string = "STARRING";

@@ -1,0 +1,20 @@
+#film-details-page-container {
+  display: flex;
+  margin: 0px 21%;
+}
+
+#details-right-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+#film-details-top {
+  display: flex;
+}
+
+#key-art-cont>img {
+  border: solid 1px rgb(153, 170, 187);
+  border-radius: 3px;
+  width: 230px;
+  height: 345px;
+}

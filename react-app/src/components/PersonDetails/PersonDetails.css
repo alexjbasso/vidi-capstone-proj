@@ -16,7 +16,7 @@ img {
 }
 
 .film-cont img:hover {
-  border: solid 1px rgb(0, 224, 84)
+  border: solid 1px rgb(0, 224, 84);
 }
 
 a:hover {

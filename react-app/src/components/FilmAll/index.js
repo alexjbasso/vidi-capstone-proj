@@ -15,7 +15,7 @@ export default function FilmAll() {
 
   return (
     <div id="film-all-container">
-      <span id="all-films-header">FILMS</span>
+      <span id="all-films-header">FILMS <a href="film/new"><i className="fa fa-plus add-film"></i></a> </span>
       <span id="film-count">There are {allFilms.length} films.</span>
       <div id="all-films-grid">
         {allFilms.map(film =>

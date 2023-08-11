@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  margin: 50px 200px;
+  margin: 50px 350px;
 }
 
 #all-films-grid {
@@ -11,12 +11,16 @@
   width: 950px
 }
 
+
+
 #all-films-grid img {
   width: 74px;
   height: 109px;
 }
 
 #all-films-header {
+  display: flex;
+  gap: 5px;
   padding-bottom: 5px;
   border-bottom: 1px solid rgb(102, 119, 136);
   color: rgb(174, 184, 193);
@@ -32,4 +36,14 @@
   justify-content: center;
   color: rgb(174, 184, 193);
   border-radius: 4px;
+}
+
+.add-film {
+  font-size: 12px;
+  position: relative;
+  bottom: .8px;
+}
+
+.add-film:hover {
+  color: rgba(0, 224, 86, 0.645);
 }

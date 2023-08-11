@@ -23,8 +23,9 @@ export default function FilmDetails() {
   const cines = film.roles.filter(person => person.role === 'Cinematographer')
   const editors = film.roles.filter(person => person.role === 'Editor')
   const composers = film.roles.filter(person => person.role === 'Composer')
+  const reviews = film.reviews
 
-  console.log(film)
+  console.log(reviews[0])
 
   return (
     <div id="film-details-page-container">
@@ -37,17 +38,17 @@ export default function FilmDetails() {
         <div id="film-details-top">
           <div id="film-details-cont">
             <h2 id="title-heading">{film.title}</h2>
-            <h4>{film.year} Directed by {film.roles.find(role => role.role === 'Director')?.name}</h4>
+            <h4>Directed by {film.roles.find(role => role.role === 'Director')?.name}</h4>
             <p>{film.synopsis}</p>
             <div id="credits-cont">
               <span className="credit-toggle"
-              onClick={() => setToggledRole("CAST")}
-              style={{ color: toggledRole === "CAST" ? "rgb(0, 224, 84)" : "white" }}>
+                onClick={() => setToggledRole("CAST")}
+                style={{ color: toggledRole === "CAST" ? "rgb(0, 224, 84)" : "white" }}>
                 CAST
               </span>
               <span className="credit-toggle"
-              onClick={() => setToggledRole("CREW")}
-              style={{ color: toggledRole === "CREW" ? "rgb(0, 224, 84)" : "white" }}>
+                onClick={() => setToggledRole("CREW")}
+                style={{ color: toggledRole === "CREW" ? "rgb(0, 224, 84)" : "white" }}>
                 CREW
               </span>
             </div>
@@ -102,7 +103,7 @@ export default function FilmDetails() {
 
               </div> : null}
             </div>
-            <p>{film.duration} mins</p>
+            <p>{film.year} • {film.duration} mins</p>
           </div>
 
           <div id="rater-cont">
@@ -111,9 +112,14 @@ export default function FilmDetails() {
 
         </div>
 
-        <div id="reviews-cont">
-          Reviews here
-        </div>
+        {reviews.length ? <div id="reviews-cont">
+          <span id="review-header">REVIEWS</span>
+          {reviews.map(review =>
+            <div key={review.id} className="review-block">
+              <span className="review-attrib">Review by {review.user.username} • {review.rating} Stars</span>
+              <p>{review.review_text}</p>
+            </div>)}
+        </div> : null}
 
       </div>
 

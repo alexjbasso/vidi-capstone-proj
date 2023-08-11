@@ -12,6 +12,7 @@
 #film-details-top {
   display: flex;
   gap: 30px;
+  margin-bottom: 30px;
 }
 
 #film-details-cont {
@@ -26,7 +27,7 @@
 }
 
 
-#credits-cont {
+#credits-cont, #review-header {
   display: flex;
   gap: 20px;
   border-bottom: 1px solid rgb(102, 119, 136);
@@ -37,12 +38,9 @@
   cursor: pointer;
 }
 
-/* .credit-toggle:hover {
-  color: rgb(0, 224, 84) !important;
-} */
-
 #credits-block {
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 #credits-block a {
@@ -81,4 +79,9 @@
 
 #rater-cont {
   min-width: 230px
+}
+
+.review-block {
+  padding-top: 15px;
+  border-bottom: 1px solid rgb(102, 119, 136);
 }

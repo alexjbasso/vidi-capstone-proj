@@ -1,15 +1,35 @@
 #film-all-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  margin: 50px 200px;
 }
+
 #all-films-grid {
   display: flex;
   gap: 10px;
   width: 950px
 }
 
-#all-films-grid img{
+#all-films-grid img {
   width: 74px;
   height: 109px;
+}
+
+#all-films-header {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(102, 119, 136);
+  color: rgb(174, 184, 193);
+}
+
+#film-count {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  background-color: rgb(69, 85, 101);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(174, 184, 193);
+  border-radius: 4px;
 }

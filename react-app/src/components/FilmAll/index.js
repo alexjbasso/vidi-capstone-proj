@@ -15,8 +15,8 @@ export default function FilmAll() {
 
   return (
     <div id="film-all-container">
-      <span>FILMS</span>
-      <span>There are {allFilms.length} films.</span>
+      <span id="all-films-header">FILMS</span>
+      <span id="film-count">There are {allFilms.length} films.</span>
       <div id="all-films-grid">
         {allFilms.map(film =>
           <a key={film.id} href={`film/${film.id}`}>

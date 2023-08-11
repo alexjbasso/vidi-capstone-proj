@@ -60,7 +60,7 @@ export default function FilmDetails() {
                 {directors.length ?
                   <div className="crew-line">
                     <span className="role-text">DIRECTOR</span>
-                    <div>
+                    <div className="crew-members">
                       {directors.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
                     </div>
                   </div> : null}
@@ -68,7 +68,7 @@ export default function FilmDetails() {
                 {writers.length ?
                   <div className="crew-line">
                     <span className="role-text">{writers.length > 1 ? "WRITERS" : "WRITER"}</span>
-                    <div>
+                    <div className="crew-members">
                       {writers.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
                     </div>
                   </div> : null}
@@ -76,7 +76,7 @@ export default function FilmDetails() {
                 {editors.length ?
                   <div className="crew-line">
                     <span className="role-text">{editors.length > 1 ? "EDITORS" : "EDITOR"}</span>
-                    <div>
+                    <div className="crew-members">
                       {editors.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
                     </div>
                   </div> : null}
@@ -84,7 +84,7 @@ export default function FilmDetails() {
                 {cines.length ?
                   <div className="crew-line">
                     <span className="role-text">CINEMATOGRAPHY</span>
-                    <div>
+                    <div className="crew-members">
                       {cines.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
                     </div>
                   </div> : null}
@@ -92,7 +92,7 @@ export default function FilmDetails() {
                 {composers.length ?
                   <div className="crew-line">
                     <span className="role-text">{composers.length > 1 ? "COMPOSERS" : "COMPOSER"}</span>
-                    <div>
+                    <div className="crew-members">
                       {composers.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
                     </div>
                   </div> : null}

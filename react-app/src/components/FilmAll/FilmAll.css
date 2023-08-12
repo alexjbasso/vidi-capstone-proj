@@ -7,11 +7,10 @@
 
 #all-films-grid {
   display: flex;
-  gap: 10px;
-  width: 950px
+  gap: 14.1px;
+  width: 950px;
+  flex-wrap: wrap;
 }
-
-
 
 #all-films-grid img {
   width: 74px;

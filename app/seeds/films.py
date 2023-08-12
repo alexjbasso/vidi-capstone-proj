@@ -18,7 +18,7 @@ def seed_films():
     film2 = Film(
         user_id=1,
         title="Batman Forever",
-        genre="Action, Fantasy, Crime",
+        genre="Superhero, Action, Crime",
         year=1995,
         duration=121,
         synopsis="The Dark Knight of Gotham City confronts a dastardly duo: Two-Face and the Riddler. Formerly District Attorney Harvey Dent, Two-Face believes Batman caused the courtroom accident which left him disfigured on one side. And Edward Nygma, computer-genius and former employee of millionaire Bruce Wayne, is out to get the philanthropist; as The Riddler. Former circus acrobat Dick Grayson, his family killed by Two-Face, becomes Wayne's ward and Batman's new partner Robin.",
@@ -159,9 +159,59 @@ def seed_films():
         key_art="https://a.ltrbxd.com/resized/sm/upload/ij/ub/so/m3/zuXMvSQq9F7H29qzuUm0qyUqw6m-0-460-0-690-crop.jpg",
         cover_photo="https://a.ltrbxd.com/resized/sm/upload/zc/ru/8t/gh/paddington-2-1920-1920-1080-1080-crop-000000.jpg"
     )
+    film16 = Film(
+        user_id=1,
+        title="Spider-Man: Across the Spider-Verse",
+        genre="Animation, Superhero, Adventure",
+        year=2023,
+        duration=140,
+        synopsis="After reuniting with Gwen Stacy, Brooklyn's full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/4/9/7/6/3/1/497631-spider-man-across-the-spider-verse-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/22/gj/k3/ql/spider-verse-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film17 = Film(
+        user_id=1,
+        title="Spider-Man: Into the Spider-Verse",
+        genre="Animation, Superhero, Adventure",
+        year=2018,
+        duration=117,
+        synopsis="Struggling to find his place in the world while juggling school and family, Brooklyn teenager Miles Morales is unexpectedly bitten by a radioactive spider and develops unfathomable powers just like the one and only Spider-Man. While wrestling with the implications of his new abilities, Miles discovers a super collider created by the madman Wilson “Kingpin” Fisk, causing others from across the Spider-Verse to be inadvertently transported to his dimension.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/2/5/1/9/4/3/251943-spider-man-into-the-spider-verse-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/yd/x2/cb/mw/spider-man-into-spider-verse-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film18 = Film(
+        user_id=1,
+        title="Nope",
+        genre="Mystery, Science-Fiction, Horror",
+        year=2022,
+        duration=130,
+        synopsis="Residents in a lonely gulch of inland California bear witness to an uncanny, chilling discovery.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/6/8/2/5/4/7/682547-nope-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/3x/n2/o4/ia/nope-2022-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film19 = Film(
+        user_id=1,
+        title="Blade Runner",
+        genre="Drama, Science-Fiction, Thriller",
+        year=1982,
+        duration=118,
+        synopsis="In the smog-choked dystopian Los Angeles of 2019, blade runner Rick Deckard is called out of retirement to terminate a quartet of replicants who have escaped to Earth seeking their creator for a way to extend their short life spans.",
+        key_art="https://a.ltrbxd.com/resized/sm/upload/85/io/38/dz/vfzE3pjE5G7G7kcZWrA3fnbZo7V-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/ne/pc/iq/wf/blade-runner-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film20 = Film(
+        user_id=1,
+        title="Blade Runner 2049",
+        genre="Science-Fiction, Drama",
+        year=2017,
+        duration=164,
+        synopsis="Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what’s left of society into chaos. K’s discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/2/6/5/4/3/9/265439-blade-runner-2049-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/aj/h8/ku/9n/blade-runner-2049-1920-1920-1080-1080-crop-000000.jpg"
+    )
 
-
-    db.session.add_all([film1, film2, film3, film4, film5, film6, film7, film8, film9, film10, film11, film12, film13, film14, film15])
+    db.session.add_all([film1, film2, film3, film4, film5, film6, film7, film8, film9, film10,
+                       film11, film12, film13, film14, film15, film16, film17, film18, film19, film20])
     db.session.commit()
 
 

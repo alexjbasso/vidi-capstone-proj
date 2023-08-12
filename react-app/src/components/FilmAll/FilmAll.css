@@ -7,8 +7,8 @@
 
 #all-films-grid {
   display: flex;
-  gap: 14.1px;
-  width: 950px;
+  /* calculate gap to be dynamic */
+  gap: 12.8px;
   flex-wrap: wrap;
 }
 

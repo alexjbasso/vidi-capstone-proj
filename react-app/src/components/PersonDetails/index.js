@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getPersonByIdThunk } from '../../store/people';
 import "./PersonDetails.css"
@@ -8,12 +9,20 @@ export default function PersonDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const person = useSelector(state => state.people.singlePerson[id])
-  const [toggledRole, setToggledRole] = useState("Actor")
+  const location = useLocation();
+  const [toggledRole, setToggledRole] = useState(location?.role)
   const [filteredFilms, setFilteredFilms] = useState([])
 
   // Adding in extra test role to this array
-  const allRoles = ['Test'];
+  const allRoles = [];
   person?.roles.forEach(role => { if (!allRoles.includes(role.role)) allRoles.push(role.role) });
+
+  useEffect(() => {
+    if (!toggledRole) {
+      setToggledRole(allRoles[0])
+    }
+  }, [allRoles])
+
 
   // Helper function, can be moved to own file
   const roleHeader = () => {

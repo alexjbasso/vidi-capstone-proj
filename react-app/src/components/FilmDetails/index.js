@@ -1,14 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getFilmByIdThunk } from '../../store/films';
 import "./FilmDetails.css"
 
 export default function FilmDetails() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id } = useParams();
   const film = useSelector(state => state.films.singleFilm[id])
   const [toggledRole, setToggledRole] = useState("CAST")
+
+  const directToPerson = (id, role) => {
+    history.push({
+      pathname: `/person/${id}`,
+      role
+    });
+
+  }
 
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));
@@ -25,7 +35,6 @@ export default function FilmDetails() {
   const composers = film.roles.filter(person => person.role === 'Composer')
   const reviews = film.reviews
   const dirNames = directors.map(director => director.name)
-  console.log(dirNames)
 
   return (
     <div id="film-details-page-container">
@@ -55,7 +64,7 @@ export default function FilmDetails() {
             <div id="credits-block">
 
               {toggledRole === "CAST" ? <div id="cast-block">
-                {cast.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
+                {cast.map(person => <a key={person.name} onClick={() => directToPerson(person.person_id, "Actor")}>{person.name}</a>)}
               </div> : null}
 
               {toggledRole === "CREW" ? <div id="crew-block">
@@ -64,7 +73,7 @@ export default function FilmDetails() {
                   <div className="crew-line">
                     <span className="role-text">DIRECTOR</span>
                     <div className="crew-members">
-                      {directors.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
+                      {directors.map(person => <a key={person.name} onClick={() => directToPerson(person.person_id, "Director")}>{person.name}</a>)}
                     </div>
                   </div> : null}
 
@@ -72,7 +81,7 @@ export default function FilmDetails() {
                   <div className="crew-line">
                     <span className="role-text">{writers.length > 1 ? "WRITERS" : "WRITER"}</span>
                     <div className="crew-members">
-                      {writers.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
+                      {writers.map(person => <a key={person.name} onClick={() => directToPerson(person.person_id, "Writer")}>{person.name}</a>)}
                     </div>
                   </div> : null}
 
@@ -80,7 +89,7 @@ export default function FilmDetails() {
                   <div className="crew-line">
                     <span className="role-text">{editors.length > 1 ? "EDITORS" : "EDITOR"}</span>
                     <div className="crew-members">
-                      {editors.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
+                      {editors.map(person => <a key={person.name} onClick={() => directToPerson(person.person_id, "Editor")}>{person.name}</a>)}
                     </div>
                   </div> : null}
 
@@ -88,7 +97,7 @@ export default function FilmDetails() {
                   <div className="crew-line">
                     <span className="role-text">CINEMATOGRAPHY</span>
                     <div className="crew-members">
-                      {cines.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
+                      {cines.map(person => <a key={person.name} onClick={() => directToPerson(person.person_id, "Cinematographer")}>{person.name}</a>)}
                     </div>
                   </div> : null}
 
@@ -96,10 +105,9 @@ export default function FilmDetails() {
                   <div className="crew-line">
                     <span className="role-text">{composers.length > 1 ? "COMPOSERS" : "COMPOSER"}</span>
                     <div className="crew-members">
-                      {composers.map(person => <a key={person.name} href={`/person/${person.person_id}`}>{person.name}</a>)}
+                      {composers.map(person => <a key={person.name} onClick={() => directToPerson(person.person_id, "Composer")}>{person.name}</a>)}
                     </div>
                   </div> : null}
-
 
               </div> : null}
             </div>

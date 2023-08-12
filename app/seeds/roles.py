@@ -123,6 +123,11 @@ def seed_roles():
         film_id=5,
         role='Writer'
     )
+    role77 = Role(
+        person_id=53,
+        film_id=5,
+        role="Actor"
+    )
 
 # Do the Right Thing
     role23 = Role(
@@ -381,11 +386,45 @@ def seed_roles():
         film_id=18,
         role="Actor"
     )
+# Blade Runner
+    role71 = Role(
+        person_id=24,
+        film_id=19,
+        role="Director"
+    )
+    role72 = Role(
+        person_id=26,
+        film_id=19,
+        role="Actor"
+    )
 
+# Blade Runner 2049
+    role73 = Role(
+        person_id=52,
+        film_id=20,
+        role="Director"
+    )
+    role74 = Role(
+        person_id=53,
+        film_id=20,
+        role="Actor"
+    )
+    role75 = Role(
+        person_id=26,
+        film_id=20,
+        role="Actor"
+    )
+    role76 = Role(
+        person_id=54,
+        film_id=20,
+        role="Actor"
+    )
 
-    # role = Role(
+# The next role to add is 78
+
+    # role78 = Role(
     #     person_id=
-    #     film_id=14,
+    #     film_id=
     #     role=
     # )
     db.session.add_all([role1, role2, role3, role4, role5, role6, role7, role8, role9, role10,
@@ -394,8 +433,8 @@ def seed_roles():
                         role31, role32, role33, role34, role35, role36, role37, role38, role39, role40,
                         role41, role42, role43, role44, role45, role46, role47, role48, role49, role50,
                         role51, role52, role53, role54, role55, role56, role57, role58, role59, role60,
-                        role61, role62, role63, role64, role65, role66, role67, role68, role69,role70
-
+                        role61, role62, role63, role64, role65, role66, role67, role68, role69,role70,
+                        role71, role72, role73, role74, role75, role76, role77
                         ])
     db.session.commit()
 

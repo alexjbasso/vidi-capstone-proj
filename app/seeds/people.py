@@ -310,6 +310,25 @@ def seed_people():
         featured_photo="https://image.tmdb.org/t/p/w342/9wBUgoJFh0n1yrvsiYMqqgtdvcT.jpg",
         bio="Kemp Powers is an American screenwriter and playwright. He is best known for his work on the play One Night in Miami, the 2020 film adaptation of the same name, Star Trek: Discovery and for co-directing the acclaimed Pixar film Soul with Pete Docter."
     )
+    person52 = Person(
+        user_id=1,
+        name="Denis Villeneuve",
+        featured_photo="https://image.tmdb.org/t/p/w342/zdDx9Xs93UIrJFWYApYR28J8M6b.jpg",
+        bio="Denis Villeneuve OC CQ (born October 3, 1967) is a Canadian filmmaker. He is a four-time recipient of the Canadian Screen Award (formerly Genie Award) for Best Direction, winning for Maelström in 2001, Polytechnique in 2009, Incendies in 2010 and Enemy in 2013."
+    )
+    person53 = Person(
+        user_id=1,
+        name="Ryan Gosling",
+        featured_photo="https://image.tmdb.org/t/p/w342/lyUyVARQKhGxaxy0FbPJCQRpiaW.jpg",
+        bio="Ryan Thomas Gosling (born November 12, 1980) is a Canadian actor. Prominent in independent film, he has also worked in blockbuster films of varying genres, and has accrued a worldwide box office gross of over 1.9 billion USD. He has received various accolades, including a Golden Globe Award, and nominations for two Academy Awards and a BAFTA Award."
+    )
+    person54 = Person(
+        user_id=1,
+        name="Ana de Armas",
+        featured_photo="https://image.tmdb.org/t/p/w342/tkBWBvcLTihUcVf6iwbMQTFqEEv.jpg",
+        bio="Ana de Armas was born in Cuba on April 30, 1988. At the age of 14, she began her studies at the National Theatre School of Havana, where she graduated after 4 years. She made her film debut with Una rosa de Francia (2006), which was directed by Manuel Gutiérrez Aragón. In 2006 she moved to Spain where she continued her film career, and started doing television."
+    )
+
 
     # person20 = Person(
     #     user_id=1,
@@ -323,7 +342,7 @@ def seed_people():
                        person21, person22, person23, person24, person25, person26, person27, person28, person29, person30,
                        person31, person32, person33, person34, person35, person36, person37, person38, person39, person40,
                        person41, person42, person43, person44, person45, person46, person47, person48, person49, person50,
-                       person51])
+                       person51, person52, person53, person54])
     db.session.commit()
 
 

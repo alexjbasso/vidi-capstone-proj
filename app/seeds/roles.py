@@ -158,8 +158,245 @@ def seed_roles():
         role='Actor'
     )
 
-    db.session.add_all([role1, role2, role3, role4, role5, role6, role7, role8, role9, role10, role11, role12, role13, role14,
-                       role15, role16, role17, role18, role19, role20, role21, role22, role23, role24, role25, role26, role27, role28])
+# Paris Is Burning
+    role29 = Role(
+        person_id=27,
+        film_id=8,
+        role="Director"
+    )
+    role30 = Role(
+        person_id=28,
+        film_id=8,
+        role="Actor"
+    )
+
+# Alien
+    role31 = Role(
+        person_id=24,
+        film_id=9,
+        role="Director"
+    )
+    role32 = Role(
+        person_id=25,
+        film_id=9,
+        role="Actor"
+    )
+# Parasite
+    role33 = Role(
+        person_id=29,
+        film_id=10,
+        role="Director"
+    )
+    role34 = Role(
+        person_id=29,
+        film_id=10,
+        role="Writer"
+    )
+    role35 = Role(
+        person_id=30,
+        film_id=10,
+        role="Actor"
+    )
+    role36 = Role(
+        person_id=31,
+        film_id=10,
+        role="Actor"
+    )
+# Vertigo
+    role37 = Role(
+        person_id=32,
+        film_id=11,
+        role="Director"
+    )
+    role38 = Role(
+        person_id=33,
+        film_id=11,
+        role="Actor"
+    )
+    role39 = Role(
+        person_id=34,
+        film_id=11,
+        role="Actor"
+    )
+    role40 = Role(
+        person_id=35,
+        film_id=11,
+        role="Composer"
+    )
+# WALL•E
+    role41 = Role(
+        person_id=36,
+        film_id=12,
+        role="Director"
+    )
+    role42 = Role(
+        person_id=36,
+        film_id=12,
+        role="Writer"
+    )
+    role43 = Role(
+        person_id=37,
+        film_id=12,
+        role="Actor"
+    )
+    role44 = Role(
+        person_id=38,
+        film_id=12,
+        role="Actor"
+    )
+    role45 = Role(
+        person_id=25,
+        film_id=12,
+        role="Actor"
+    )
+# Cleo from 5 to 7
+    role46 = Role(
+        person_id=39,
+        film_id=13,
+        role="Director"
+    )
+    role47 = Role(
+        person_id=39,
+        film_id=13,
+        role="Writer"
+    )
+    role48 = Role(
+        person_id=40,
+        film_id=13,
+        role="Actor"
+    )
+# Paddington
+    role49 = Role(
+        person_id=41,
+        film_id=14,
+        role="Director"
+    )
+    role50 = Role(
+        person_id=42,
+        film_id=14,
+        role="Actor"
+    )
+    role51 = Role(
+        person_id=43,
+        film_id=14,
+        role="Actor"
+    )
+# Paddington 2
+    role52 = Role(
+        person_id=41,
+        film_id=15,
+        role="Director"
+    )
+    role53 = Role(
+        person_id=42,
+        film_id=15,
+        role="Actor"
+    )
+    role54 = Role(
+        person_id=43,
+        film_id=15,
+        role="Actor"
+    )
+# Spiderverse 1
+    role55 = Role(
+        person_id=44,
+        film_id=16,
+        role="Director"
+    )
+    role56 = Role(
+        person_id=44,
+        film_id=16,
+        role="Writer"
+    )
+    role57 = Role(
+        person_id=45,
+        film_id=16,
+        role="Director"
+    )
+    role58 = Role(
+        person_id=46,
+        film_id=16,
+        role="Director"
+    )
+    role59 = Role(
+        person_id=47,
+        film_id=16,
+        role="Actor"
+    )
+    role60 = Role(
+        person_id=48,
+        film_id=16,
+        role="Actor"
+    )
+
+# Spiderverse 2
+    role61 = Role(
+        person_id=49,
+        film_id=17,
+        role="Director"
+    )
+    role62 = Role(
+        person_id=50,
+        film_id=17,
+        role="Director"
+    )
+    role63 = Role(
+        person_id=51,
+        film_id=17,
+        role="Director"
+    )
+    role64 = Role(
+        person_id=47,
+        film_id=17,
+        role="Actor"
+    )
+    role65 = Role(
+        person_id=48,
+        film_id=17,
+        role="Actor"
+    )
+    role66 = Role(
+        person_id=21,
+        film_id=17,
+        role="Actor"
+    )
+# Nope
+    role67 = Role(
+        person_id=22,
+        film_id=18,
+        role="Director"
+    )
+    role68 = Role(
+        person_id=22,
+        film_id=18,
+        role="Writer"
+    )
+    role69 = Role(
+        person_id=21,
+        film_id=18,
+        role="Actor"
+    )
+    role70 = Role(
+        person_id=23,
+        film_id=18,
+        role="Actor"
+    )
+
+
+    # role = Role(
+    #     person_id=
+    #     film_id=14,
+    #     role=
+    # )
+    db.session.add_all([role1, role2, role3, role4, role5, role6, role7, role8, role9, role10,
+                        role11, role12, role13, role14, role15, role16, role17, role18, role19, role20,
+                        role21, role22, role23, role24, role25, role26, role27, role28, role29, role30,
+                        role31, role32, role33, role34, role35, role36, role37, role38, role39, role40,
+                        role41, role42, role43, role44, role45, role46, role47, role48, role49, role50,
+                        role51, role52, role53, role54, role55, role56, role57, role58, role59, role60,
+                        role61, role62, role63, role64, role65, role66, role67, role68, role69,role70
+
+                        ])
     db.session.commit()
 
 

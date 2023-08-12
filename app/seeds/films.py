@@ -121,13 +121,13 @@ def seed_films():
     )
     film12 = Film(
         user_id=1,
-        title="Toy Story",
-        genre="Animation, Adventure, Comedy, Family",
-        year=1995,
-        duration=81,
-        synopsis="Led by Woody, Andy's toys live happily in his room until Andy's birthday brings Buzz Lightyear onto the scene. Afraid of losing his place in Andy's heart, Woody plots against Buzz. But when circumstances separate Buzz and Woody from their owner, the duo eventually learns to put aside their differences.",
-        key_art="https://a.ltrbxd.com/resized/film-poster/5/1/2/9/0/51290-toy-story-0-460-0-690-crop.jpg",
-        cover_photo="https://a.ltrbxd.com/resized/sm/upload/sf/gx/1q/o3/toy-story-90-1920-1920-1080-1080-crop-000000.jpg"
+        title="WALL·E",
+        genre="Family, Animation, Science-Fiction",
+        year=2008,
+        duration=98,
+        synopsis="WALL·E is the last robot left on an Earth that has been overrun with garbage and all humans have fled to outer space. For 700 years he has continued to try and clean up the mess, but has developed some rather interesting human-like qualities. When a ship arrives with a sleek new type of robot, WALL·E thinks he's finally found a friend and stows away on the ship when it leaves.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/4/5/9/9/4/45994-walle-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/tb/h9/tt/v5/walle-1920-1920-1080-1080-crop-000000.jpg?v=3de34e9aa3"
     )
     film13 = Film(
         user_id=1,
@@ -161,16 +161,6 @@ def seed_films():
     )
     film16 = Film(
         user_id=1,
-        title="Spider-Man: Across the Spider-Verse",
-        genre="Animation, Superhero, Adventure",
-        year=2023,
-        duration=140,
-        synopsis="After reuniting with Gwen Stacy, Brooklyn's full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.",
-        key_art="https://a.ltrbxd.com/resized/film-poster/4/9/7/6/3/1/497631-spider-man-across-the-spider-verse-0-460-0-690-crop.jpg",
-        cover_photo="https://a.ltrbxd.com/resized/sm/upload/22/gj/k3/ql/spider-verse-1920-1920-1080-1080-crop-000000.jpg"
-    )
-    film17 = Film(
-        user_id=1,
         title="Spider-Man: Into the Spider-Verse",
         genre="Animation, Superhero, Adventure",
         year=2018,
@@ -178,6 +168,16 @@ def seed_films():
         synopsis="Struggling to find his place in the world while juggling school and family, Brooklyn teenager Miles Morales is unexpectedly bitten by a radioactive spider and develops unfathomable powers just like the one and only Spider-Man. While wrestling with the implications of his new abilities, Miles discovers a super collider created by the madman Wilson “Kingpin” Fisk, causing others from across the Spider-Verse to be inadvertently transported to his dimension.",
         key_art="https://a.ltrbxd.com/resized/film-poster/2/5/1/9/4/3/251943-spider-man-into-the-spider-verse-0-460-0-690-crop.jpg",
         cover_photo="https://a.ltrbxd.com/resized/sm/upload/yd/x2/cb/mw/spider-man-into-spider-verse-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film17 = Film(
+        user_id=1,
+        title="Spider-Man: Across the Spider-Verse",
+        genre="Animation, Superhero, Adventure",
+        year=2023,
+        duration=140,
+        synopsis="After reuniting with Gwen Stacy, Brooklyn's full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/4/9/7/6/3/1/497631-spider-man-across-the-spider-verse-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/22/gj/k3/ql/spider-verse-1920-1920-1080-1080-crop-000000.jpg"
     )
     film18 = Film(
         user_id=1,

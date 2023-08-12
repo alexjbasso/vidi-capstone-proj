@@ -124,9 +124,206 @@ def seed_people():
         featured_photo="https://image.tmdb.org/t/p/w342/zITaVtFyc4xSM3mxSoPRWHbqgJI.jpg",
         bio="Rumi Hiiragi (born August 1, 1987 in Tokyo) is a Japanese actress."
     )
+    person21 = Person(
+        user_id=1,
+        name="Daniel Kaluuya",
+        featured_photo="https://image.tmdb.org/t/p/w342/a07Tqzgp0IrW9YkcOQiuKavP4tm.jpg",
+        bio="Daniel Kaluuya (born 24 February 1989) is a British actor. Prominent both on screen and stage, he has received numerous accolades, including an Academy Award, two BAFTA Awards, and a Golden Globe Award."
+    )
+    person22 = Person(
+        user_id=1,
+        name="Jordan Peele",
+        featured_photo="https://image.tmdb.org/t/p/w342/kFUKn5g3ebpyZ3CSZZZo2HFWRNQ.jpg",
+        bio="Jordan Peele was born in New York City and was raised by his single mother on Manhattan's Upper West Side. He graduated from The Calhoun School on Manhattan's Upper West Side, and went on to Sarah Lawrence College. After two years, Peele dropped out to form a comedy duo with his college roommate and future Key & Peele comedy writer, Rebecca Drysdale. As of 2016, he is married to comedian Chelsea Peretti. In 2018, he won his first Oscar for writing his directorial debut, Get Out."
+    )
+    person23 = Person(
+        user_id=1,
+        name="Keke Palmer",
+        featured_photo="https://image.tmdb.org/t/p/w342/f5i3WzdMt02mlfm9I9LHKRJtZ4J.jpg",
+        bio='Lauren Keyana "Keke" Palmer (born August 26, 1993) is an American actress, singer and television personality. Known for playing leading and character roles in comedy and drama productions, she has received several accolades, including a Primetime Emmy Award, five NAACP Image Awards, and nominations for a Daytime Emmy Award and a Screen Actors Guild Award. Time magazine included her on their list of most influential people in the world in 2019.'
+    )
+    person24 = Person(
+        user_id=1,
+        name="Ridley Scott",
+        featured_photo="https://image.tmdb.org/t/p/w342/zABJmN9opmqD4orWl3KSdCaSo7Q.jpg",
+        bio="Ridley Scott is a filmmaker who born on 30th November, 1937, in South Shields, Tyne and Wear, England, and the son of Elizabeth and Colonel Francis Percy Scott."
+    )
+    person25 = Person(
+        user_id=1,
+        name="Sigourney Weaver",
+        featured_photo="https://image.tmdb.org/t/p/w342/sHWCLx54yLtaFtppp5ADjAsrWIc.jpg",
+        bio='Susan Alexandra "Sigourney" Weaver (born October 8, 1949) is an American actress. Weaver is considered to be a pioneer of action heroines in science fiction films. She is known for her role as Ellen Ripley in the Alien franchise, which earned her an Academy Award nomination in 1986 and is often regarded as one of the most significant female protagonists in cinema history.'
+    )
+    person26 = Person(
+        user_id=1,
+        name="Harrison Ford",
+        featured_photo="https://image.tmdb.org/t/p/w342/5M7oN3sznp99hWYQ9sX0xheswWX.jpg",
+        bio="Legendary Hollywood Icon Harrison Ford was born on July 13, 1942 in Chicago, Illinois. His family history includes a strong lineage of actors, radio personalities, and models."
+    )
+    person27 = Person(
+        user_id=1,
+        name="Jennie Livingston",
+        featured_photo="https://image.tmdb.org/t/p/w342/wuTozQ1eVVHiChzolsM7UazBXU1.jpg",
+        bio="Jennie Livingston is a groundbreaking filmmaker, known for her lively storytelling, nuanced character portraits, and thoughtful explorations of identity, class, race, death, sex, and gender. She works in both fiction and nonfiction."
+    )
+    person28 = Person(
+        user_id=1,
+        name="Pepper LaBeija",
+        featured_photo="https://image.tmdb.org/t/p/w342/xiJjcbQaxtsqQhreqKgWelYJI02.jpg",
+        bio='Pepper LaBeija was an American drag queen and fashion designer. LaBeija was known as "the last remaining queen of the Harlem drag balls".'
+    )
+    person29 = Person(
+        user_id=1,
+        name="Bong Joon-ho",
+        featured_photo="https://image.tmdb.org/t/p/w342/tKLJBqbdH6HFj2QxLA5o8Zk7IVs.jpg",
+        bio="Bong Joon-ho (Korean: 봉준호), born September 14, 1969, is a South Korean film director, producer and screenwriter. His films are characterised by emphasis on social themes, genre-mixing, black humor, and sudden tone shifts."
+    )
+    person30 = Person(
+        user_id=1,
+        name="Song Kang-ho",
+        featured_photo="https://image.tmdb.org/t/p/w342/dyWUKQlNyr7SUAjo58VZXvPODkr.jpg",
+        bio="Song Kang-ho (송강호) is a South Korean actor. Considered one of the best actors of the 21st century, he is most known for his collaborations with directors Park Chan-wook and Bong Joon-ho. He was awarded Best Actor at the 75th Cannes Film Festival for his performance in Broker (2022), and has been named Gallup Korea's Film Actor of the Year four times."
+    )
+    person31 = Person(
+        user_id=1,
+        name="Park So-dam",
+        featured_photo="https://image.tmdb.org/t/p/w342/gaDnEiMD5PClT9ARg1bSFyexbor.jpg",
+        bio="Park So-dam (born September 8, 1991) is a South Korean actress. Park began her acting career in independent films. She broke into the mainstream in 2015 after making a strong impression with her performances in The Silenced and The Priests, which netted her multiple Best New Actress nominations and a win from the Busan Film Critics Awards."
+    )
+    person32 = Person(
+        user_id=1,
+        name="Alfred Hitchcock",
+        featured_photo="https://image.tmdb.org/t/p/w342/108fiNM6poRieMg7RIqLJRxdAwG.jpg",
+        bio='Sir Alfred Joseph Hitchcock, KBE (13 August 1899 - 29 April 1980), was an English director and producer. Labeled as the "Master of Suspense", he became known for thrillers, often combined with a dark sense of humor.'
+    )
+    person33 = Person(
+        user_id=1,
+        name="James Stewart",
+        featured_photo="https://image.tmdb.org/t/p/w342/yId5fdDqShOkr0YjCoJbUOZipcX.jpg",
+        bio='James Maitland "Jimmy" Stewart was an American film and stage actor, known for his distinctive voice and his everyman persona. Over the course of his career, he starred in many films widely considered classics and was nominated for five Academy Awards, winning one in competition and receiving one Lifetime Achievement award. He was a major MGM contract star. He also had a noted military career and was a World War II and Vietnam War veteran, who rose to the rank of Brigadier General in the United States Air Force Reserve.'
+    )
+    person34 = Person(
+        user_id=1,
+        name="Kim Novak",
+        featured_photo="https://image.tmdb.org/t/p/w342/wQYlkzNBJkvFAY3R0FQZfwLhTDx.jpg",
+        bio="Marilyn Pauline Novak (born February 13, 1933), known professionally as Kim Novak, is an American retired film and television actress."
+    )
+    person35 = Person(
+        user_id=1,
+        name="Bernard Herrmann",
+        featured_photo="https://image.tmdb.org/t/p/w342/vpIPFhUpHBqDrbgbnaQnDCYekDI.jpg",
+        bio="Bernard Herrmann (born Max Herman; June 29, 1911 - December 24, 1975) was an American composer best known for his work in composing for motion pictures. As a conductor, he championed the music of lesser-known composers."
+    )
+    person36 = Person(
+        user_id=1,
+        name="Andrew Stanton",
+        featured_photo="https://image.tmdb.org/t/p/w342/tRwWuo06aN9vuXAPaswMN42x2ii.jpg",
+        bio="Andrew Stanton (born December 3, 1965) is an American film director, screenwriter, producer, and occasional voice actor based at Pixar Animation Studios. His film work includes writing and directing Finding Nemo and WALL-E; both films earned him the Academy Award for Best Animated Feature."
+    )
+    person37 = Person(
+        user_id=1,
+        name="Ben Burtt",
+        featured_photo="https://image.tmdb.org/t/p/w342/16OhOb7WngOi4WOnGpRpbDSzYnd.jpg",
+        bio="Benjamin Burtt Jr. (born July 12, 1948) is an American sound designer, film director and editor, screenwriter, and voice actor."
+    )
+    person38 = Person(
+        user_id=1,
+        name="Elissa Knight",
+        featured_photo="https://image.tmdb.org/t/p/w342/vrgL992F6hQYTyNeJWDKRsrolaP.jpg",
+        bio="Elissa Knight is an American employee at Pixar Animation Studios and voice actress. As a voice actress, her first major role was in the 2008 film WALL-E as a robot named EVE."
+    )
+    person39 = Person(
+        user_id=1,
+        name="Agnès Varda",
+        featured_photo="https://image.tmdb.org/t/p/w342/248oxbPDbgnLSw3kzNyXmLxZFpZ.jpg",
+        bio="Agnès Varda (30 May 1928 - 29 March 2019) was a Belgian-born French film director and professor at the European Graduate School. Her films, photographs, and art installations focus on documentary realism, feminist issues, and social commentary — with a distinct experimental style."
+    )
+    person40 = Person(
+        user_id=1,
+        name="Corinne Marchand",
+        featured_photo="https://image.tmdb.org/t/p/w342/dv4Bp0Q2v7vULEmwTt6bMKMJuE0.jpg",
+        bio="Corinne Marchand (born 4 December 1931 in Paris) is a French actress. She is best known for playing the pop singer Cléo in Cléo from 5 to 7."
+    )
+    person41 = Person(
+        user_id=1,
+        name="Paul King",
+        featured_photo="https://image.tmdb.org/t/p/w342/hDixADZQOBP0E3G9ZxC4kuNHO0.jpg",
+        bio="He graduated from St Catharine's College, Cambridge University with first-class honors in English in 1999."
+    )
+    person42 = Person(
+        user_id=1,
+        name="Ben Winshaw",
+        featured_photo="https://image.tmdb.org/t/p/w342/2GBtQ6scGeSHkX1urOP1EJbmksx.jpg",
+        bio='Benjamin John "Ben" Whishaw (born 14 October 1980) is an English actor who trained at the Royal Academy of Dramatic Art. Whishaw is best known for his breakthrough role as Hamlet.'
+    )
+    person43 = Person(
+        user_id=1,
+        name="Sally Hawkins",
+        featured_photo="https://image.tmdb.org/t/p/w342/iQV1udEUKw6P3sk3vJWOQwLwN0r.jpg",
+        bio="Sally Cecilia Hawkins (born 27 April 1976) is an English actress who began her career on stage and then moved into film. She has received several awards including a Golden Globe Award and the Berlin International Film Festival's Silver Bear for Best Actress, with nominations for a Critics' Choice Movie Award, a Screen Actors Guild Award, two Academy Awards, and two British Academy Film Awards."
+    )
+    person44 = Person(
+        user_id=1,
+        name="Rodney Rothman",
+        featured_photo="https://image.tmdb.org/t/p/w342/75yKuJr1wL8qesEDYL2IHK67BEx.jpg",
+        bio="Rodney Rothman is an American filmmaker, screenwriter, producer, and film director known for Spider-Man: Into the Spider-Verse, Popstar: Never Stop Never Stopping, 22 Jump Street, Forgetting Sarah Marshall, Get Him to the Greek, Undeclared, and Late Show with David Letterman."
+    )
+    person45 = Person(
+        user_id=1,
+        name="Peter Ramsey",
+        featured_photo="https://image.tmdb.org/t/p/w342/eAL9QdCEYyxiMP9cl9lQddg8zEa.jpg",
+        bio="Peter A. Ramsey (born December 23, 1962) is an American illustrator, storyboard artist, film director, screenwriter and film producer. He is best known for directing DreamWorks Animation's Rise of the Guardians (2012), becoming the first African American to direct a major American animated film, and co-directing Sony Pictures Animation's Spider-Man: Into the Spider-Verse (2018). For Spider-Man: Into the Spider-Verse, he became the first African American to be nominated for and win an Academy Award for Best Animated Feature."
+    )
+    person46 = Person(
+        user_id=1,
+        name="Bob Persichetti",
+        featured_photo="https://image.tmdb.org/t/p/w342/cNd5VyMI3sNgiHOwLIB7WDiH128.jpg",
+        bio="Robert Persichetti, Jr. is an American film director, screenwriter, storyboard artist, and animator. He made his directorial debut with Spider-Man: Into the Spider-Verse (2018), co-directing with Peter Ramsey and Rodney Rothman."
+    )
+    person47 = Person(
+        user_id=1,
+        name="Shameik Moore",
+        featured_photo="https://image.tmdb.org/t/p/w342/uJNaSTsfBOvtFWsPP23zNthknsB.jpg",
+        bio="Shameik Alti Moore (born May 4, 1995) is an American actor, singer, and rapper, of Jamaican descent."
+    )
+    person48 = Person(
+        user_id=1,
+        name="Hailee Steinfeld",
+        featured_photo="https://image.tmdb.org/t/p/w342/q4UpZMEuvNCN5lL5L6xa3ICpheJ.jpg",
+        bio="Hailee Steinfeld (born December 11, 1996) is an American actress and singer. Known for her acting versatility and musical prowess, she is the recipient of various accolades, including a Peabody Award, a Critics' Choice Movie Award, a Billboard Music Award, and nominations for an Academy Award, a British Academy Film Award, a Golden Globe Award, three Critics' Choice Movie Awards and a Screen Actors Guild Award."
+    )
+    person49 = Person(
+        user_id=1,
+        name="Joaquim Dos Santos",
+        featured_photo="https://image.tmdb.org/t/p/w342/w45GPb3cW6TqPw4FxB5Hc6zzAwx.jpg",
+        bio="Joaquim Dos Santos is a Portuguese-American television director of animated cartoons, best known for his directing work on Justice League Unlimited, Avatar: The Last Airbender and The Legend of Korra."
+    )
+    person50 = Person(
+        user_id=1,
+        name="Justin K. Thompson",
+        featured_photo="https://image.tmdb.org/t/p/w342/mRMi8Q2fmlfbDYkE7A63gzFtGsZ.jpg",
+        bio="Justin K. Thompson is an illustrator, visual development artist, production designer, and director for animated works. He is one of the three directors of Spider-Man: Across the Spider-Verse."
+    )
+    person51 = Person(
+        user_id=1,
+        name="Kemp Powers",
+        featured_photo="https://image.tmdb.org/t/p/w342/9wBUgoJFh0n1yrvsiYMqqgtdvcT.jpg",
+        bio="Kemp Powers is an American screenwriter and playwright. He is best known for his work on the play One Night in Miami, the 2020 film adaptation of the same name, Star Trek: Discovery and for co-directing the acclaimed Pixar film Soul with Pete Docter."
+    )
+
+    # person20 = Person(
+    #     user_id=1,
+    #     name=,
+    #     featured_photo=
+    #     bio=
+    # )
 
     db.session.add_all([person1, person2, person3, person4, person5, person6, person7, person8, person9, person10,
-                       person11, person12, person13, person14, person15, person16, person17, person18, person19, person20])
+                       person11, person12, person13, person14, person15, person16, person17, person18, person19, person20,
+                       person21, person22, person23, person24, person25, person26, person27, person28, person29, person30,
+                       person31, person32, person33, person34, person35, person36, person37, person38, person39, person40,
+                       person41, person42, person43, person44, person45, person46, person47, person48, person49, person50,
+                       person51])
     db.session.commit()
 
 

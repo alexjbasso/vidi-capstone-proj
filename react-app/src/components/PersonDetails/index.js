@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getPersonByIdThunk } from '../../store/people';
+import RoleAddButton from '../RoleAddButton';
+import RoleAddModal from '../RoleAddModal';
 import "./PersonDetails.css"
 
 export default function PersonDetails() {
@@ -63,6 +65,7 @@ export default function PersonDetails() {
           <select id="role-selector" onChange={e => setToggledRole(e.target.value)} defaultValue={toggledRole}>
             {allRoles.map(role => <option key={role} value={role} >{role}</option>)}
           </select>
+          <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal person={person} type="film-to-person"/>}/>
         </div>
 
         <div id="person-film-grid">

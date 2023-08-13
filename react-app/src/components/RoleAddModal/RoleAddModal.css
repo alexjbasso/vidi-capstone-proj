@@ -1,0 +1,10 @@
+#add-role-header {
+  color: rgb(0, 0, 0);
+}
+
+#person-to-film,
+#film-to-person {
+  color: black;
+  display: flex;
+  flex-direction: column;
+}

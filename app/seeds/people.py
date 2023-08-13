@@ -330,7 +330,7 @@ def seed_people():
     )
 
 
-    # person20 = Person(
+    # person = Person(
     #     user_id=1,
     #     name=,
     #     featured_photo=

@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getFilmByIdThunk } from '../../store/films';
+import RoleAddButton from '../RoleAddButton';
+import RoleAddModal from '../RoleAddModal';
 import "./FilmDetails.css"
 
 export default function FilmDetails() {
@@ -17,13 +19,11 @@ export default function FilmDetails() {
       pathname: `/person/${id}`,
       role
     });
-
   }
 
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));
   }, [dispatch, id]);
-
 
   if (!film) return <h1>Film not found.</h1>
 
@@ -35,6 +35,8 @@ export default function FilmDetails() {
   const composers = film.roles.filter(person => person.role === 'Composer')
   const reviews = film.reviews
   const dirNames = directors.map(director => director.name)
+
+  console.log(film)
 
   return (
     <div id="film-details-page-container">
@@ -60,6 +62,7 @@ export default function FilmDetails() {
                 style={{ color: toggledRole === "CREW" ? "rgb(0, 224, 84)" : "white" }}>
                 CREW
               </span>
+              <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal film={film} type="person-to-film"/>}/>
             </div>
             <div id="credits-block">
 

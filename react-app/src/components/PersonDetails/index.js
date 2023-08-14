@@ -65,7 +65,7 @@ export default function PersonDetails() {
           <select id="role-selector" onChange={e => setToggledRole(e.target.value)} defaultValue={toggledRole}>
             {allRoles.map(role => <option key={role} value={role} >{role}</option>)}
           </select>
-          <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal person={person} type="film-to-person"/>}/>
+          {/* <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal person={person} type="film-to-person"/>}/> */}
         </div>
 
         <div id="person-film-grid">

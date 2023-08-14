@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./RoleAddModal.css"
+import { useModal } from "../../context/Modal";
 import { getAllPeopleOfUserThunk } from "../../store/people";
+// import {}
+import "./RoleAddModal.css"
 
 export default function RoleAddModal({ film, type, person }) {
   const dispatch = useDispatch();
+  const { closeModal } = useModal();
   const user = useSelector(state => state.session?.user);
   // All people created by user sorted by first name
   const people = Object.values(useSelector(state => state.people.allPeople))
@@ -15,8 +18,10 @@ export default function RoleAddModal({ film, type, person }) {
       if (personA > personB) return 1;
       return 0;
     });
-  const [selectedPerson, setSelectedPerson] = useState(people[0]);
+  const [selectedPerson, setSelectedPerson] = useState("");
+  const [selectedRole, setSelectedRole] = useState("--select--")
   // console.log(selectedPerson)
+  // console.log(selectedRole)
   // why does this line run exponentially?
 
   useEffect(() => {
@@ -29,6 +34,7 @@ export default function RoleAddModal({ film, type, person }) {
     const personSelector = document.getElementById("person-select");
     if (personSelector) {
       personSelector.addEventListener("change", function () {
+        setSelectedRole("")
         const selectedOption = personSelector.options[personSelector.selectedIndex];
         const objectValue = JSON.parse(selectedOption.getAttribute("data-object"));
         setSelectedPerson(objectValue);
@@ -39,33 +45,55 @@ export default function RoleAddModal({ film, type, person }) {
   if (!people.length) return <h1>No people.</h1>
 
   let selectedPersonRoles = []
-  if (selectedPerson) {
-    selectedPersonRoles = selectedPerson?.roles
+  if (selectedPerson) selectedPersonRoles = selectedPerson?.roles
+  const roleOptions = { "--select--": 0, Actor: 1, Director: 2, Writer: 3, Editor: 4, Cinematographer: 5, Composer: 6 };
+  if (selectedPerson.roles) {
+    selectedPersonRoles.forEach(role => {
+      if (role.film_id === film.id) {
+        delete roleOptions[role.role]
+      }
+    })
   }
-  const roleOptions = { Actor: 1, Director: 2, Writer: 3, Editor: 4, Cinematographer: 5, Composer: 6 };
-  selectedPersonRoles.forEach(role => {
-    if (role.film_id === film.id) {
-      delete roleOptions[role.role]
-    }
-  })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = { selectedPerson, selectedRole }
+    // const response = await dispatch
+  }
 
   if (type === "person-to-film") {
     return (
       <div id="p-to-f-cont">
         <h2 id="add-role-header">Add credits for {film.title}</h2>
-        <form id="person-to-film">
+        <form id="person-to-film" onSubmit={handleSubmit}>
           <label htmlFor="person-select">Select a person:</label>
           <select
-            id="person-select">
+            id="person-select"
+            defaultValue="--select--">
+            <option key="select" value="" data-object={JSON.stringify({ null: null })}>--select--</option>
             {people.map(person => <option key={person.id} value={person} data-object={JSON.stringify(person)}>{person.name}</option>)}
           </select>
           <label htmlFor="role-add-film">Role:</label>
 
           <select
-            id="role-add-film">
+            id="role-add-film"
+            defaultValue={selectedRole}
+            onChange={e => setSelectedRole(e.target.value)}>
             {Object.keys(roleOptions).map(role => <option key={role} value={role} >{role}</option>)}
-
           </select>
+
+          <button
+            id="submit-button"
+            type="submit"
+            disabled={!selectedPerson || selectedPerson == { null: null } || !selectedRole || selectedRole === "--select--"}
+          >Add role
+          </button>
+          <button
+            id="cancel-button"
+            onClick={() => closeModal()}
+          >
+            Cancel
+          </button>
 
         </form>
       </div>

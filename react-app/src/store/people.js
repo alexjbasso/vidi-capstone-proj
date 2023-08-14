@@ -57,6 +57,7 @@ export const getAllPeopleThunk = () => async (dispatch) => {
   return response;
 };
 
+// Get All People of Current User Thunk
 export const getAllPeopleOfUserThunk = () => async (dispatch) => {
   const response = await fetch('/api/people/current');
   const people = await response.json();

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { getAllPeopleOfUserThunk } from "../../store/people";
-// import {}
+import { roleAddThunk } from "../../store/people";
 import "./RoleAddModal.css"
 
 export default function RoleAddModal({ film, type, person }) {
@@ -57,8 +57,11 @@ export default function RoleAddModal({ film, type, person }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = { selectedPerson, selectedRole }
-    // const response = await dispatch
+    const formData = { film_id: film.id, person_id: selectedPerson.id, role: selectedRole }
+    const newRole = await dispatch(roleAddThunk(formData))
+    // console.log(newRole)
+
+    closeModal()
   }
 
   if (type === "person-to-film") {

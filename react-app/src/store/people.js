@@ -94,6 +94,17 @@ export const addPersonThunk = (formData) => async (dispatch) => {
   }
 };
 
+// Add role
+export const roleAddThunk = (formData) => async (dispatch) => {
+  const response = await fetch('/api/roles/new', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData),
+  });
+  const newRole = await response.json();
+  console.log(newRole)
+}
+
 //Edit a Person Thunk
 export const editPersonThunk = (person, formData) => async (dispatch) => {
   try {
@@ -123,6 +134,9 @@ export const deletePersonThunk = (personId) => async (dispatch) => {
     return response;
   }
 };
+
+
+
 
 
 // ===Reducer===

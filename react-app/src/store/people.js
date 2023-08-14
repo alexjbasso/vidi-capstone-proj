@@ -48,11 +48,17 @@ export const deletePersonAction = (personId) => {
 };
 
 
-
 // ===Thunks===
 // Get All People Thunk
 export const getAllPeopleThunk = () => async (dispatch) => {
   const response = await fetch('/api/people');
+  const people = await response.json();
+  dispatch(getAllPeopleAction(people));
+  return response;
+};
+
+export const getAllPeopleOfUserThunk = () => async (dispatch) => {
+  const response = await fetch('/api/people/current');
   const people = await response.json();
   dispatch(getAllPeopleAction(people));
   return response;

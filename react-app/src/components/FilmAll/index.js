@@ -6,9 +6,9 @@ import "./FilmAll.css"
 export default function FilmAll() {
   const dispatch = useDispatch();
   const allFilms = Object.values(useSelector(state => state.films.allFilms))
-  
+
   allFilms.sort((a, b) => {
-    const titleA = a.title.toUpperCase(); // Convert names to uppercase for case-insensitive comparison
+    const titleA = a.title.toUpperCase();
     const titleB = b.title.toUpperCase();
     if (titleA < titleB) return -1;
     if (titleA > titleB) return 1;

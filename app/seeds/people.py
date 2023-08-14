@@ -317,7 +317,7 @@ def seed_people():
         bio="Denis Villeneuve OC CQ (born October 3, 1967) is a Canadian filmmaker. He is a four-time recipient of the Canadian Screen Award (formerly Genie Award) for Best Direction, winning for Maelström in 2001, Polytechnique in 2009, Incendies in 2010 and Enemy in 2013."
     )
     person53 = Person(
-        user_id=1,
+        user_id=2,
         name="Ryan Gosling",
         featured_photo="https://image.tmdb.org/t/p/w342/lyUyVARQKhGxaxy0FbPJCQRpiaW.jpg",
         bio="Ryan Thomas Gosling (born November 12, 1980) is a Canadian actor. Prominent in independent film, he has also worked in blockbuster films of varying genres, and has accrued a worldwide box office gross of over 1.9 billion USD. He has received various accolades, including a Golden Globe Award, and nominations for two Academy Awards and a BAFTA Award."

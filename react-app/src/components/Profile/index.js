@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPeopleOfUserThunk } from "../../store/people";
 import { getAllFilmsOfUserThunk } from "../../store/films";
+import DeleteModalButton from "../DeleteModalButton";
+import DeleteModal from "../DeleteModal";
 import "./Profile.css";
 
 export default function Profile() {
@@ -39,7 +41,7 @@ export default function Profile() {
                 <a href={`/film/${film.id}`}><img src={film.key_art}></img></a>
                 <div className="UD-buttons-cont" style={{ display: hoveredFilm === i ? 'flex' : 'none' }}>
                   <a href={`/film/${film.id}/edit`}><i className="fa fa-edit profile-UD-button"></i></a>
-                  <i className="fa fa-trash profile-UD-button"></i>
+                  <DeleteModalButton modalComponent={<DeleteModal className="profile-UD-button" type='film' filmId={film.id} id={film.id} />} />
                 </div>
               </div>
             )}
@@ -52,12 +54,11 @@ export default function Profile() {
             {people && people.map((person, i) =>
               <div className="tile-container-profile"
                 onMouseEnter={() => setHoveredPerson(i)}
-                onMouseLeave={() => setHoveredPerson(-1)}
-              >
+                onMouseLeave={() => setHoveredPerson(-1)}>
                 <a href={`/person/${person.id}`}><img src={person.featured_photo}></img></a>
                 <div className="UD-buttons-cont" style={{ display: hoveredPerson === i ? 'flex' : 'none' }}>
                   <a href={`/person/${person.id}/edit`}><i className="fa fa-edit profile-UD-button"></i></a>
-                  <i className="fa fa-trash profile-UD-button"></i>
+                  <DeleteModalButton modalComponent={<DeleteModal className="profile-UD-button" type='person' personId={person.id} id={person.id} />} />
                 </div>
               </div>
             )}

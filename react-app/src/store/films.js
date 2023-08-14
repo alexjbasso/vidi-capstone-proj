@@ -113,7 +113,7 @@ export const editFilmThunk = (film, formData) => async (dispatch) => {
 }
 
 //Delete a Film Thunk
-export const deleteAlbumThunk = (filmId) => async (dispatch) => {
+export const deleteFilmThunk = (filmId) => async (dispatch) => {
   const response = await fetch(`/api/films/${filmId}/delete`, {
     method: 'DELETE',
   });

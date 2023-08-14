@@ -48,8 +48,8 @@ export default function FilmDetails() {
       <div id="details-right-cont">
         <div id="film-details-top">
           <div id="film-details-cont">
-            <h2 id="title-heading">{film.title}</h2>
-            {directors.length ? <h4>Directed by {dirNames.join(', ')}</h4> : null}
+            <h2 id="title-heading">{film.title.toUpperCase()}</h2>
+            {directors.length ? <h4 id="director-heading">Directed by {dirNames.join(', ')}</h4> : null}
             <p>{film.synopsis}</p>
             <div id="credits-cont">
               <span className="credit-toggle"

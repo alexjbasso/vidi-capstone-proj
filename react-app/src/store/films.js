@@ -58,6 +58,14 @@ export const getAllFilmsThunk = () => async (dispatch) => {
   return response;
 };
 
+// Get All People of Current User Thunk
+export const getAllFilmsOfUserThunk = () => async (dispatch) => {
+  const response = await fetch('/api/films/current');
+  const films = await response.json();
+  dispatch(getAllFilmsAction(films));
+  return response;
+};
+
 // Get Film by ID Thunk
 export const getFilmByIdThunk = (filmId) => async (dispatch) => {
   const response = await fetch(`/api/films/${filmId}`);

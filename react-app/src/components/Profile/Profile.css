@@ -1,0 +1,47 @@
+#profile-container {
+  margin: 40px 21%;
+}
+
+#user-uploads-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#manage-welcome {
+  text-align: center;
+}
+
+#manage-header {
+  font-weight: 300;
+}
+
+.manage-items-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tile-container-profile {
+  height: 109px;
+}
+
+#user-uploads-cont img {
+  width: 74px;
+  height: 109px;
+}
+
+.UD-buttons-cont {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #2c3440ab;
+  position: relative;
+  bottom: 22px;
+  border-radius: 3px;
+}
+
+.profile-UD-button {
+  color: white;
+  font-size: 13px;
+}

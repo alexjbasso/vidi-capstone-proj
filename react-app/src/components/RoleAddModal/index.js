@@ -20,8 +20,8 @@ export default function RoleAddModal({ film, type, person }) {
     });
   const [selectedPerson, setSelectedPerson] = useState("");
   const [selectedRole, setSelectedRole] = useState("--select--")
-  // console.log(selectedPerson)
-  // console.log(selectedRole)
+  console.log(selectedPerson)
+  console.log(selectedRole)
   // why does this line run exponentially?
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function RoleAddModal({ film, type, person }) {
 
   let selectedPersonRoles = []
   if (selectedPerson) selectedPersonRoles = selectedPerson?.roles
-  const roleOptions = { "--select--": 0, Actor: 1, Director: 2, Writer: 3, Editor: 4, Cinematographer: 5, Composer: 6 };
+  const roleOptions = { Actor: 1, Director: 2, Writer: 3, Editor: 4, Cinematographer: 5, Composer: 6 };
   if (selectedPerson.roles) {
     selectedPersonRoles.forEach(role => {
       if (role.film_id === film.id) {
@@ -73,7 +73,7 @@ export default function RoleAddModal({ film, type, person }) {
           <select
             id="person-select"
             defaultValue="--select--">
-            <option key="select" value="" data-object={JSON.stringify({ null: null })}>--select--</option>
+            <option key="select-person-empty" value="" data-object={JSON.stringify({ null: null })}>--select--</option>
             {people.map(person => <option key={person.id} value={person} data-object={JSON.stringify(person)}>{person.name}</option>)}
           </select>
           <label htmlFor="role-add-film">Role:</label>
@@ -82,13 +82,14 @@ export default function RoleAddModal({ film, type, person }) {
             id="role-add-film"
             defaultValue={selectedRole}
             onChange={e => setSelectedRole(e.target.value)}>
+            <option key="select-role-empty" value="" selected={!selectedRole}>--select--</option>
             {Object.keys(roleOptions).map(role => <option key={role} value={role} >{role}</option>)}
           </select>
 
           <button
             id="submit-button"
             type="submit"
-            disabled={!selectedPerson || selectedPerson == { null: null } || !selectedRole || selectedRole === "--select--"}
+            disabled={!selectedPerson || selectedPerson === { null: null } || !selectedRole || selectedRole === "--select--"}
           >Add role
           </button>
           <button

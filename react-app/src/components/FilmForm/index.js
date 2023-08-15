@@ -2,12 +2,16 @@ import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addFilmThunk, editFilmThunk } from "../../store/films";
+import "./FilmForm.css"
 
 export default function FilmForm({ film, type }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const [title, setTitle] = useState(film?.title);
-  const [genre, setGenre] = useState(film?.genre);
+  const genres = film?.genre.split(", ");
+  const [genre1, setGenre1] = useState(genres && genres[0] ? genres[0] : null);
+  const [genre2, setGenre2] = useState(genres && genres[1] ? genres[1] : null);
+  const [genre3, setGenre3] = useState(genres && genres[2] ? genres[2] : null);
   const [year, setYear] = useState(film?.year);
   const [duration, setDuration] = useState(film?.duration);
   const [synopsis, setSynopsis] = useState(film?.synopsis);
@@ -17,21 +21,38 @@ export default function FilmForm({ film, type }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors({})
-    const formData = { title, genre, year, duration, synopsis, key_art, cover_photo }
+    setErrors({});
+    const errorsObj = {};
 
-    if (type === "Add") {
-      film = await dispatch(addFilmThunk(formData))
+    if (title && title.length > 200) errorsObj.title = "Length must not exceed 200 characters.";
+    if (genre1 && genre1.includes(",")) errorsObj.genre = "Genre must only contain letters.";
+    if (genre2 && genre2.includes(",")) errorsObj.genre = "Genre must only contain letters.";
+    if (genre3 && genre3.includes(",")) errorsObj.genre = "Genre must only contain letters.";
+    if (year && (year < 0 || year > 2050)) errorsObj.year = "Please enter a valid year.";
+    if (duration && duration <= 0) errorsObj.duration = "Please enter a valid duration."
+    if (synopsis && synopsis.length > 1000) errorsObj.synopsis = "Length must not exceed 1000 characters.";
+    if (key_art && (!key_art.endsWith('.jpg') && !key_art.endsWith('.png') && !key_art.endsWith('.gif') && !key_art.endsWith('.bmp') && !key_art.endsWith('.svg'))) errorsObj.key_art = "URL must end in .jpg, .png, .gif, .bmp, or .svg."
+    if (cover_photo && (!cover_photo.endsWith('.jpg') && !cover_photo.endsWith('.png') && !cover_photo.endsWith('.gif') && !cover_photo.endsWith('.bmp') && !cover_photo.endsWith('.svg'))) errorsObj.cover_photo = "URL must end in .jpg, .png, .gif, .bmp, or .svg."
 
-    } else if (type === "Edit") {
-      film = await dispatch(editFilmThunk(film, formData))
-    }
+    if (Object.keys(errorsObj).length === 0) {
+      const genre = [genre1, genre2, genre3].filter(Boolean);
+      const formData = { title, genre: genre.join(", "), year, duration, synopsis, key_art, cover_photo }
 
-    if (film.errors) {
-      setErrors(film.errors)
+      if (type === "Add") {
+        film = await dispatch(addFilmThunk(formData))
+      } else if (type === "Edit") {
+        film = await dispatch(editFilmThunk(film, formData))
+      }
+
+      if (film.errors) {
+        setErrors(film.errors)
+      } else {
+        history.push(`/film/${film.payload.id}`);
+      }
     } else {
-      history.push(`/film/${film.payload.id}`);
+      setErrors(errorsObj);
     }
+
   }
 
   const handleCancelClick = (e) => {
@@ -46,15 +67,16 @@ export default function FilmForm({ film, type }) {
   return (
     <div id="film-form-container">
       <form id="film-form" onSubmit={handleSubmit}>
-        <h1>Film {type}</h1>
+        <h1>{type} a film</h1>
         <div className="film-field">
           <div className="field-label">
             <label htmlFor="title">Title</label>
+            {errors.title ? <p className="errors">{errors.title}</p> : null}
           </div>
           <input
             id="title"
             type="text"
-            placeholder="Title"
+            placeholder="Title*"
             onChange={e => setTitle(e.target.value)}
             value={title}
           />
@@ -63,24 +85,50 @@ export default function FilmForm({ film, type }) {
         <div className="film-field">
           <div className="field-label">
             <label htmlFor="genre">Genre</label>
+            {errors.genre ? <p className="errors">{errors.genre}</p> : null}
+          </div>
+          <input
+            id="genre"
+            type="text"
+            placeholder="Genre*"
+            onChange={e => setGenre1(e.target.value)}
+            value={genre1}
+          />
+        </div>
+
+        <div className="film-field">
+          <div className="field-label">
           </div>
           <input
             id="genre"
             type="text"
             placeholder="Genre"
-            onChange={e => setGenre(e.target.value)}
-            value={genre}
+            onChange={e => setGenre2(e.target.value)}
+            value={genre2}
+          />
+        </div>
+
+        <div className="film-field">
+          <div className="field-label">
+          </div>
+          <input
+            id="genre"
+            type="text"
+            placeholder="Genre"
+            onChange={e => setGenre3(e.target.value)}
+            value={genre3}
           />
         </div>
 
         <div className="film-field">
           <div className="field-label">
             <label htmlFor="year">Year</label>
+            {errors.year ? <p className="errors">{errors.year}</p> : null}
           </div>
           <input
             id="year"
             type="number"
-            placeholder="Year"
+            placeholder="Year*"
             onChange={e => setYear(e.target.value)}
             value={year}
           />
@@ -89,11 +137,12 @@ export default function FilmForm({ film, type }) {
         <div className="film-field">
           <div className="field-label">
             <label htmlFor="duration">Duration</label>
+            {errors.duration ? <p className="errors">{errors.duration}</p> : null}
           </div>
           <input
             id="duration"
             type="number"
-            placeholder="Duration"
+            placeholder="Duration*"
             onChange={e => setDuration(e.target.value)}
             value={duration}
           />
@@ -102,11 +151,12 @@ export default function FilmForm({ film, type }) {
         <div className="film-field">
           <div className="field-label">
             <label htmlFor="synopsis">Synopsis</label>
+            {errors.synopsis ? <p className="errors">{errors.synopsis}</p> : null}
           </div>
           <input
             id="synopsis"
             type="text"
-            placeholder="Synopsis"
+            placeholder="Synopsis*"
             onChange={e => setSynopsis(e.target.value)}
             value={synopsis}
           />
@@ -114,12 +164,13 @@ export default function FilmForm({ film, type }) {
 
         <div className="film-field">
           <div className="field-label">
-            <label htmlFor="key-art">Key art</label>
+            <label htmlFor="key-art">Key Art</label>
+            {errors.key_art ? <p className="errors">{errors.key_art}</p> : null}
           </div>
           <input
             id="key-art"
             type="text"
-            placeholder="Key art"
+            placeholder="URL*"
             onChange={e => setKeyArt(e.target.value)}
             value={key_art}
           />
@@ -127,12 +178,13 @@ export default function FilmForm({ film, type }) {
 
         <div className="film-field">
           <div className="field-label">
-            <label htmlFor="cover_photo">Cover photo</label>
+            <label htmlFor="cover_photo">Cover Photo</label>
+            {errors.cover_photo ? <p className="errors">{errors.cover_photo}</p> : null}
           </div>
           <input
             id="cover_photo"
             type="text"
-            placeholder="Cover photo"
+            placeholder="URL"
             onChange={e => setCoverPhoto(e.target.value)}
             value={cover_photo}
           />
@@ -142,6 +194,7 @@ export default function FilmForm({ film, type }) {
           <button
             id="submit-button"
             type="submit"
+            disabled={!title || (!genre1 && !genre2 && !genre3) || !year || !duration || !synopsis || !key_art}
           >{type}
           </button>
           <button

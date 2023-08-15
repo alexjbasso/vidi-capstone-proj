@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addPersonThunk, editPersonThunk } from "../../store/people";
+import "./PersonForm.css"
 
 export default function PersonForm({ person, type }) {
   const history = useHistory();
@@ -13,21 +14,29 @@ export default function PersonForm({ person, type }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors({})
-    const formData = { name, featured_photo: featuredPhoto, bio }
+    setErrors({});
+    const errorsObj = {};
 
-    if (type === "Add") {
-      person = await dispatch(addPersonThunk(formData))
-      console.log(person)
+    if (name && name.length > 200) errorsObj.name = "Length must not exceed 200 characters.";
+    if (bio && bio.length > 1000) errorsObj.bio = "Length must not exceed 1000 characters.";
+    if (featuredPhoto && (!featuredPhoto.endsWith('.jpg') && !featuredPhoto.endsWith('.png') && !featuredPhoto.endsWith('.gif') && !featuredPhoto.endsWith('.bmp') && !featuredPhoto.endsWith('.svg'))) errorsObj.featuredPhoto = "URL must end in .jpg, .png, .gif, .bmp, or .svg."
 
-    } else if (type === "Edit") {
-      person = await dispatch(editPersonThunk(person, formData))
-    }
+    if (Object.keys(errorsObj).length === 0) {
+      const formData = { name, featured_photo: featuredPhoto, bio }
 
-    if (person.errors) {
-      setErrors(person.errors)
+      if (type === "Add") {
+        person = await dispatch(addPersonThunk(formData))
+      } else if (type === "Edit") {
+        person = await dispatch(editPersonThunk(person, formData))
+      }
+
+      if (person.errors) {
+        setErrors(person.errors)
+      } else {
+        history.push(`/person/${person.payload.id}`);
+      }
     } else {
-      history.push(`/person/${person.payload.id}`);
+      setErrors(errorsObj);
     }
   }
 
@@ -43,15 +52,16 @@ export default function PersonForm({ person, type }) {
   return (
     <div id="person-form-container">
       <form id="person-form" onSubmit={handleSubmit}>
-        <h1>Person {type}</h1>
+        <h1>{type} a person</h1>
         <div className="person-field">
           <div className="field-label">
             <label htmlFor="name">Name</label>
+            {errors.name ? <p className="errors">{errors.name}</p> : null}
           </div>
           <input
             id="name"
             type="text"
-            placeholder="Name"
+            placeholder="Name*"
             onChange={e => setName(e.target.value)}
             value={name}
           />
@@ -60,6 +70,7 @@ export default function PersonForm({ person, type }) {
         <div className="person-field">
           <div className="field-label">
             <label htmlFor="bio">Bio</label>
+            {errors.bio ? <p className="errors">{errors.bio}</p> : null}
           </div>
           <input
             id="bio"
@@ -72,12 +83,13 @@ export default function PersonForm({ person, type }) {
 
         <div className="person-field">
           <div className="field-label">
-            <label htmlFor="featured-photo">Featured photo</label>
+            <label htmlFor="featured-photo">Featured Photo</label>
+            {errors.featuredPhoto ? <p className="errors">{errors.featuredPhoto}</p> : null}
           </div>
           <input
             id="featured-photo"
             type="text"
-            placeholder="Featured photo"
+            placeholder="URL"
             onChange={e => setFeaturedPhoto(e.target.value)}
             value={featuredPhoto}
           />
@@ -87,6 +99,7 @@ export default function PersonForm({ person, type }) {
           <button
             id="submit-button"
             type="submit"
+            disabled={!name}
           >{type}
           </button>
           <button

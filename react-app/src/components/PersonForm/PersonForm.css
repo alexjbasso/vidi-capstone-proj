@@ -1,0 +1,15 @@
+#person-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+#person-form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.errors {
+  margin: 0px 0px 5px 0px;
+  color: rgb(255, 166, 0);
+}

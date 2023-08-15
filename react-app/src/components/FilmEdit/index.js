@@ -8,7 +8,7 @@ export default function FilmEdit() {
   const dispatch = useDispatch();
   const { id } = useParams()
   const film = useSelector((state) => state.films.singleFilm[id] ? state.films.singleFilm[id] : null);
-  const user = useSelector((state) => state.session.user ? state.session.user : null);
+  const user = useSelector((state) => state.session?.user);
 
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));

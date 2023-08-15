@@ -6,6 +6,7 @@ import "./FilmAll.css"
 export default function FilmAll() {
   const dispatch = useDispatch();
   const allFilms = Object.values(useSelector(state => state.films.allFilms))
+  const user = useSelector((state) => state.session.user ? state.session.user : null);
 
   allFilms.sort((a, b) => {
     const titleA = a.title.toUpperCase();
@@ -21,7 +22,7 @@ export default function FilmAll() {
 
   return (
     <div id="film-all-container">
-      <span id="all-films-header">FILMS<a href="film/new"><i className="fa fa-plus add-film"></i></a> </span>
+      <span id="all-films-header">FILMS{user && <a href="film/new"><i className="fa fa-plus add-film"></i></a>} </span>
       <span id="film-count">There are {allFilms.length} films.</span>
       <div id="all-films-grid">
         {allFilms.map(film =>

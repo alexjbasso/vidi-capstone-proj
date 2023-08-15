@@ -13,6 +13,7 @@ export default function FilmDetails() {
   const { id } = useParams();
   const film = useSelector(state => state.films.singleFilm[id])
   const [toggledRole, setToggledRole] = useState("CAST")
+  const user = useSelector((state) => state.session?.user);
 
   const directToPerson = (id, role) => {
     history.push({
@@ -61,7 +62,7 @@ export default function FilmDetails() {
                 style={{ color: toggledRole === "CREW" ? "rgb(0, 224, 84)" : "white" }}>
                 CREW
               </span>
-              <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal film={film} type="person-to-film"/>}/>
+              {user && <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal film={film} type="person-to-film"/>}/>}
             </div>
             <div id="credits-block">
 

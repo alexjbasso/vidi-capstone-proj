@@ -8,7 +8,7 @@ export default function PersonEdit() {
   const dispatch = useDispatch();
   const { id } = useParams()
   const person = useSelector((state) => state.people.singlePerson[id] ? state.people.singlePerson[id] : null);
-  const user = useSelector((state) => state.session.user ? state.session.user : null);
+  const user = useSelector((state) => state.session?.user);
 
   useEffect(() => {
     dispatch(getPersonByIdThunk(id));

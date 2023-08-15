@@ -38,8 +38,6 @@ export default function PersonForm({ person, type }) {
     } else {
       setErrors(errorsObj);
     }
-
-
   }
 
   const handleCancelClick = (e) => {

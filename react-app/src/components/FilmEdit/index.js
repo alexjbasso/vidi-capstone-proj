@@ -13,7 +13,8 @@ export default function FilmEdit() {
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));
   }, [dispatch, id]);
-
+  
+  if (!user) return (<h1>You need to be logged in to access this page.</h1>)
   if (!film) return (<h1>This film does not exist</h1>);
 
   return (

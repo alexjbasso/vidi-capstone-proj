@@ -15,6 +15,7 @@ export default function PersonEdit() {
   }, [dispatch, id]);
 
   if (!person) return (<h1>This person does not exist</h1>);
+  if (!user) return (<h1>You need to be logged in to access this page.</h1>)
 
   return (
     <div id="person-edit-container">

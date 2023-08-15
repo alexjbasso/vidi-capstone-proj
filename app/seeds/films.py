@@ -269,7 +269,16 @@ def seed_films():
         key_art="https://a.ltrbxd.com/resized/film-poster/4/1/8/1/3/5/418135-blackkklansman-0-460-0-690-crop.jpg",
         cover_photo="https://a.ltrbxd.com/resized/sm/upload/t4/wa/t7/20/black-klansman-1920-1920-1080-1080-crop-000000.jpg"
     )
-
+    film27 = Film(
+        user_id=2,
+        title="She's Gotta Have It",
+        genre="Romance, Comedy",
+        year=1986,
+        duration=84,
+        synopsis="The story of Nola Darling's simultaneous sexual relationships with three different men is told by her and by her partners and other friends. All three men wanted her to commit solely to them; Nola resists being “owned” by a single partner.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/3/4/0/1/7/34017-she-s-gotta-have-it-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/gm/m0/yy/60/shes-gotta-have-it-1200-1200-675-675-crop-000000.jpg"
+    )
 
     # film = Film(
     #     user_id=2,
@@ -282,10 +291,9 @@ def seed_films():
     #     cover_photo=
     # )
 
-
     db.session.add_all([film1, film2, film3, film4, film5, film6, film7, film8, film9, film10,
                        film11, film12, film13, film14, film15, film16, film17, film18, film19, film20,
-                       film21, film22, film23, film24, film25, film26])
+                       film21, film22, film23, film24, film25, film26, film27])
     db.session.commit()
 
 

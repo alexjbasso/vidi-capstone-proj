@@ -394,6 +394,12 @@ def seed_people():
         featured_photo="https://image.tmdb.org/t/p/w342/qoOp8XvZ4v7B0C9ZmtoRCl9CDSO.jpg",
         bio="John David Washington (born July 28, 1984) is an American actor and former American football running back. He shifted to an acting career like his father, Denzel Washington and mother, Pauletta Washington. In 2015, he started with the HBO comedy series Ballers and his role in BlacKkKlansman (2018) brought him a Golden Globe nomination for Best Actor. He also starred in Tenet (2020) by Christopher Nolan, and Malcolm & Marie (2021)."
     )
+    person66 = Person(
+        user_id=2,
+        name="Tracy Camilla Johns",
+        featured_photo="https://image.tmdb.org/t/p/w342/fXjcnepCTGfd0bJJs6O2XieCgCP.jpg",
+        bio="Tracy Camilla Johns is an American film actress. She is known for her feature film debut in the leading role as Nola Darling in Spike Lee's 1986 film She's Gotta Have It. She was nominated for Best Female Lead for this role at the 1987 Independent Spirit Awards."
+    )
 
 
     # person = Person(
@@ -409,7 +415,7 @@ def seed_people():
                        person31, person32, person33, person34, person35, person36, person37, person38, person39, person40,
                        person41, person42, person43, person44, person45, person46, person47, person48, person49, person50,
                        person51, person52, person53, person54, person55, person56, person57, person58, person59, person60,
-                       person61, person62, person63, person64, person65])
+                       person61, person62, person63, person64, person65, person66])
     db.session.commit()
 
 

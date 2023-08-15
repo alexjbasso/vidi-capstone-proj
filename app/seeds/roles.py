@@ -540,8 +540,34 @@ def seed_roles():
         film_id=26,
         role="Actor"
     )
+# She's Gotta Have It
+    role101 = Role(
+        person_id=12,
+        film_id=27,
+        role="Director"
+    )
+    role102 = Role(
+        person_id=12,
+        film_id=27,
+        role="Writer"
+    )
+    role103 = Role(
+        person_id=12,
+        film_id=27,
+        role="Actor"
+    )
+    role104 = Role(
+        person_id=12,
+        film_id=27,
+        role="Editor"
+    )
+    role105 = Role(
+        person_id=66,
+        film_id=27,
+        role="Actor"
+    )
 
-    # role101 = Role(
+    # role106 = Role(
     #     person_id=
     #     film_id=
     #     role=
@@ -555,7 +581,8 @@ def seed_roles():
                         role61, role62, role63, role64, role65, role66, role67, role68, role69, role70,
                         role71, role72, role73, role74, role75, role76, role77, role78, role79, role80,
                         role81, role82, role83, role84, role85, role86, role87, role88, role89, role90,
-                        role91, role92, role93, role94, role95, role96, role97, role98, role99, role100
+                        role91, role92, role93, role94, role95, role96, role97, role98, role99, role100,
+                        role101, role102, role103, role104, role105
                         ])
     db.session.commit()
 

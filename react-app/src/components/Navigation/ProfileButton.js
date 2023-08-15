@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import "./ProfileButton.css";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -40,21 +41,20 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <span onClick={openMenu} style={{color: "rgb(136, 153, 170)"}}>
+      <span onClick={openMenu} style={{ color: "rgb(136, 153, 170)" }}>
         {user ? user.username.toUpperCase() : "LOGIN"} <i className="fa fa-angle-down"></i>
       </span>
-      <div className={ulClassName} ref={ulRef}>
+      
+      <div className={ulClassName} id="user-dropdown" ref={ulRef}>
         {user ? (
           <>
-            <div>{user.username}</div>
-            <div>{user.email}</div>
             <NavLink to="/profile">Profile</NavLink>
             <div>
-              <button onClick={handleLogout}>Log Out</button>
+              <button onClick={handleLogout} id="logout-button">Log Out</button>
             </div>
           </>
         ) : (
-          <>
+          <div id="login-signup-buttons">
             <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
@@ -66,9 +66,10 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
-          </>
+          </div>
         )}
       </div>
+
     </>
   );
 }

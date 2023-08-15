@@ -41,7 +41,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <span onClick={openMenu} style={{color: "rgb(136, 153, 170)"}}>
-        {user.username.toUpperCase()} <i className="fa fa-angle-down"></i>
+        {user ? user.username.toUpperCase() : "LOGIN"} <i className="fa fa-angle-down"></i>
       </span>
       <div className={ulClassName} ref={ulRef}>
         {user ? (

@@ -16,7 +16,7 @@ function OpenModalButton({
   };
 
   return (
-    <button onClick={onClick}>{buttonText}</button>
+    <button style={{ backgroundColor: "#1e232b", color: "rgb(102, 119, 136)", border: "none" }} onClick={onClick}>{buttonText}</button>
   );
 }
 

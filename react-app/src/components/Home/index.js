@@ -9,15 +9,14 @@ export default function Home() {
   const dispatch = useDispatch();
   const films = Object.values(useSelector(state => state.films?.allFilms));
   const people = Object.values(useSelector(state => state.people?.allPeople));
-  const user = useSelector((state) => state.session.user ? state.session.user : null);
+  const user = useSelector((state) => state.session?.user);
 
   useEffect(() => {
     dispatch(getAllFilmsThunk());
     dispatch(getAllPeopleThunk());
   }, [dispatch]);
 
-  console.log("films:", films)
-  console.log("people:", people)
+  if (!films.length || !people.length) return <h1>Loading...</h1>
 
   return (
     <div id="home-root-container">

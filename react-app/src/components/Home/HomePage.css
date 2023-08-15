@@ -1,0 +1,39 @@
+#home-page-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 21%;
+}
+
+#welcome-header {
+  margin: 50px 0px 10px 0px;
+  text-align: center;
+}
+
+#welcome-subtitle {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+#home-page-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#home-page-body span {
+  color: rgb(136, 153, 170);
+}
+
+#featured-films,
+#featured-people {
+  display: flex;
+  justify-content: space-between;
+}
+
+#featured-films img,
+#featured-people img {
+  border: solid 1px rgb(153, 170, 187);
+  border-radius: 3px;
+  width: 180px;
+  height: 262.5px;
+}

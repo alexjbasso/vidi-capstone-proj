@@ -21,7 +21,7 @@ export default function FilmForm({ film, type }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors({})
+    setErrors({});
     const errorsObj = {};
 
     if (title && title.length > 200) errorsObj.title = "Length must not exceed 200 characters.";
@@ -36,12 +36,10 @@ export default function FilmForm({ film, type }) {
 
     if (Object.keys(errorsObj).length === 0) {
       const genre = [genre1, genre2, genre3].filter(Boolean);
-
       const formData = { title, genre: genre.join(", "), year, duration, synopsis, key_art, cover_photo }
 
       if (type === "Add") {
         film = await dispatch(addFilmThunk(formData))
-
       } else if (type === "Edit") {
         film = await dispatch(editFilmThunk(film, formData))
       }

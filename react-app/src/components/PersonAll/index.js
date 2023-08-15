@@ -6,6 +6,7 @@ import "./PersonAll.css"
 export default function PersonAll() {
   const dispatch = useDispatch();
   const people = Object.values(useSelector(state => state.people?.allPeople))
+  const user = useSelector((state) => state.session.user ? state.session.user : null);
 
   people.sort((a, b) => {
     const nameA = a.name.toUpperCase();
@@ -23,7 +24,7 @@ export default function PersonAll() {
 
   return (
     <div id="person-all-container">
-      <span id="all-people-header">PEOPLE<a href="person/new"><i className="fa fa-plus add-person"></i></a> </span>
+      <span id="all-people-header">PEOPLE{user && <a href="person/new"><i className="fa fa-plus add-person"></i></a>} </span>
       <span id="person-count">There are {people.length} people.</span>
       <div id="all-people-grid">
         {people.map(person =>

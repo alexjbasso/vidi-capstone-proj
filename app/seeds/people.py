@@ -37,8 +37,8 @@ def seed_people():
     person6 = Person(
         user_id=1,
         name="Valdís Óskarsdóttir",
-        featured_photo="#",
-        bio=""
+        featured_photo="https://www.nordicwomeninfilm.com/wp-content/uploads/2015/03/Valdis-Oskarsdottir_little_big_produktionsbolag.jpg",
+        bio="Valdís Óskarsdóttir is an Icelandic film editor, whose work includes The Celebration, Les Misérables, Finding Forrester and Eternal Sunshine of the Spotless Mind. She received multiple awards in early 2005 for her work on Eternal Sunshine of the Spotless Mind."
     )
     person7 = Person(
         user_id=1,

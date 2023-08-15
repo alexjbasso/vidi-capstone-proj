@@ -16,9 +16,8 @@ function Navigation({ isLoaded }) {
 						<ProfileButton user={sessionUser} />
 					</div>
 				)}
-				<div>
-					<NavLink to="/films">FILMS</NavLink>
-				</div>
+				<NavLink to="/films">FILMS</NavLink>
+				<NavLink to="/people">PEOPLE</NavLink>
 			</div>
 		</div>
 	);

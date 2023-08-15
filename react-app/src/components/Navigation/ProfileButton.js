@@ -40,9 +40,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
+      <span onClick={openMenu} style={{color: "rgb(136, 153, 170)"}}>
+        {user.username.toUpperCase()} <i className="fa fa-angle-down"></i>
+      </span>
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>

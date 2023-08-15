@@ -37,8 +37,8 @@ def seed_people():
     person6 = Person(
         user_id=1,
         name="Valdís Óskarsdóttir",
-        featured_photo="#",
-        bio=""
+        featured_photo="https://www.nordicwomeninfilm.com/wp-content/uploads/2015/03/Valdis-Oskarsdottir_little_big_produktionsbolag.jpg",
+        bio="Valdís Óskarsdóttir is an Icelandic film editor, whose work includes The Celebration, Les Misérables, Finding Forrester and Eternal Sunshine of the Spotless Mind. She received multiple awards in early 2005 for her work on Eternal Sunshine of the Spotless Mind."
     )
     person7 = Person(
         user_id=1,
@@ -328,10 +328,82 @@ def seed_people():
         featured_photo="https://image.tmdb.org/t/p/w342/tkBWBvcLTihUcVf6iwbMQTFqEEv.jpg",
         bio="Ana de Armas was born in Cuba on April 30, 1988. At the age of 14, she began her studies at the National Theatre School of Havana, where she graduated after 4 years. She made her film debut with Una rosa de Francia (2006), which was directed by Manuel Gutiérrez Aragón. In 2006 she moved to Spain where she continued her film career, and started doing television."
     )
+    person55 = Person(
+        user_id=2,
+        name="Fernando Meirelles",
+        featured_photo="https://image.tmdb.org/t/p/w342/at0fRZl4fJwqaytXOfvgs1lOM9E.jpg",
+        bio="Fernando Meirelles (born November 9, 1955 in São Paulo, Brazil) is a Brazilian film director. He was nominated for an Academy Award for Best Director in 2004 for his work in the Brazilian film City of God, released in 2002 in Brazil and in 2003 in the U.S. by Miramax Films. He was also nominated for the Golden Globe Best Director award in 2005 for The Constant Gardener."
+    )
+    person56 = Person(
+        user_id=2,
+        name="Alexandre Rodrigues",
+        featured_photo="https://image.tmdb.org/t/p/w342/sN0o245HMVYTnEWPBYt3qdiQupq.jpg",
+        bio='Alexandre Rodrigues is a Brazilian actor. He is most famous for playing the part of Buscapé, the narrator and protagonist in the 2002 film City of God. He has most recently appeared in American singer John Legend\'s music video for the song "P.D.A." released in 2007.'
+    )
+    person57 = Person(
+        user_id=2,
+        name="Luca Guadagnino",
+        featured_photo="https://image.tmdb.org/t/p/w342/lO2GD4s6fRloZLEhsZgBlhJQasE.jpg",
+        bio="Luca Guadagnino is an Italian film director. He rose to notability with the 2005 film Melissa P., and he is a frequent collaborator with actress Tilda Swinton, including the 1999 film The Protagonists, the 2010 film I Am Love, the 2015 film A Bigger Splash, and the 2018 film Suspiria. In 2017, Guadagnino gained widespread recognition for the directing and producing the critically acclaimed romance film Call Me by Your Name."
+    )
+    person58 = Person(
+        user_id=2,
+        name="Timothée Chalamet",
+        featured_photo="https://image.tmdb.org/t/p/w342/BE2sdjpgsa2rNTFa66f7upkaOP.jpg",
+        bio="Timothée Hal Chalamet (born December 27, 1995) is an American actor. He began his career appearing in the drama series Homeland in 2012. Two years later, hemade his film debut in the comedy-drama Men, Women & Children and appeared in Christopher Nolan's science fiction film Interstellar. He came into attention in Luca Guadagnino's coming-of-age film Call Me by Your Name (2017). Alongside supporting roles in Greta Gerwig's films Lady Bird (2017) and Little Women (2019), he took on starring roles in Beautiful Boy (2018) and Dune (2021)."
+    )
+    person59 = Person(
+        user_id=2,
+        name="Armie Hammer",
+        featured_photo="https://image.tmdb.org/t/p/w342/dacZbbnheEhejYbkDgz7WhhSBJp.jpg",
+        bio='Armand Douglas "Armie" Hammer (born August 28, 1986) is an American actor. After appearing on television and playing the title role in 2008\'s Billy: The Early Years, he became known for his portrayal of the Winklevoss twins in the 2010 film The Social Network. His notorious film roles include Clyde Tolson in J. Edgar, Prince Albert Alcott in Tarsem Singh\'s Snow White, and The Lone Ranger.'
+    )
+    person60 = Person(
+        user_id=2,
+        name="Park Chan-wook",
+        featured_photo="https://image.tmdb.org/t/p/w342/jsSFCVB7MhuVbSLwTgESiXEiNjt.jpg",
+        bio="Park Chan-wook (Korean: 박찬욱 Korean pronunciation: [pak̚t͡ɕʰanuk̚ ]; born August 23, 1963; Seoul) is a South Korean film director, screenwriter, producer, and former film critic. One of the most acclaimed and popular filmmakers in his native country, Park is most known for his films The Handmaiden and The Vengeance Trilogy (Sympathy for Mr. Vengeance, Oldboy and Sympathy for Lady Vengeance)."
+    )
+    person61 = Person(
+        user_id=2,
+        name="Choi Min-sik",
+        featured_photo="https://image.tmdb.org/t/p/w342/sd7gIA6nEkq6zumkDCfxSE0YSSV.jpg",
+        bio="Choi Min-sik is a South Korean actor. He received critical acclaim for his roles in Oldboy, I Saw the Devil and The Admiral: Roaring Currents. For his role in Oldboy, he won the Best Actor prize at the 40th Baeksang Art Awards, the 24th Blue Dragon Awards, and the 41st Grand Bell Awards."
+    )
+    person62 = Person(
+        user_id=2,
+        name="Saoirse Ronan",
+        featured_photo="https://image.tmdb.org/t/p/w342/9buDPdqKN9vbnQLLkHEinDtMrCG.jpg",
+        bio="Saoirse Una Ronan (born April 12, 1994) is an American-born Irish actress. Primarily known for her work in period dramas since adolescence, she has received various accolades, including a Golden Globe Award, in addition to nominations for four Academy Awards and five British Academy Film Awards."
+    )
+    person63 = Person(
+        user_id=2,
+        name="Noah Baumbach",
+        featured_photo="https://image.tmdb.org/t/p/w342/jIeAFowGbCt5OSMI6to00QrIvXN.jpg",
+        bio="Noah Baumbach (born September 3, 1969) is an American filmmaker. He received Academy Award nominations for writing his films The Squid and the Whale (2005) and Marriage Story (2019), both of which he also directed, while the former garnered him one of the few screenwriters to ever sweep \"The Big Four\" critics awards: Los Angeles Film Critics Association, National Board of Review, New York Film Critics Circle, and National Society of Film Critics."
+    )
+    person64 = Person(
+        user_id=2,
+        name="Adam Driver",
+        featured_photo="https://image.tmdb.org/t/p/w342/mG2vwd6hJHTiCh8zIxPFND3ibAj.jpg",
+        bio='Adam Douglas Driver (born November 19, 1983) is an American actor. He is the recipient of various accolades, including the Venice Film Festival Volpi Cup for Best Actor, in addition to nominations for a Tony Award, two Academy Awards, two British Academy Film Awards, two Golden Globe Awards, four Primetime Emmy Awards, and four Screen Actors Guild Awards. Martin Scorsese has called Driver "one of the finest, if not the finest" actors of his generation.'
+    )
+    person65 = Person(
+        user_id=2,
+        name="John David Washington",
+        featured_photo="https://image.tmdb.org/t/p/w342/qoOp8XvZ4v7B0C9ZmtoRCl9CDSO.jpg",
+        bio="John David Washington (born July 28, 1984) is an American actor and former American football running back. He shifted to an acting career like his father, Denzel Washington and mother, Pauletta Washington. In 2015, he started with the HBO comedy series Ballers and his role in BlacKkKlansman (2018) brought him a Golden Globe nomination for Best Actor. He also starred in Tenet (2020) by Christopher Nolan, and Malcolm & Marie (2021)."
+    )
+    person66 = Person(
+        user_id=2,
+        name="Tracy Camilla Johns",
+        featured_photo="https://image.tmdb.org/t/p/w342/fXjcnepCTGfd0bJJs6O2XieCgCP.jpg",
+        bio="Tracy Camilla Johns is an American film actress. She is known for her feature film debut in the leading role as Nola Darling in Spike Lee's 1986 film She's Gotta Have It. She was nominated for Best Female Lead for this role at the 1987 Independent Spirit Awards."
+    )
 
 
     # person = Person(
-    #     user_id=1,
+    #     user_id=2,
     #     name=,
     #     featured_photo=
     #     bio=
@@ -342,7 +414,8 @@ def seed_people():
                        person21, person22, person23, person24, person25, person26, person27, person28, person29, person30,
                        person31, person32, person33, person34, person35, person36, person37, person38, person39, person40,
                        person41, person42, person43, person44, person45, person46, person47, person48, person49, person50,
-                       person51, person52, person53, person54])
+                       person51, person52, person53, person54, person55, person56, person57, person58, person59, person60,
+                       person61, person62, person63, person64, person65, person66])
     db.session.commit()
 
 

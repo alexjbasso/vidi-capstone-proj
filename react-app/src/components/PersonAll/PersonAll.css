@@ -1,0 +1,49 @@
+#person-all-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin: 40px 350px;
+}
+
+#all-people-grid {
+  display: flex;
+  /* calculate gap to be dynamic */
+  gap: 12.8px;
+  flex-wrap: wrap;
+}
+
+#all-people-grid img {
+  width: 74px;
+  height: 109px;
+}
+
+#all-people-header {
+  display: flex;
+  gap: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(102, 119, 136);
+  color: rgb(174, 184, 193);
+  justify-content: space-between;
+}
+
+#person-count {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  background-color: rgb(69, 85, 101);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(174, 184, 193);
+  border-radius: 4px;
+}
+
+.add-person {
+  font-size: 18px;
+  position: relative;
+  bottom: .8px;
+}
+
+.add-person:hover {
+  color: rgba(0, 224, 86, 0.645);
+}

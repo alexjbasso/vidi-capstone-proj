@@ -1,7 +1,12 @@
 /* TODO Add site wide styles */
+html,
 body {
-  background-color: rgb(20, 24, 28);
+  height: 100%;
+}
+
+body {
+  /* background-color: rgb(20, 24, 28); */
   color: white;
   font-family: "Graphik", sans-serif;
-  /* background-image: linear-gradient(180deg,#14181c 0,#14181c 250px,#2c3440 251px); */
+  background: linear-gradient(to top, #14181c, #2c3440);
 }

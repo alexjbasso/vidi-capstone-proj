@@ -209,9 +209,91 @@ def seed_films():
         key_art="https://a.ltrbxd.com/resized/film-poster/2/6/5/4/3/9/265439-blade-runner-2049-0-460-0-690-crop.jpg",
         cover_photo="https://a.ltrbxd.com/resized/sm/upload/aj/h8/ku/9n/blade-runner-2049-1920-1920-1080-1080-crop-000000.jpg"
     )
+    film21 = Film(
+        user_id=2,
+        title="City of God",
+        genre="Crime, Drama",
+        year=2002,
+        duration=130,
+        synopsis="Buscapé was raised in a very violent environment. Despite the feeling that all odds were against him, he finds out that life can be seen with other eyes...",
+        key_art="https://a.ltrbxd.com/resized/film-poster/5/1/5/2/3/51523-city-of-god-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/pn/lo/pe/jr/city-of-god-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film22 = Film(
+        user_id=2,
+        title="Call Me By Your Name",
+        genre="Drama, Romance, LGBT",
+        year=2017,
+        duration=132,
+        synopsis="In 1980s Italy, a relationship begins between seventeen-year-old teenage Elio and the older adult man hired as his father's research assistant.",
+        key_art="https://a.ltrbxd.com/resized/sm/upload/g9/9t/cc/7u/tcNniniS4rfqrLH0oORikJfnIwY-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/3j/zm/4w/p5/call-me-by-your-name-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film23 = Film(
+        user_id=2,
+        title="Oldboy",
+        genre="Drama, Action, Mystery",
+        year=2003,
+        duration=120,
+        synopsis="With no clue how he came to be imprisoned, drugged and tortured for 15 years, a desperate businessman seeks revenge on his captors.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/5/1/4/5/4/51454-oldboy-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/w7/2l/wo/u1/oldboy-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film24 = Film(
+        user_id=2,
+        title="Lady Bird",
+        genre="Drama, Comedy",
+        year=2017,
+        duration=94,
+        synopsis="A California high school student plans to escape from her family and small town by going to college in New York, much to the disapproval of wildly loving, deeply opinionated and strong-willed mother.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/3/2/6/2/7/9/326279-lady-bird-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/om/94/t6/xo/lady-bird-1920-1920-1080-1080-crop-000000.jpg",
+    )
+    film25 = Film(
+        user_id=2,
+        title="Frances Ha",
+        genre="Drama, Comedy",
+        year=2012,
+        duration=86,
+        synopsis="An aspiring dancer moves to New York City and becomes caught up in a whirlwind of flighty fair-weather friends, diminishing fortunes and career setbacks.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/9/6/0/8/3/96083-frances-ha-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/eo/w6/w1/7w/4DACCDBE-4318-4E7A-BFB8-4150FA796966-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film26 = Film(
+        user_id=2,
+        title="BlacKkKlansman",
+        genre="Crime, History, Drama",
+        year=2018,
+        duration=135,
+        synopsis="Colorado Springs, late 1970s. Ron Stallworth, an African American police officer, and Flip Zimmerman, his Jewish colleague, run an undercover operation to infiltrate the Ku Klux Klan.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/4/1/8/1/3/5/418135-blackkklansman-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/t4/wa/t7/20/black-klansman-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film27 = Film(
+        user_id=2,
+        title="She's Gotta Have It",
+        genre="Romance, Comedy",
+        year=1986,
+        duration=84,
+        synopsis="The story of Nola Darling's simultaneous sexual relationships with three different men is told by her and by her partners and other friends. All three men wanted her to commit solely to them; Nola resists being “owned” by a single partner.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/3/4/0/1/7/34017-she-s-gotta-have-it-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/gm/m0/yy/60/shes-gotta-have-it-1200-1200-675-675-crop-000000.jpg"
+    )
+
+    # film = Film(
+    #     user_id=2,
+    #     title=
+    #     genre=
+    #     year=
+    #     duration=
+    #     synopsis=
+    #     key_art=
+    #     cover_photo=
+    # )
 
     db.session.add_all([film1, film2, film3, film4, film5, film6, film7, film8, film9, film10,
-                       film11, film12, film13, film14, film15, film16, film17, film18, film19, film20])
+                       film11, film12, film13, film14, film15, film16, film17, film18, film19, film20,
+                       film21, film22, film23, film24, film25, film26, film27])
     db.session.commit()
 
 

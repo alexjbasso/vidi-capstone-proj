@@ -36,13 +36,12 @@ export default function FilmDetails() {
   const reviews = film.reviews
   const dirNames = directors.map(director => director.name)
 
-  // const usersPeople = film.roles.filter(person => person.role === 'Composer')
-
   return (
     <div id="film-details-page-container">
 
       <div id="key-art-cont">
         <img src={film.key_art}></img>
+        <p id="genre-text">{film.genre}</p>
       </div>
 
       <div id="details-right-cont">

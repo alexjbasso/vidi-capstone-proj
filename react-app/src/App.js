@@ -16,6 +16,7 @@ import PersonDetails from "./components/PersonDetails"
 import PersonAdd from "./components/PersonAdd"
 import PersonEdit from "./components/PersonEdit"
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

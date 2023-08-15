@@ -79,6 +79,7 @@ export default function FilmForm({ film, type }) {
             placeholder="Title*"
             onChange={e => setTitle(e.target.value)}
             value={title}
+            required
           />
         </div>
 
@@ -93,6 +94,7 @@ export default function FilmForm({ film, type }) {
             placeholder="Genre*"
             onChange={e => setGenre1(e.target.value)}
             value={genre1}
+            required
           />
         </div>
 
@@ -131,6 +133,7 @@ export default function FilmForm({ film, type }) {
             placeholder="Year*"
             onChange={e => setYear(e.target.value)}
             value={year}
+            required
           />
         </div>
 
@@ -145,6 +148,7 @@ export default function FilmForm({ film, type }) {
             placeholder="Duration*"
             onChange={e => setDuration(e.target.value)}
             value={duration}
+            required
           />
         </div>
 
@@ -159,6 +163,7 @@ export default function FilmForm({ film, type }) {
             placeholder="Synopsis*"
             onChange={e => setSynopsis(e.target.value)}
             value={synopsis}
+            required
           />
         </div>
 
@@ -173,6 +178,7 @@ export default function FilmForm({ film, type }) {
             placeholder="URL*"
             onChange={e => setKeyArt(e.target.value)}
             value={key_art}
+            required
           />
         </div>
 

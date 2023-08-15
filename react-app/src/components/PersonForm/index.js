@@ -64,6 +64,7 @@ export default function PersonForm({ person, type }) {
             placeholder="Name*"
             onChange={e => setName(e.target.value)}
             value={name}
+            required
           />
         </div>
 

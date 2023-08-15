@@ -128,6 +128,11 @@ def seed_roles():
         film_id=5,
         role="Actor"
     )
+    role91 = Role(
+        person_id=63,
+        film_id=5,
+        role="Writer"
+    )
 
 # Do the Right Thing
     role23 = Role(
@@ -419,10 +424,124 @@ def seed_roles():
         film_id=20,
         role="Actor"
     )
+# City of God
+    role78 = Role(
+        person_id=55,
+        film_id=21,
+        role="Director"
+    )
+    role79 = Role(
+        person_id=56,
+        film_id=21,
+        role="Actor"
+    )
+# Call Me By Your Name
+    role80 = Role(
+        person_id=57,
+        film_id=22,
+        role="Director"
+    )
+    role81 = Role(
+        person_id=58,
+        film_id=22,
+        role="Actor"
+    )
+    role82 = Role(
+        person_id=59,
+        film_id=22,
+        role="Actor"
+    )
+# Oldboy
+    role83 = Role(
+        person_id=60,
+        film_id=23,
+        role="Director"
+    )
+    role84 = Role(
+        person_id=60,
+        film_id=23,
+        role="Writer"
+    )
+    role85 = Role(
+        person_id=61,
+        film_id=23,
+        role="Actor"
+    )
+# Lady Bird
+    role86 = Role(
+        person_id=11,
+        film_id=24,
+        role="Director"
+    )
+    role87 = Role(
+        person_id=11,
+        film_id=24,
+        role="Writer"
+    )
+    role88 = Role(
+        person_id=62,
+        film_id=24,
+        role="Actor"
+    )
+    role89 = Role(
+        person_id=58,
+        film_id=24,
+        role="Actor"
+    )
+    role90 = Role(
+        person_id=7,
+        film_id=24,
+        role="Composer"
+    )
+# Frances Ha
+    role92 = Role(
+        person_id=11,
+        film_id=25,
+        role="Actor"
+    )
+    role93 = Role(
+        person_id=11,
+        film_id=25,
+        role="Writer"
+    )
+    role94 = Role(
+        person_id=63,
+        film_id=25,
+        role="Director"
+    )
+    role95 = Role(
+        person_id=63,
+        film_id=25,
+        role="Writer"
+    )
+    role96 = Role(
+        person_id=64,
+        film_id=25,
+        role="Actor"
+    )
+# BlacKkKlansman
+    role97 = Role(
+        person_id=12,
+        film_id=26,
+        role="Director"
+    )
+    role98 = Role(
+        person_id=12,
+        film_id=26,
+        role="Writer"
+    )
+    role99 = Role(
+        person_id=65,
+        film_id=26,
+        role="Actor"
+    )
+    role100 = Role(
+        person_id=64,
+        film_id=26,
+        role="Actor"
+    )
 
-# The next role to add is 78
-
-    # role78 = Role(
+    # role101 = Role(
     #     person_id=
     #     film_id=
     #     role=
@@ -433,8 +552,10 @@ def seed_roles():
                         role31, role32, role33, role34, role35, role36, role37, role38, role39, role40,
                         role41, role42, role43, role44, role45, role46, role47, role48, role49, role50,
                         role51, role52, role53, role54, role55, role56, role57, role58, role59, role60,
-                        role61, role62, role63, role64, role65, role66, role67, role68, role69,role70,
-                        role71, role72, role73, role74, role75, role76, role77
+                        role61, role62, role63, role64, role65, role66, role67, role68, role69, role70,
+                        role71, role72, role73, role74, role75, role76, role77, role78, role79, role80,
+                        role81, role82, role83, role84, role85, role86, role87, role88, role89, role90,
+                        role91, role92, role93, role94, role95, role96, role97, role98, role99, role100
                         ])
     db.session.commit()
 

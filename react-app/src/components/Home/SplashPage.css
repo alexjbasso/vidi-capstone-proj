@@ -1,0 +1,22 @@
+#splash-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #14181c;
+}
+
+/* #splash-cover-photo {
+  width: 1200px;
+  height: 500px;
+  z-index: -1;
+  border-radius: 50%;
+} */
+
+#splash-bottom-half {
+  position: absolute;
+  top: 625px;
+}
+
+#splash-bottom-half {
+  text-align: center;
+}

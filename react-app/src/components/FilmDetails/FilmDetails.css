@@ -39,6 +39,9 @@
   height: 345px;
 }
 
+#genre-text {
+  text-align: center;
+}
 
 #credits-cont, #review-header {
   display: flex;

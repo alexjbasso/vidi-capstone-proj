@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAllFilmsThunk } from '../../store/films';
+import { getAllPeopleThunk } from "../../store/people";
+import SplashPage from './SplashPage';
+import HomePage from './HomePage';
 
 export default function Home() {
   const dispatch = useDispatch();
-  const allFilms = useSelector(state => state.films.allFilms)
+  const films = Object.values(useSelector(state => state.films?.allFilms));
+  const people = Object.values(useSelector(state => state.people?.allPeople));
   const user = useSelector((state) => state.session.user ? state.session.user : null);
 
   useEffect(() => {
     dispatch(getAllFilmsThunk());
+    dispatch(getAllPeopleThunk());
   }, [dispatch]);
 
-  console.log("allFilms:", Object.values(allFilms))
+  console.log("films:", films)
+  console.log("people:", people)
 
   return (
-    <div id="home-container">
-      <h2>{user ? `Welcome back, ${user.username}.` : null} Here's what we've been watching...</h2>
+    <div id="home-root-container">
+      {/* {!user ? <SplashPage films={films} people={people} /> : */}
+        <HomePage user={user} films={films} people={people} />
+        {/* } */}
     </div>
   )
 }

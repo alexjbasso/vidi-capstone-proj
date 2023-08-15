@@ -43,6 +43,7 @@ export default function FilmDetails() {
 
       <div id="key-art-cont">
         <img src={film.key_art}></img>
+        <p id="genre-text">{film.genre}</p>
       </div>
 
       <div id="details-right-cont">

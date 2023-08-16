@@ -7,11 +7,15 @@
 #welcome-header {
   margin: 50px 0px 10px 0px;
   text-align: center;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 #welcome-subtitle {
   margin-bottom: 50px;
-  text-align: center;
+  text-align: center; 
+  font-style: italic;
 }
 
 #home-page-body {

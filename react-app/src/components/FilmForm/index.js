@@ -198,7 +198,7 @@ export default function FilmForm({ film, type }) {
 
         <div id="button-container">
           <button
-            id="submit-button"
+            id="submit-film-button"
             type="submit"
             disabled={!title || (!genre1 && !genre2 && !genre3) || !year || !duration || !synopsis || !key_art}
           >{type}

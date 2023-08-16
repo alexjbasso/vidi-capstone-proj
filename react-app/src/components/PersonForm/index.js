@@ -101,7 +101,7 @@ export default function PersonForm({ person, type }) {
 
         <div id="button-container">
           <button
-            id="submit-button"
+            id="submit-person-button"
             type="submit"
             disabled={!name}
           >{type}

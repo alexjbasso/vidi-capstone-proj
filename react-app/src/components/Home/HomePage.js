@@ -11,7 +11,7 @@ export default function HomePage({ user, films, people }) {
 
   return (
     <div id="home-page-container">
-      <h1 id="welcome-header">Welcome {user ? `back, ${user.username}` : "to Vidi"}</h1>
+      <span id="welcome-header">Welcome {user ? `back, ${user.username}` : "to Vidi"}</span>
 
       <span id="welcome-subtitle">Here's what we've been watching...</span>
 

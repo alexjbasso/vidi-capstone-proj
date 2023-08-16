@@ -184,6 +184,7 @@ export default function FilmForm({ film, type }) {
           <input
             id="key-art"
             type="file"
+            accept="image/*"
             placeholder="URL*"
             onChange={e => setKeyArt(e.target.files[0])}
           />
@@ -197,6 +198,7 @@ export default function FilmForm({ film, type }) {
           <input
             id="cover_photo"
             type="file"
+            accept="image/*"
             placeholder="URL"
             onChange={e => setCoverPhoto(e.target.files[0])}
           />

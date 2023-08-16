@@ -95,6 +95,7 @@ export default function PersonForm({ person, type }) {
           <input
             id="featured-photo"
             type="file"
+            accept="image/*"
             placeholder="URL"
             onChange={e => setFeaturedPhoto(e.target.files[0])}
           />

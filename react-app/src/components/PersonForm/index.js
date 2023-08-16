@@ -24,6 +24,8 @@ export default function PersonForm({ person, type }) {
     if (Object.keys(errorsObj).length === 0) {
       const formData = { name, featured_photo: featuredPhoto, bio }
 
+      console.log(formData);
+
       if (type === "Add") {
         person = await dispatch(addPersonThunk(formData))
       } else if (type === "Edit") {
@@ -31,6 +33,7 @@ export default function PersonForm({ person, type }) {
       }
 
       if (person.errors) {
+
         setErrors(person.errors)
       } else {
         history.push(`/person/${person.payload.id}`);

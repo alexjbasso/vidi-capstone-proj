@@ -28,7 +28,7 @@ export default function FilmForm({ film, type }) {
     if (genre1 && genre1.includes(",")) errorsObj.genre = "Genre must only contain letters.";
     if (genre2 && genre2.includes(",")) errorsObj.genre = "Genre must only contain letters.";
     if (genre3 && genre3.includes(",")) errorsObj.genre = "Genre must only contain letters.";
-    if (year && (year < 0 || year > 2050)) errorsObj.year = "Please enter a valid year.";
+    if (year && (year <= 0 || year > 2050)) errorsObj.year = "Please enter a valid year.";
     if (duration && duration <= 0) errorsObj.duration = "Please enter a valid duration."
     if (synopsis && synopsis.length > 1000) errorsObj.synopsis = "Length must not exceed 1000 characters.";
     if (key_art && (!key_art.endsWith('.jpg') && !key_art.endsWith('.png') && !key_art.endsWith('.gif') && !key_art.endsWith('.bmp') && !key_art.endsWith('.svg'))) errorsObj.key_art = "URL must end in .jpg, .png, .gif, .bmp, or .svg."

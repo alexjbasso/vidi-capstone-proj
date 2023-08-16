@@ -58,7 +58,10 @@ export default function Profile() {
                 <a href={`/person/${person.id}`}><img src={person.featured_photo}></img></a>
                 <div className="UD-buttons-cont" style={{ display: hoveredPerson === i ? 'flex' : 'none' }}>
                   <a href={`/person/${person.id}/edit`}><i className="fa fa-edit profile-UD-button"></i></a>
-                  <DeleteModalButton modalComponent={<DeleteModal className="profile-UD-button" type='person' personId={person.id} id={person.id} />} />
+                  <div className="profile-UD-button">
+                    <DeleteModalButton  modalComponent={<DeleteModal type='person' personId={person.id} id={person.id} />} />
+                  </div>
+
                 </div>
               </div>
             )}

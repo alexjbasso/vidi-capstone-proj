@@ -1,5 +1,6 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
+import "./DeleteModalButton.css"
 
 export default function DeleteModalButton({
   modalComponent, // component to render inside the modal
@@ -16,6 +17,6 @@ export default function DeleteModalButton({
   };
 
   return (
-    <i onClick={onClick} style={{ fontSize: "13px" }} className="fa fa-trash"></i>
+    <i id="delete-modal-button" onClick={onClick} className="fa fa-trash"></i>
   );
 }

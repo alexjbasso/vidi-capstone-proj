@@ -9,8 +9,9 @@ export default function PersonForm({ person, type }) {
   const dispatch = useDispatch();
   const [name, setName] = useState(person?.name);
   const [bio, setBio] = useState(person?.bio);
-  const [featuredPhoto, setFeaturedPhoto] = useState(person?.featured_photo);
-  const [errors, setErrors] = useState({})
+  const [featuredPhoto, setFeaturedPhoto] = useState("");
+  const [errors, setErrors] = useState({});
+  const imageExtensions = /\.(jpg|jpeg|png|gif|bmp|svg)$/i;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,12 +20,13 @@ export default function PersonForm({ person, type }) {
 
     if (name && name.length > 200) errorsObj.name = "Length must not exceed 200 characters.";
     if (bio && bio.length > 1000) errorsObj.bio = "Length must not exceed 1000 characters.";
-    if (featuredPhoto && (!featuredPhoto.endsWith('.jpg') && !featuredPhoto.endsWith('.png') && !featuredPhoto.endsWith('.gif') && !featuredPhoto.endsWith('.bmp') && !featuredPhoto.endsWith('.svg'))) errorsObj.featuredPhoto = "URL must end in .jpg, .png, .gif, .bmp, or .svg."
+    if (featuredPhoto && !imageExtensions.test(featuredPhoto.name)) errorsObj.featuredPhoto = "File must end in .jpg, .jpeg, .png, .gif, .bmp, or .svg."
 
     if (Object.keys(errorsObj).length === 0) {
-      const formData = { name, featured_photo: featuredPhoto, bio }
-
-      console.log(formData);
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('bio', bio);
+      formData.append('featured_photo', featuredPhoto);
 
       if (type === "Add") {
         person = await dispatch(addPersonThunk(formData))
@@ -92,10 +94,9 @@ export default function PersonForm({ person, type }) {
           </div>
           <input
             id="featured-photo"
-            type="text"
+            type="file"
             placeholder="URL"
-            onChange={e => setFeaturedPhoto(e.target.value)}
-            value={featuredPhoto}
+            onChange={e => setFeaturedPhoto(e.target.files[0])}
           />
         </div>
 

@@ -17,7 +17,7 @@ export default function FilmForm({ film, type }) {
   const [synopsis, setSynopsis] = useState(film?.synopsis);
   const [key_art, setKeyArt] = useState("");
   const [cover_photo, setCoverPhoto] = useState("");
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
   const imageExtensions = /\.(jpg|jpeg|png|gif|bmp|svg)$/i;
 
 
@@ -33,7 +33,7 @@ export default function FilmForm({ film, type }) {
     if (year && (year <= 0 || year > 2050)) errorsObj.year = "Please enter a valid year.";
     if (duration && duration <= 0) errorsObj.duration = "Please enter a valid duration."
     if (synopsis && synopsis.length > 1000) errorsObj.synopsis = "Length must not exceed 1000 characters.";
-    if (key_art && !imageExtensions.test(key_art.name)) errorsObj.key_art = "File must end in .jpg, .png, .gif, .bmp, or .svg."
+    if (key_art && !imageExtensions.test(key_art.name)) errorsObj.key_art = "File must end in .jpg, .jpeg, .png, .gif, .bmp, or .svg."
     if (cover_photo && !imageExtensions.test(cover_photo.name)) errorsObj.cover_photo = "File must end in .jpg, .png, .gif, .bmp, or .svg."
 
 

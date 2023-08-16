@@ -80,11 +80,9 @@ export const addPersonThunk = (formData) => async (dispatch) => {
   try {
     const response = await fetch('/api/people/new', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: formData,
     });
     const newPerson = await response.json();
-    console.log("thunk:", newPerson)
     if (!response.ok) {
       throw new Error(newPerson)
     }
@@ -102,7 +100,6 @@ export const roleAddThunk = (formData) => async (dispatch) => {
     body: JSON.stringify(formData),
   });
   const newRole = await response.json();
-  console.log(newRole)
 }
 
 //Edit a Person Thunk
@@ -110,8 +107,7 @@ export const editPersonThunk = (person, formData) => async (dispatch) => {
   try {
     const response = await fetch(`/api/people/${person.id}/edit`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: formData,
     });
     const editedPerson = await response.json();
     if (!response.ok) {

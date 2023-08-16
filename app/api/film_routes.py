@@ -103,7 +103,6 @@ def edit_film(id):
     form.data['user_id'] = current_user.id
 
     if form.validate_on_submit():
-        print("VALIDATED YEEE!!!!!!!!!!!!!!!!")
 
         if form.data['key_art']:
             key_art = form.data['key_art']

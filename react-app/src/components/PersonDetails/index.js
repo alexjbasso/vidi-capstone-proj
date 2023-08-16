@@ -15,7 +15,6 @@ export default function PersonDetails() {
   const [toggledRole, setToggledRole] = useState(location?.role)
   const [filteredFilms, setFilteredFilms] = useState([])
 
-  // Adding in extra test role to this array
   const allRoles = [];
   person?.roles.forEach(role => { if (!allRoles.includes(role.role)) allRoles.push(role.role) });
 

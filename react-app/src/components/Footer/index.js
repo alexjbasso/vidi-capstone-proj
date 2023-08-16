@@ -9,8 +9,8 @@ export default function Footer() {
         <div className="footer-col" id="creator">
           <i className="fa fa-user footer-header"></i>
           <span>Alex Basso</span>
-          <a href="https://www.linkedin.com/in/alexjbasso/">–LinkedIn</a>
-          <a href="https://github.com/alexjbasso">–Github</a>
+          <a href="https://www.linkedin.com/in/alexjbasso/">‣LinkedIn</a>
+          <a href="https://github.com/alexjbasso">‣Github</a>
         </div>
 
         <div className="footer-col" id="languages">

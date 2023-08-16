@@ -81,8 +81,7 @@ export const addFilmThunk = (formData) => async (dispatch) => {
   try {
     const response = await fetch('/api/films/new', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: formData,
     });
     const newFilm = await response.json();
     if (!response.ok) {
@@ -99,8 +98,7 @@ export const editFilmThunk = (film, formData) => async (dispatch) => {
   try {
     const response = await fetch(`/api/films/${film.id}/edit`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+      body: formData,
     });
     const editedFilm = await response.json();
     if (!response.ok) {

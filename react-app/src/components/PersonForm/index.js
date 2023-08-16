@@ -54,7 +54,7 @@ export default function PersonForm({ person, type }) {
 
   return (
     <div id="person-form-container">
-      <form id="person-form" onSubmit={handleSubmit}>
+      <form id="person-form" onSubmit={handleSubmit} encType="multipart/form-data">
         <h1>{type} a person</h1>
         <div className="person-field">
           <div className="field-label">

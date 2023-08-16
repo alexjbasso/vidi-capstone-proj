@@ -15,9 +15,11 @@ export default function FilmForm({ film, type }) {
   const [year, setYear] = useState(film?.year);
   const [duration, setDuration] = useState(film?.duration);
   const [synopsis, setSynopsis] = useState(film?.synopsis);
-  const [key_art, setKeyArt] = useState(film?.key_art);
-  const [cover_photo, setCoverPhoto] = useState(film?.cover_photo);
+  const [key_art, setKeyArt] = useState("");
+  const [cover_photo, setCoverPhoto] = useState("");
   const [errors, setErrors] = useState({})
+  const imageExtensions = /\.(jpg|jpeg|png|gif|bmp|svg)$/i;
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,12 +33,20 @@ export default function FilmForm({ film, type }) {
     if (year && (year <= 0 || year > 2050)) errorsObj.year = "Please enter a valid year.";
     if (duration && duration <= 0) errorsObj.duration = "Please enter a valid duration."
     if (synopsis && synopsis.length > 1000) errorsObj.synopsis = "Length must not exceed 1000 characters.";
-    if (key_art && (!key_art.endsWith('.jpg') && !key_art.endsWith('.png') && !key_art.endsWith('.gif') && !key_art.endsWith('.bmp') && !key_art.endsWith('.svg'))) errorsObj.key_art = "URL must end in .jpg, .png, .gif, .bmp, or .svg."
-    if (cover_photo && (!cover_photo.endsWith('.jpg') && !cover_photo.endsWith('.png') && !cover_photo.endsWith('.gif') && !cover_photo.endsWith('.bmp') && !cover_photo.endsWith('.svg'))) errorsObj.cover_photo = "URL must end in .jpg, .png, .gif, .bmp, or .svg."
+    if (key_art && !imageExtensions.test(key_art.name)) errorsObj.key_art = "File must end in .jpg, .png, .gif, .bmp, or .svg."
+    if (cover_photo && !imageExtensions.test(cover_photo.name)) errorsObj.cover_photo = "File must end in .jpg, .png, .gif, .bmp, or .svg."
+
 
     if (Object.keys(errorsObj).length === 0) {
       const genre = [genre1, genre2, genre3].filter(Boolean);
-      const formData = { title, genre: genre.join(", "), year, duration, synopsis, key_art, cover_photo }
+      const formData = new FormData();
+      formData.append('title', title)
+      formData.append('genre', genre.join(", "))
+      formData.append('year', year)
+      formData.append('duration', duration)
+      formData.append('synopsis', synopsis)
+      formData.append('key_art', key_art)
+      formData.append('cover_photo', cover_photo)
 
       if (type === "Add") {
         film = await dispatch(addFilmThunk(formData))
@@ -52,7 +62,6 @@ export default function FilmForm({ film, type }) {
     } else {
       setErrors(errorsObj);
     }
-
   }
 
   const handleCancelClick = (e) => {
@@ -66,7 +75,7 @@ export default function FilmForm({ film, type }) {
 
   return (
     <div id="film-form-container">
-      <form id="film-form" onSubmit={handleSubmit}>
+      <form id="film-form" onSubmit={handleSubmit} encType="multipart/form-data">
         <h1>{type} a film</h1>
         <div className="film-field">
           <div className="field-label">
@@ -174,11 +183,9 @@ export default function FilmForm({ film, type }) {
           </div>
           <input
             id="key-art"
-            type="text"
+            type="file"
             placeholder="URL*"
-            onChange={e => setKeyArt(e.target.value)}
-            value={key_art}
-            required
+            onChange={e => setKeyArt(e.target.files[0])}
           />
         </div>
 
@@ -189,10 +196,9 @@ export default function FilmForm({ film, type }) {
           </div>
           <input
             id="cover_photo"
-            type="text"
+            type="file"
             placeholder="URL"
-            onChange={e => setCoverPhoto(e.target.value)}
-            value={cover_photo}
+            onChange={e => setCoverPhoto(e.target.files[0])}
           />
         </div>
 
@@ -200,7 +206,7 @@ export default function FilmForm({ film, type }) {
           <button
             id="submit-film-button"
             type="submit"
-            disabled={!title || (!genre1 && !genre2 && !genre3) || !year || !duration || !synopsis || !key_art}
+            disabled={!title || (!genre1 && !genre2 && !genre3) || !year || !duration || !synopsis || (type === 'Add' && !key_art)}
           >{type}
           </button>
           <button

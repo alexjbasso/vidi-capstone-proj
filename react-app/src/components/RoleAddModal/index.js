@@ -40,7 +40,7 @@ export default function RoleAddModal({ film, type, person }) {
         setSelectedPerson(objectValue);
       });
     }
-  }, [people])
+  }, [people.length])
 
   if (!people.length) return <h1>No people.</h1>
 
@@ -74,7 +74,7 @@ export default function RoleAddModal({ film, type, person }) {
             id="person-select"
             defaultValue="--select--">
             <option key="select-person-empty" value="" data-object={JSON.stringify({ null: null })}>--select--</option>
-            {people.map(person => <option key={person.id} value={person} data-object={JSON.stringify(person)}>{person.name}</option>)}
+            {people.map(person => <option key={person.id} data-object={JSON.stringify(person)}>{person.name}</option>)}
           </select>
           <label htmlFor="role-add-film">Role:</label>
 

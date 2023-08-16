@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import SignupFormModal from "../SignupFormModal";
 import "./LoginForm.css";
 
 function LoginFormModal() {
@@ -9,7 +10,7 @@ function LoginFormModal() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const { closeModal } = useModal();
+  const { closeModal, setModalContent } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,11 +22,35 @@ function LoginFormModal() {
     }
   };
 
+  const demoUserLogin = async (e) => {
+    e.preventDefault();
+    const demoUserCredentials = {
+      email: "demo@aa.io",
+      password: "password"
+    };
+    await dispatch(login(demoUserCredentials.email, demoUserCredentials.password))
+      .then(() => {
+        closeModal();
+      })
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) {
+          setErrors(data.errors);
+        }
+      });
+  };
+
+  const openSignupModal = (e) => {
+    e.preventDefault();
+    setModalContent(<SignupFormModal />);
+  };
+
   return (
-    <div id="login-container">
-      <h1>Log In</h1>
+    <div id="login-modal-container">
+      <h1 id="login-text">Log In</h1>
       <form onSubmit={handleSubmit} id="login-form">
-        <ul>
+        <button className="demoUserLink" onClick={demoUserLogin}>Continue with Demo User</button>
+        <ul id="errors-ul">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
@@ -36,6 +61,7 @@ function LoginFormModal() {
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email*"
             required
           />
         </label>
@@ -46,10 +72,15 @@ function LoginFormModal() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            placeholder="Password*"
           />
         </label>
-        <button type="submit">Log In</button>
+        <button id="login-submit" type="submit">Log In</button>
       </form>
+      <p id="sign-up-link">
+        Don't have an account?{" "}
+        <a href="" onClick={openSignupModal}>Sign up for Vidi</a>
+      </p>
     </div>
   );
 }

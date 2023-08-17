@@ -107,6 +107,16 @@ export const addFilmThunk = (formData) => async (dispatch) => {
   }
 };
 
+// Add role
+export const roleAddPersonToFilmThunk = (formData) => async (dispatch) => {
+  const response = await fetch('/api/roles/new', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData),
+  });
+  const newRole = await response.json();
+}
+
 //Edit a Film Thunk
 export const editFilmThunk = (film, formData) => async (dispatch) => {
   try {

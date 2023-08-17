@@ -1,5 +1,6 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
+import "./OpenModalButton.css";
 
 function OpenModalButton({
   modalComponent, // component to render inside the modal
@@ -16,8 +17,7 @@ function OpenModalButton({
   };
 
   return (
-    <a style={{color: "rgb(102, 119, 136)" }} onClick={onClick}>{buttonText}</a>
+    <a style={{color: "rgb(136, 153, 170)" }} className="open-modal-button" onClick={onClick}>{buttonText}</a>
   );
 }
-
 export default OpenModalButton;

@@ -4,6 +4,7 @@ const LOAD_PERSON = 'people/LOAD_PERSON';
 const ADD_PERSON = 'people/ADD_PERSON';
 const EDIT_PERSON = 'people/EDIT_PERSON';
 const DELETE_PERSON = 'people/DELETE_PERSON';
+const CLEAR_PEOPLE = 'people/CLEAR_PEOPLE';
 
 
 // ===Action Creators===
@@ -45,6 +46,11 @@ export const deletePersonAction = (personId) => {
     type: DELETE_PERSON,
     payload: personId,
   };
+};
+
+// Clear People State Action
+export const clearPeopleAction = () => {
+  return { type: CLEAR_PEOPLE }
 };
 
 
@@ -159,6 +165,8 @@ export default function peopleReducer(state = initialState, action) {
       const allPeopleObj = { ...state.allPeople };
       delete allPeopleObj[action.payload];
       return { ...state, allPeople: allPeopleObj };
+      case CLEAR_PEOPLE:
+        return {};
     default:
       return state;
   }

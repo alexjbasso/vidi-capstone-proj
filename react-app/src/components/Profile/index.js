@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPeopleOfUserThunk } from "../../store/people";
-import { getAllFilmsOfUserThunk } from "../../store/films";
+import { clearPeopleAction, getAllPeopleOfUserThunk } from "../../store/people";
+import { clearFilmsAction, getAllFilmsOfUserThunk } from "../../store/films";
 import DeleteModalButton from "../DeleteModalButton";
 import DeleteModal from "../DeleteModal";
 import "./Profile.css";
@@ -20,6 +20,16 @@ export default function Profile() {
       dispatch(getAllPeopleOfUserThunk());
     }
   }, [dispatch, user]);
+
+  // Cleanup
+  useEffect(() => {
+    return async () => {
+      await dispatch(clearFilmsAction());
+      await dispatch(clearPeopleAction());
+    }
+  }, [dispatch])
+
+
 
   if (!user) return <h1>You need to be logged in to view this page.</h1>
 
@@ -59,7 +69,7 @@ export default function Profile() {
                 <div className="UD-buttons-cont" style={{ display: hoveredPerson === i ? 'flex' : 'none' }}>
                   <a href={`/person/${person.id}/edit`}><i className="fa fa-edit profile-UD-button"></i></a>
                   <div className="profile-UD-button">
-                    <DeleteModalButton  modalComponent={<DeleteModal type='person' personId={person.id} id={person.id} />} />
+                    <DeleteModalButton modalComponent={<DeleteModal type='person' personId={person.id} id={person.id} />} />
                   </div>
 
                 </div>

@@ -4,6 +4,7 @@ const LOAD_FILM = 'films/LOAD_FILM';
 const ADD_FILM = 'films/ADD_FILM';
 const EDIT_FILM = 'films/EDIT_FILM';
 const DELETE_FILM = 'films/DELETE_FILM';
+const CLEAR_FILMS = 'films/CLEAR_FILMS';
 
 
 // ===Action Creators===
@@ -47,6 +48,10 @@ export const deleteFilmAction = (filmId) => {
   };
 };
 
+// Clear Films State Action
+export const clearFilmsAction = () => {
+  return { type: CLEAR_FILMS }
+};
 
 
 // ===Thunks===
@@ -147,6 +152,8 @@ export default function filmsReducer(state = initialState, action) {
       const allFilmsObj = { ...state.allFilms };
       delete allFilmsObj[action.payload];
       return { ...state, allFilms: allFilmsObj };
+    case CLEAR_FILMS:
+      return {};
     default:
       return state;
   }

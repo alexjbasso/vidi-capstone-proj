@@ -2,6 +2,9 @@ import "./HomePage.css";
 
 export default function HomePage({ user, films, people }) {
 
+
+  console.log("people", films)
+
   const featuredTitles = ["Barbie", "Spider-Man: Across the Spider-Verse", "Everything Everywhere All at Once", "Paddington 2", "Eternal Sunshine of the Spotless Mind"];
   let featuredFilms = films.filter(film => featuredTitles.includes(film.title))
   featuredFilms = [featuredFilms[2], featuredFilms[4], featuredFilms[1], featuredFilms[3], featuredFilms[0]];

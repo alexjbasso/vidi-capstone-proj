@@ -32,7 +32,7 @@ export default function Profile() {
       <div id="user-uploads-cont">
 
         <div className="manage-items-cont" id="user-films-cont">
-          <span className="profile-section-header">FILMS</span>
+          <span className="profile-section-header">FILMS{user && <a href="film/new"><i className="fa fa-plus add-film"></i></a>} </span>
           <div className="manage-items-grid" id="user-films-grid">
             {films && films.map((film, i) =>
               <div className="tile-container-profile"
@@ -50,7 +50,7 @@ export default function Profile() {
         </div>
 
         <div className="manage-items-cont" id="user-people-cont">
-          <span className="profile-section-header">PEOPLE</span>
+          <span className="profile-section-header">PEOPLE{user && <a href="person/new"><i className="fa fa-plus add-person"></i></a>} </span>
           <div className="manage-items-grid" id="user-people-grid">
             {people && people.map((person, i) =>
               <div className="tile-container-profile"

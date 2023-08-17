@@ -35,7 +35,13 @@ class Film(db.Model):
             'synopsis': self.synopsis,
             'key_art': self.key_art,
             'cover_photo': self.cover_photo,
-            # 'user': self.user.to_dict(),
             'roles': [role.to_dict_film() for role in self.roles],
-            'reviews': [review.to_dict() for review in self.reviews]
+            'reviews': [review.to_dict_for_film() for review in self.reviews]
+        }
+
+    def to_dict_for_review(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'key_art': self.key_art,
         }

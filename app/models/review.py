@@ -27,4 +27,13 @@ class Review(db.Model):
             'rating': self.rating,
             'review_text': self.review_text,
             'user': self.user.to_dict(),
+            'film': self.film.to_dict_for_review()
+        }
+
+    def to_dict_for_film(self):
+        return {
+            'id': self.id,
+            'rating': self.rating,
+            'review_text': self.review_text,
+            'user': self.user.to_dict(),
         }

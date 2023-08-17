@@ -17,7 +17,7 @@ def get_all_reviews():
     return jsonify([review.to_dict() for review in Review.query.all()])
 
 
-# Get all people of current user
+# Get all reviews of current user
 
 @review_routes.route('/current')
 @login_required
@@ -27,6 +27,17 @@ def get_user_reviews():
     """
     user_reviews = Review.query.filter(Review.user_id == current_user.id)
     reviews_dict = [review.to_dict() for review in user_reviews]
+    return jsonify(reviews_dict)
+
+# Get all reviews of a film 
+
+@review_routes.route('/film/<int:filmId>')
+def get_film_reviews(filmId):
+    """
+    Query for all reviews of a film and return them in a list of review dictionaries
+    """
+    film_reviews = Review.query.filter(Review.film_id == filmId)
+    reviews_dict = [review.to_dict() for review in film_reviews]
     return jsonify(reviews_dict)
 
 

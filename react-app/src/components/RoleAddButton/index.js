@@ -1,5 +1,6 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
+import "./RoleAddButton.css"
 
 function RoleAddButton({
   modalComponent, // component to render inside the modal
@@ -15,7 +16,7 @@ function RoleAddButton({
   };
 
   return (
-    <i onClick={onClick} style={{ fontSize: "15px" }} className="fa fa-plus"></i>
+    <i onClick={onClick} style={{ fontSize: "15px" }} id="role-add-icon" className="fa fa-plus"></i>
   );
 }
 

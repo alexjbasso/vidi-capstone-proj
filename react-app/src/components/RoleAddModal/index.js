@@ -90,9 +90,9 @@ export default function RoleAddModal({ film, type, person }) {
             </select>
           </label>
 
-          <div className="add-role-button-container">
+          <div id="add-role-button-container">
             <button
-              id="submit-button"
+              id="submit-role-button"
               type="submit"
               disabled={!selectedPerson || selectedPerson === { null: null } || !selectedRole || selectedRole === "--select--"}
             >Add role

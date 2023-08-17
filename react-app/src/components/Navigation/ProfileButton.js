@@ -47,14 +47,14 @@ function ProfileButton({ user }) {
       
       <div className={ulClassName} id="user-dropdown" ref={ulRef}>
         {user ? (
-          <>
+          <div className="prof-menu" id="logged-in-menu">
             <NavLink to="/profile">Profile</NavLink>
             <div>
-              <button onClick={handleLogout} id="logout-button">Log Out</button>
+              <a onClick={handleLogout} id="logout-button">Log Out</a>
             </div>
-          </>
+          </div>
         ) : (
-          <div id="login-signup-buttons">
+          <div className="prof-menu" id="logged-out-menu">
             <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}

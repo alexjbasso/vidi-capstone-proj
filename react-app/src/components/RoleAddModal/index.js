@@ -10,7 +10,7 @@ export default function RoleAddModal({ film, type, person }) {
   const { closeModal } = useModal();
   const user = useSelector(state => state.session?.user);
   // All people created by user sorted by first name
-  const people = Object.values(useSelector(state => state.people.allPeople))
+  const people = Object.values(useSelector(state => state.people.allUserPeople))
     .sort((a, b) => {
       const personA = a.name.toUpperCase();
       const personB = b.name.toUpperCase();
@@ -66,9 +66,10 @@ export default function RoleAddModal({ film, type, person }) {
 
   if (type === "person-to-film") {
     return (
-      <div id="p-to-f-cont">
-        <h2 id="add-role-header">Add credits for {film.title}</h2>
-        <form id="person-to-film" onSubmit={handleSubmit}>
+      <div className="add-role-cont" id="person-to-film-cont">
+        <h2 className="add-role-header">Add credits for:</h2>
+        <h3 className="add-role-subject" id="role-film-title">{film.title}</h3>
+        <form className="add-role-form" id="person-to-film-form" onSubmit={handleSubmit}>
           <label htmlFor="person-select">Select a person:</label>
           <select
             id="person-select"
@@ -86,18 +87,20 @@ export default function RoleAddModal({ film, type, person }) {
             {Object.keys(roleOptions).map(role => <option key={role} value={role} >{role}</option>)}
           </select>
 
-          <button
-            id="submit-button"
-            type="submit"
-            disabled={!selectedPerson || selectedPerson === { null: null } || !selectedRole || selectedRole === "--select--"}
-          >Add role
-          </button>
-          <button
-            id="cancel-button"
-            onClick={() => closeModal()}
-          >
-            Cancel
-          </button>
+          <div className="add-role-buttons">
+            <button
+              id="submit-button"
+              type="submit"
+              disabled={!selectedPerson || selectedPerson === { null: null } || !selectedRole || selectedRole === "--select--"}
+            >Add role
+            </button>
+            <button
+              id="cancel-button"
+              onClick={() => closeModal()}
+            >
+              Cancel
+            </button>
+          </div>
 
         </form>
       </div>
@@ -106,9 +109,10 @@ export default function RoleAddModal({ film, type, person }) {
 
   if (type === "film-to-person") {
     return (
-      <div id="film-to-person-cont">
-        <h2 id="add-role-header">Add credits for {person.name}.</h2>
-        <form id="film-to-person">
+      <div className="add-role-cont" id="film-to-person-cont">
+        <h2 className="add-role-header">Add credits for:</h2>
+        <h3 className="add-role-subject" id="role-person-name">{person.name}</h3>
+        <form className="add-role-form" id="film-to-person-form">
           <label htmlFor="film-select">Select a film:</label>
           <select
             id="film-select" />

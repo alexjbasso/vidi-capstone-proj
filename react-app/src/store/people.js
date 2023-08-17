@@ -1,6 +1,7 @@
 // ===Action Types===
 const LOAD_PEOPLE = 'people/LOAD_PEOPLE';
 const LOAD_PERSON = 'people/LOAD_PERSON';
+const LOAD_USER_PEOPLE = 'people/LOAD_USER_PEOPLE';
 const ADD_PERSON = 'people/ADD_PERSON';
 const EDIT_PERSON = 'people/EDIT_PERSON';
 const DELETE_PERSON = 'people/DELETE_PERSON';
@@ -12,6 +13,14 @@ const CLEAR_PEOPLE = 'people/CLEAR_PEOPLE';
 export const getAllPeopleAction = (people) => {
   return {
     type: LOAD_PEOPLE,
+    payload: people,
+  };
+};
+
+// Get All User's People Action
+export const getAllUserPeopleAction = (people) => {
+  return {
+    type: LOAD_USER_PEOPLE,
     payload: people,
   };
 };
@@ -67,7 +76,7 @@ export const getAllPeopleThunk = () => async (dispatch) => {
 export const getAllPeopleOfUserThunk = () => async (dispatch) => {
   const response = await fetch('/api/people/current');
   const people = await response.json();
-  dispatch(getAllPeopleAction(people));
+  dispatch(getAllUserPeopleAction(people));
   return response;
 };
 
@@ -144,6 +153,7 @@ export const deletePersonThunk = (personId) => async (dispatch) => {
 // ===Reducer===
 const initialState = {
   allPeople: {},
+  allUserPeople: {},
   singlePerson: {}
 }
 
@@ -155,6 +165,12 @@ export default function peopleReducer(state = initialState, action) {
         allPeopleObject[person.id] = person;
       });
       return { ...state, allPeople: allPeopleObject };
+    case LOAD_USER_PEOPLE:
+      const allUserPeopleObject = {};
+      action.payload.forEach((person) => {
+        allUserPeopleObject[person.id] = person;
+      });
+      return { ...state, allUserPeople: allUserPeopleObject };
     case LOAD_PERSON:
       return { ...state, singlePerson: { [action.payload.id]: action.payload } };
     case ADD_PERSON:

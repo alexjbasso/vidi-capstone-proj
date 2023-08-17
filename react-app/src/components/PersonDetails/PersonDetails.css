@@ -10,17 +10,8 @@
   min-width: 670px;
 }
 
-img {
-  border: solid 1px rgb(153, 170, 187);
-  border-radius: 3px;
-}
-
 .film-cont img:hover {
   border: solid 1px rgb(0, 224, 84);
-}
-
-a:hover {
-  cursor: pointer;
 }
 
 #role-header {
@@ -92,9 +83,4 @@ a:hover {
 #person-ft-photo {
   width: 230px;
   height: 345px;
-}
-
-p {
-  font-size: 13px;
-  color: rgb(136, 153, 170);
 }

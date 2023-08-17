@@ -9,8 +9,9 @@ import "./Profile.css";
 export default function Profile() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session?.user);
-  const films = Object.values(useSelector(state => state.films.allFilms));
-  const people = Object.values(useSelector(state => state.people.allPeople));
+  const films = Object.values(useSelector(state => state.films?.allUserFilms))
+  const people = Object.values(useSelector(state => state.people?.allUserPeople))
+
   const [hoveredFilm, setHoveredFilm] = useState(-1);
   const [hoveredPerson, setHoveredPerson] = useState(-1);
 
@@ -20,16 +21,6 @@ export default function Profile() {
       dispatch(getAllPeopleOfUserThunk());
     }
   }, [dispatch, user]);
-
-  // Cleanup
-  useEffect(() => {
-    return async () => {
-      await dispatch(clearFilmsAction());
-      await dispatch(clearPeopleAction());
-    }
-  }, [dispatch])
-
-
 
   if (!user) return <h1>You need to be logged in to view this page.</h1>
 
@@ -41,7 +32,7 @@ export default function Profile() {
       <div id="user-uploads-cont">
 
         <div className="manage-items-cont" id="user-films-cont">
-          <span>FILMS</span>
+          <span className="profile-section-header">FILMS</span>
           <div className="manage-items-grid" id="user-films-grid">
             {films && films.map((film, i) =>
               <div className="tile-container-profile"
@@ -59,7 +50,7 @@ export default function Profile() {
         </div>
 
         <div className="manage-items-cont" id="user-people-cont">
-          <span>PEOPLE</span>
+          <span className="profile-section-header">PEOPLE</span>
           <div className="manage-items-grid" id="user-people-grid">
             {people && people.map((person, i) =>
               <div className="tile-container-profile"

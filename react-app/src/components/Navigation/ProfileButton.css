@@ -1,8 +1,9 @@
-#logout-button {
-border-radius: 3px;
+.prof-menu {
+  background-color: #1e232b;
+  color: rgb(102, 119, 136);
 }
 
-#login-signup-buttons {
+#logged-out-menu {
   display: flex;
   flex-direction: column;
 }

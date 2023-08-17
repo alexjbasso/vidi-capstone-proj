@@ -14,8 +14,10 @@
 
 #welcome-subtitle {
   margin-bottom: 50px;
+  font-size: 20px;
   text-align: center; 
   font-style: italic;
+  color: #c9d3de;
 }
 
 #home-page-body {

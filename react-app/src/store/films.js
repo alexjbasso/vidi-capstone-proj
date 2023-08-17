@@ -1,6 +1,7 @@
 // ===Action Types===
 const LOAD_FILMS = 'films/LOAD_FILMS';
 const LOAD_FILM = 'films/LOAD_FILM';
+const LOAD_USER_FILMS = 'films/LOAD_USER_FILMS';
 const ADD_FILM = 'films/ADD_FILM';
 const EDIT_FILM = 'films/EDIT_FILM';
 const DELETE_FILM = 'films/DELETE_FILM';
@@ -12,6 +13,14 @@ const CLEAR_FILMS = 'films/CLEAR_FILMS';
 export const getAllFilmsAction = (films) => {
   return {
     type: LOAD_FILMS,
+    payload: films,
+  };
+};
+
+// Get All User's Films Action
+export const getAllUserFilmsAction = (films) => {
+  return {
+    type: LOAD_USER_FILMS,
     payload: films,
   };
 };
@@ -67,7 +76,7 @@ export const getAllFilmsThunk = () => async (dispatch) => {
 export const getAllFilmsOfUserThunk = () => async (dispatch) => {
   const response = await fetch('/api/films/current');
   const films = await response.json();
-  dispatch(getAllFilmsAction(films));
+  dispatch(getAllUserFilmsAction(films));
   return response;
 };
 
@@ -131,6 +140,7 @@ export const deleteFilmThunk = (filmId) => async (dispatch) => {
 // ===Reducer===
 const initialState = {
   allFilms: {},
+  allUserFilms: {},
   singleFilm: {}
 }
 
@@ -142,6 +152,12 @@ export default function filmsReducer(state = initialState, action) {
         allFilmsObject[film.id] = film;
       });
       return { ...state, allFilms: allFilmsObject };
+    case LOAD_USER_FILMS:
+      const allUserFilmsObject = {};
+      action.payload.forEach((film) => {
+        allUserFilmsObject[film.id] = film;
+      });
+      return { ...state, allUserFilms: allUserFilmsObject };
     case LOAD_FILM:
       return { ...state, singleFilm: { [action.payload.id]: action.payload } };
     case ADD_FILM:

@@ -1,10 +1,30 @@
-#add-role-header {
-  color: rgb(0, 0, 0);
+.add-role-cont {
+  background-color: #2c3440;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#person-to-film,
-#film-to-person {
+.add-role-header,
+.add-role-subject {
+  color: rgb(0, 0, 0);
+  margin: 0px;
+  text-align: center;
+}
+
+#person-to-film-form,
+#film-to-person-form {
   color: black;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  /* margin-bottom: 20px;
+  width: 50%;
+  position: relative; */
+  
 }

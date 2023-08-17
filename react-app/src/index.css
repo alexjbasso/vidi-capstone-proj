@@ -10,3 +10,17 @@ body {
   font-family: "Graphik", sans-serif;
   background: linear-gradient(to top, #14181c, #2c3440);
 }
+
+a:hover {
+  cursor: pointer;
+}
+
+p {
+  font-size: 13px;
+  color: rgb(136, 153, 170);
+}
+
+img {
+  border: solid 1px rgb(153, 170, 187);
+  border-radius: 3px;
+}

@@ -31,7 +31,10 @@ function SignupFormModal() {
 
 	return (
 		<div id="signup-container">
-			<h1>Sign Up</h1>
+			<div className="modal-close-x">
+				<i className="fa fa-x modal-close-x-button" onClick={closeModal}/>
+			</div>
+			<h1 id="signup-header">Sign Up</h1>
 			<form onSubmit={handleSubmit} id="signup-form">
 				<ul>
 					{errors.map((error, idx) => (

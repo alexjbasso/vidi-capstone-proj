@@ -9,6 +9,27 @@
   padding: 5px;
 }
 
+#login-modal-container .modal-close-x {
+  text-align: right;
+  width: 100%;
+  font-size: 20px;
+  position: absolute;
+  bottom: 517px;
+  right: 13px;
+  color: #99AABB;
+}
+
+#login-modal-container .modal-close-x-button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#login-text {
+  margin: 0px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+}
 
 #login-form {
   display: flex;
@@ -26,7 +47,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background-color: rgb(30, 30, 30);
+  background-color: #667788;
 }
 
 #login-form::before {
@@ -44,6 +65,7 @@
 #login-form label {
   margin: 10px 0;
   width: 100%;
+  color: #99AABB;
 }
 
 #login-form input {
@@ -52,7 +74,7 @@
   border: 1px solid rgb(161, 161, 161);
   border-radius: 4px;
   color: white;
-  background-color: rgb(20, 20, 20);
+  background-color: #14181c;
 }
 
 #login-form input::placeholder {
@@ -71,15 +93,18 @@
   border-radius: 20px;
 }
 
-#login-form button#login-button:hover {
-  transform: scale(1.05)
+#login-form button:hover {
+  background-color: rgb(16, 125, 16);
+  color: white;
 }
+
 #login-form button.demoUserLink {
-  background-color: black;
+  background-color: #14181c;
   border: 1px solid rgb(161, 161, 161);
   margin-bottom: 45px;
   padding: 16px;
   font-weight: bolder;
+  color: #c7d3df;
 }
 
 #login-form button.demoUserLink:hover {
@@ -94,9 +119,9 @@
 }
 
 #sign-up-link {
-
   margin-top: 50px;
 }
+
 #sign-up-link a {
   text-decoration: underline;
   color: inherit;
@@ -104,10 +129,10 @@
 }
 
 #sign-up-link a:hover {
-  color: rgb(33, 204, 6)
+  color: rgb(21, 135, 3)
 }
 
 .errors-ul {
-  color:red;
-  font-size:small;
+  color: red;
+  font-size: small;
 }

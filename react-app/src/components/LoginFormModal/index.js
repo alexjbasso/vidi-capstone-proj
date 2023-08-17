@@ -3,7 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import SignupFormModal from "../SignupFormModal";
-import "./LoginForm.css";
+import "./LoginFormModal.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -47,6 +47,9 @@ function LoginFormModal() {
 
   return (
     <div id="login-modal-container">
+      <div className="modal-close-x">
+        <i className="fa fa-x modal-close-x-button" onClick={closeModal}/>
+      </div>
       <h1 id="login-text">Log In</h1>
       <form onSubmit={handleSubmit} id="login-form">
         <button className="demoUserLink" onClick={demoUserLogin}>Continue with Demo User</button>
@@ -61,7 +64,6 @@ function LoginFormModal() {
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email*"
             required
           />
         </label>
@@ -72,7 +74,6 @@ function LoginFormModal() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            placeholder="Password*"
           />
         </label>
         <button id="login-submit" type="submit">Log In</button>

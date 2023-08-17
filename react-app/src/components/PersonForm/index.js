@@ -101,7 +101,7 @@ export default function PersonForm({ person, type }) {
           />
         </div>
 
-        <div id="button-container">
+        <div id="people-button-container">
           <button
             id="submit-person-button"
             type="submit"
@@ -109,7 +109,7 @@ export default function PersonForm({ person, type }) {
           >{type}
           </button>
           <button
-            id="cancel-button"
+            className="cancel-button"
             onClick={handleCancelClick}>
             Cancel
           </button>

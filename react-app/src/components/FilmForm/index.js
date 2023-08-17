@@ -204,7 +204,7 @@ export default function FilmForm({ film, type }) {
           />
         </div>
 
-        <div id="button-container">
+        <div id="film-button-container">
           <button
             id="submit-film-button"
             type="submit"
@@ -212,7 +212,7 @@ export default function FilmForm({ film, type }) {
           >{type}
           </button>
           <button
-            id="cancel-button"
+            className="cancel-button"
             onClick={handleCancelClick}>
             Cancel
           </button>

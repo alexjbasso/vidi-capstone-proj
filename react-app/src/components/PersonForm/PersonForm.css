@@ -38,7 +38,7 @@
   color: white;
 }
 
-#button-container {
+#people-button-container {
   display: flex;
   justify-content: center;
   gap: 17px;
@@ -67,7 +67,7 @@
   color: rgb(12, 147, 0);
 }
 
-#cancel-button {
+#people-button-container .cancel-button {
   margin-top: 10px;
   padding: 10px 20px;
   border: none;
@@ -80,7 +80,7 @@
   transition: background-color 0.5s, color 0.5s
 }
 
-#cancel-button:hover {
+#people-button-container .cancel-button:hover {
   color: black;
   background-color: white;
 }

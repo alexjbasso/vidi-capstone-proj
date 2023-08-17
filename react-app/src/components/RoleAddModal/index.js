@@ -70,24 +70,27 @@ export default function RoleAddModal({ film, type, person }) {
         <h2 className="add-role-header">Add credits for:</h2>
         <h3 className="add-role-subject" id="role-film-title">{film.title}</h3>
         <form className="add-role-form" id="person-to-film-form" onSubmit={handleSubmit}>
-          <label htmlFor="person-select">Select a person:</label>
-          <select
-            id="person-select"
-            defaultValue="--select--">
-            <option key="select-person-empty" value="" data-object={JSON.stringify({ null: null })}>--select--</option>
-            {people.map(person => <option key={person.id} data-object={JSON.stringify(person)}>{person.name}</option>)}
-          </select>
-          <label htmlFor="role-add-film">Role:</label>
 
-          <select
-            id="role-add-film"
-            defaultValue={selectedRole}
-            onChange={e => setSelectedRole(e.target.value)}>
-            <option key="select-role-empty" value="" selected={!selectedRole}>--select--</option>
-            {Object.keys(roleOptions).map(role => <option key={role} value={role} >{role}</option>)}
-          </select>
+          <label htmlFor="person-select">Select a person
+            <select
+              id="person-select"
+              defaultValue="--select--">
+              <option key="select-person-empty" value="" data-object={JSON.stringify({ null: null })}>--select--</option>
+              {people.map(person => <option key={person.id} data-object={JSON.stringify(person)}>{person.name}</option>)}
+            </select>
+          </label>
 
-          <div className="add-role-buttons">
+          <label htmlFor="role-add-film">Role
+            <select
+              id="role-add-film"
+              defaultValue={selectedRole}
+              onChange={e => setSelectedRole(e.target.value)}>
+              <option key="select-role-empty" value="" selected={!selectedRole}>--select--</option>
+              {Object.keys(roleOptions).map(role => <option key={role} value={role} >{role}</option>)}
+            </select>
+          </label>
+
+          <div className="add-role-button-container">
             <button
               id="submit-button"
               type="submit"
@@ -95,7 +98,7 @@ export default function RoleAddModal({ film, type, person }) {
             >Add role
             </button>
             <button
-              id="cancel-button"
+              className="cancel-button"
               onClick={() => closeModal()}
             >
               Cancel

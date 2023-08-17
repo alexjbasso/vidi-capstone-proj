@@ -17,6 +17,7 @@ def get_all_people():
     """
     return jsonify([person.to_dict() for person in Person.query.all()])
 
+# Get all people of current user
 
 @person_routes.route('/current')
 @login_required
@@ -113,7 +114,7 @@ def edit_person(id):
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
-# Deleting a person created by the user
+# Delete a person created by the user
 
 
 @person_routes.route('/<int:id>/delete', methods=['DELETE'])

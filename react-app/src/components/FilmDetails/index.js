@@ -62,7 +62,7 @@ export default function FilmDetails() {
                 style={{ color: toggledRole === "CREW" ? "rgb(0, 224, 84)" : "white" }}>
                 CREW
               </span>
-              {user && <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal film={film} type="person-to-film"/>}/>}
+              {user && <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal film={film} type="person-to-film" />} />}
             </div>
             <div id="credits-block">
 
@@ -118,7 +118,21 @@ export default function FilmDetails() {
           </div>
 
           <div id="rater-cont">
-            <button>Watch Button</button>
+            <div className="rater-row">
+              Watched?
+            </div>
+            <span className="seperator"></span>
+            <div className="rater-row">
+              Your rating
+            </div>
+            <span className="seperator"></span>
+            <div className="rater-row">
+              <span>Leave a review...</span>
+            </div>
+            <span className="seperator"></span>
+            <div className="rater-row">
+              Share
+            </div>
           </div>
 
         </div>

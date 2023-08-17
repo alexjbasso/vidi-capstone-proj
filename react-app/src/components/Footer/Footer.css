@@ -1,6 +1,6 @@
 #footer-container {
-  min-height: 64px;
-  padding: 32px 0px;
+  position: relative;
+  padding: 20px 0px;
   background-color: rgb(44, 52, 64);
   margin-top: 50px;
 }
@@ -8,12 +8,15 @@
 #footer-content {
   margin: 0px 350px;
   display: flex;
-  gap: 20px;
-  color: rgb(136, 153, 170)
+  gap: 30px;
+  color: rgb(136, 153, 170);
+  font-size: 15px;
 }
 
 .footer-header {
   margin-bottom: 5px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #667788;
 }
 
 .footer-col a:hover {

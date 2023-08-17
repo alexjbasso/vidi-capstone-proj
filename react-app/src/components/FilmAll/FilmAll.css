@@ -1,8 +1,8 @@
 #film-all-container {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   margin: 40px 350px;
+  height: 65vh;
 }
 
 #all-films-grid {

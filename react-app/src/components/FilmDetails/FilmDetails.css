@@ -2,6 +2,7 @@
   display: flex;
   margin: 40px 21%;
   gap: 30px;
+  height: 70vh;
 }
 
 #details-right-cont {

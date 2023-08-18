@@ -63,8 +63,8 @@
 
 #credits-block a {
   text-decoration: none;
-  color: rgb(136, 153, 170);
-  background-color: #1e232b;
+  color: rgb(149, 161, 174);
+  background-color: #3e4656;
   padding: 5px;
   font-size: 12px;
   border-radius: 3px;
@@ -132,6 +132,13 @@
 #avg-rating-stars {
   font-size: 25px;
 }
+
+#share-url {
+  font-size: 14px;
+  background-color: #283038;
+  padding: 4px;
+}
+
 
 /* Review Block */
 .review-block {

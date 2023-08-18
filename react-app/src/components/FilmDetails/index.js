@@ -21,7 +21,9 @@ export default function FilmDetails() {
   if (user) {
     userReview = Object.values(reviews).find(review => review.user.id === user.id)
   }
-  const [toggledRole, setToggledRole] = useState("CAST")
+  const [toggledRole, setToggledRole] = useState("CAST");
+  const [shareVis, setShareVis] = useState("block");
+  const [urlVis, setURLVis] = useState("none");
 
   const directToPerson = (id, role) => {
     history.push({
@@ -60,6 +62,10 @@ export default function FilmDetails() {
     return stars;
   }
 
+  const showShareURL = () => {
+    setShareVis("none");
+    setURLVis("block");
+  };
 
   return (
     <div id="film-details-page-container">
@@ -165,7 +171,8 @@ export default function FilmDetails() {
             </div>
             <span className="seperator"></span>
             <div className="rater-row">
-              Share
+              <span id="share-text" style={{ display: `${shareVis}` }} onMouseEnter={showShareURL}>Share</span>
+              <span id="share-url" style={{ display: `${urlVis}` }} >{window.location.href}</span>
             </div>
           </div>
         </div>

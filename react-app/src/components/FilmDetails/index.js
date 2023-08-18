@@ -3,8 +3,11 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getFilmByIdThunk } from '../../store/films';
+import { getAllReviewsOfFilmThunk } from "../../store/reviews";
 import RoleAddButton from '../RoleAddButton';
 import RoleAddModal from '../RoleAddModal';
+import ReviewFormButton from "../ReviewFormButton"
+import ReviewFormModal from '../ReviewFormModal';
 import "./FilmDetails.css"
 
 export default function FilmDetails() {
@@ -12,8 +15,15 @@ export default function FilmDetails() {
   const history = useHistory();
   const { id } = useParams();
   const film = useSelector(state => state.films.singleFilm[id])
-  const [toggledRole, setToggledRole] = useState("CAST")
+  const reviews = useSelector(state => state.reviews?.allFilmReviews)
   const user = useSelector((state) => state.session?.user);
+  let userReview;
+  if (user) {
+    userReview = Object.values(reviews).find(review => review.user.id === user.id)
+  }
+  const [toggledRole, setToggledRole] = useState("CAST")
+
+  console.log("out:", userReview)
 
   const directToPerson = (id, role) => {
     history.push({
@@ -24,6 +34,7 @@ export default function FilmDetails() {
 
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));
+    dispatch(getAllReviewsOfFilmThunk(id));
   }, [dispatch, id]);
 
   if (!film) return <h1>Film not found.</h1>
@@ -34,7 +45,6 @@ export default function FilmDetails() {
   const cines = film.roles.filter(person => person.role === 'Cinematographer')
   const editors = film.roles.filter(person => person.role === 'Editor')
   const composers = film.roles.filter(person => person.role === 'Composer')
-  const reviews = film.reviews
   const dirNames = directors.map(director => director.name)
 
   return (
@@ -127,19 +137,20 @@ export default function FilmDetails() {
             </div>
             <span className="seperator"></span>
             <div className="rater-row">
-              <span>Leave a review...</span>
+              {user ?
+                <ReviewFormButton type={userReview ? 'Edit' : 'Add'} modalComponent={<ReviewFormModal filmId={film.id} userReview={userReview} type={userReview ? 'Edit' : 'Add'} />} />
+                : "Log in to leave a review"}
             </div>
             <span className="seperator"></span>
             <div className="rater-row">
               Share
             </div>
           </div>
-
         </div>
 
-        {reviews.length ? <div id="reviews-cont">
+        {Object.values(reviews).length ? <div id="reviews-cont">
           <span id="review-header">REVIEWS</span>
-          {reviews.map(review =>
+          {Object.values(reviews).map(review =>
             <div key={review.id} className="review-block">
               <p className="review-attrib">Review by <span className="review-user">{review.user.username}</span> • {review.rating} Stars</p>
               <p className="review-text">{review.review_text}</p>

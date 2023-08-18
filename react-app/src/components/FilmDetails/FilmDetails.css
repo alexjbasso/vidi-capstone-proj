@@ -1,6 +1,7 @@
 #film-details-page-container {
   display: flex;
-  margin: 40px 21%;
+  margin: 40px 0px;
+  justify-content: center;
   gap: 30px;
   height: 70vh;
 }
@@ -105,6 +106,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .rater-row {
   padding: 27px 0px;
   color: #bcd
@@ -114,6 +116,7 @@
   width: 100%;
   border-bottom: 1px solid #14181c;
 }
+
 /* Review Block */
 .review-block {
   padding-top: 5px;

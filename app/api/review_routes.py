@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Review
+from app.models import db, Review, Film
 from app.forms.review_form import ReviewForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -36,6 +36,10 @@ def get_film_reviews(filmId):
     """
     Query for all reviews of a film and return them in a list of review dictionaries
     """
+    film = Film.query.get(filmId)
+    if film is None:
+        return {'errors': 'Film not found'}, 404
+
     film_reviews = Review.query.filter(Review.film_id == filmId)
     reviews_dict = [review.to_dict() for review in film_reviews]
     return jsonify(reviews_dict)
@@ -55,10 +59,10 @@ def get_review_by_id(id):
         return {'errors': 'Review not found'}, 404
 
 
-# Add new review
+# Add new review to a film
 
 @review_routes.route('/new', methods=['POST'])
-@login_required
+# @login_required
 def add_new_review():
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']

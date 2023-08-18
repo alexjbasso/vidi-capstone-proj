@@ -2,6 +2,7 @@
 const LOAD_REVIEWS = 'reviews/LOAD_REVIEWS';
 const LOAD_REVIEW = 'reviews/LOAD_REVIEW';
 const LOAD_USER_REVIEWS = 'reviews/LOAD_USER_REVIEWS';
+const LOAD_FILM_REVIEWS = 'reviews/LOAD_FILM_REVIEWS';
 const ADD_REVIEW = 'reviews/ADD_REVIEW';
 const EDIT_REVIEW = 'reviews/EDIT_REVIEW';
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
@@ -20,6 +21,14 @@ export const getAllReviewsAction = (reviews) => {
 export const getAllUserReviewsAction = (reviews) => {
   return {
     type: LOAD_USER_REVIEWS,
+    payload: reviews,
+  };
+};
+
+// Get All User's Reviews Action
+export const getAllFilmReviewsAction = (reviews) => {
+  return {
+    type: LOAD_FILM_REVIEWS,
     payload: reviews,
   };
 };
@@ -78,6 +87,16 @@ export const getAllReviewsOfUserThunk = () => async (dispatch) => {
   const reviews = await response.json();
   dispatch(getAllUserReviewsAction(reviews));
   return response;
+};
+
+// Get All Reviews of Film Thunk
+export const getAllReviewsOfFilmThunk = (filmId) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/film/${filmId}`);
+  const reviews = await response.json();
+  if (response.ok) {
+    dispatch(getAllFilmReviewsAction(reviews));
+  }
+  return reviews;
 };
 
 // Get Review by ID Thunk
@@ -141,6 +160,7 @@ export const deleteReviewThunk = (reviewId) => async (dispatch) => {
 const initialState = {
   allReviews: {},
   allUserReviews: {},
+  allFilmReviews: {},
   singleReview: {}
 }
 
@@ -158,6 +178,12 @@ export default function reviewsReducer(state = initialState, action) {
         allUserReviewsObject[review.id] = review;
       });
       return { ...state, allUserReviews: allUserReviewsObject };
+    case LOAD_FILM_REVIEWS:
+      const allFilmReviewsObject = {};
+      action.payload.forEach((review) => {
+        allFilmReviewsObject[review.id] = review;
+      });
+      return { ...state, allFilmReviews: allFilmReviewsObject };
     case LOAD_REVIEW:
       return { ...state, singleReview: { [action.payload.id]: action.payload } };
     case ADD_REVIEW:

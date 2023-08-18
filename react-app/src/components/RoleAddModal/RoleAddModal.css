@@ -76,11 +76,7 @@
   color: rgba(255, 255, 255, 0.866);
   cursor: pointer;
   border-radius: 20px;
-}
-
-#submit-role-button:hover {
-  background-color: rgb(16, 125, 16);
-  color: white;
+  transition: background-color 0.5s, color 0.5s
 }
 
 

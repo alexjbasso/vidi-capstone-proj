@@ -63,7 +63,7 @@ export default function ReviewFormModal({ filmId, type, userReview }) {
 
         <textarea
           id="review-text-input"
-          placeholder={type === 'Add'? "Leave a review..." : null}
+          placeholder="Type your review..."
           rows="5"
           cols="33"
           onChange={e => setReviewText(e.target.value)}
@@ -79,7 +79,7 @@ export default function ReviewFormModal({ filmId, type, userReview }) {
           >{type}
           </button>
           <button
-            id="review-cancel-button"
+            className="cancel-button"
             onClick={closeModal}>
             Cancel
           </button>

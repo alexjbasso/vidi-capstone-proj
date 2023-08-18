@@ -12,9 +12,82 @@
 #review-form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
+}
+
+#review-form-header {
+  margin: 0px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 35px;
+}
+
+#review-text-input {
+  border-radius: 5px;
+  font-family: inherit;
+  padding: 5px;
 }
 
 #review-buttons-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 35px;
+}
+
+#submit-review-button {
+  padding: 7px 30px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(21, 135, 3);
+  color: rgba(255, 255, 255, 0.866);
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.5s, color 0.5s
+}
+
+#submit-review-button:hover {
+  background-color: white;
+  color: black;
+}
+
+#review-buttons-container .cancel-button {
+  padding: 7px 23px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(112, 112, 112);
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.5s, color 0.5s
+}
+
+#review-buttons-container .cancel-button:hover {
+  color: black;
+  background-color: white;
+}
+
+
+#review-form::before,
+#review-form::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #667788;
+}
+
+#review-form::before {
+  top: 73px;
+  width: 75%;
+  left: 45px;
+}
+
+#review-form::after {
+  bottom: 69px;
+  width: 75%;
+  left: 45px;
 }

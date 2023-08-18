@@ -34,7 +34,7 @@ export default function Profile() {
         <div className="manage-items-cont" id="user-films-cont">
           <span className="profile-section-header">FILMS{user && <a href="film/new"><i className="fa fa-plus add-film"></i></a>} </span>
           <div className="manage-items-grid" id="user-films-grid">
-            {films && films.map((film, i) =>
+            {films.length ? films.map((film, i) =>
               <div className="tile-container-profile"
                 onMouseEnter={() => setHoveredFilm(i)}
                 onMouseLeave={() => setHoveredFilm(-1)}
@@ -45,14 +45,14 @@ export default function Profile() {
                   <DeleteModalButton modalComponent={<DeleteModal className="profile-UD-button" type='film' filmId={film.id} id={film.id} />} />
                 </div>
               </div>
-            )}
+            ) : <span className="none-found-text">No films.</span>}
           </div>
         </div>
 
         <div className="manage-items-cont" id="user-people-cont">
           <span className="profile-section-header">PEOPLE{user && <a href="person/new"><i className="fa fa-plus add-person"></i></a>} </span>
           <div className="manage-items-grid" id="user-people-grid">
-            {people && people.map((person, i) =>
+            {people.length ? people.map((person, i) =>
               <div className="tile-container-profile"
                 onMouseEnter={() => setHoveredPerson(i)}
                 onMouseLeave={() => setHoveredPerson(-1)}>
@@ -65,7 +65,7 @@ export default function Profile() {
 
                 </div>
               </div>
-            )}
+            ): <span className="none-found-text">No people.</span>}
           </div>
         </div>
 

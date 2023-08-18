@@ -43,3 +43,7 @@
   width: 180px;
   height: 262.5px;
 }
+
+.banner-ad {
+  border: none !important;
+}

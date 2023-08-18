@@ -119,9 +119,18 @@
 }
 
 #your-rating-row {
+  padding: 20px 0px;
+}
+
+#your-rating-block {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
+}
+
+#avg-rating-stars {
+  font-size: 25px;
 }
 
 /* Review Block */

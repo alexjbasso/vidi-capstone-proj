@@ -146,12 +146,12 @@ export default function FilmDetails() {
               Watched?
             </div>
             <span className="seperator"></span>
-            <div className="rater-row" >
+            <div className="rater-row" id="your-rating-row">
 
               {Object.values(reviews).length ?
-                <div id="your-rating-row">
+                <div id="your-rating-block">
                   <span>Average rating</span>
-                  <div>{starCalc(film.avg_rating)}</div>
+                  <div id="avg-rating-stars">{starCalc(film.avg_rating)}</div>
                 </div> :
                 'No ratings yet'
               }

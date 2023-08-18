@@ -23,8 +23,6 @@ export default function FilmDetails() {
   }
   const [toggledRole, setToggledRole] = useState("CAST")
 
-  console.log("out:", userReview)
-
   const directToPerson = (id, role) => {
     history.push({
       pathname: `/person/${id}`,
@@ -35,7 +33,8 @@ export default function FilmDetails() {
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));
     dispatch(getAllReviewsOfFilmThunk(id));
-  }, [dispatch, id]);
+    console.log(film?.avg_rating)
+  }, [dispatch, id, Object.values(reviews).length, userReview?.rating]);
 
   if (!film) return <h1>Film not found.</h1>
 
@@ -46,6 +45,21 @@ export default function FilmDetails() {
   const editors = film.roles.filter(person => person.role === 'Editor')
   const composers = film.roles.filter(person => person.role === 'Composer')
   const dirNames = directors.map(director => director.name)
+
+  const starCalc = (rating) => {
+    const stars = [];
+    if (rating === 0) {
+      for (let i = 0; i < 5; i++) {
+        stars.push(<i className="fa-solid fa-star" key={i} style={{ color: "#grey" }}></i>)
+      }
+    } else {
+      for (let i = 0; i < rating; i++) {
+        stars.push(<i className="fa-solid fa-star" key={i} style={{ color: "#00E054" }}></i>)
+      }
+    }
+    return stars;
+  }
+
 
   return (
     <div id="film-details-page-container">
@@ -132,8 +146,16 @@ export default function FilmDetails() {
               Watched?
             </div>
             <span className="seperator"></span>
-            <div className="rater-row">
-              Your rating
+            <div className="rater-row" >
+
+              {Object.values(reviews).length ?
+                <div id="your-rating-row">
+                  <span>Average rating</span>
+                  <div>{starCalc(film.avg_rating)}</div>
+                </div> :
+                'No ratings yet'
+              }
+
             </div>
             <span className="seperator"></span>
             <div className="rater-row">
@@ -152,7 +174,7 @@ export default function FilmDetails() {
           <span id="review-header">REVIEWS</span>
           {Object.values(reviews).map(review =>
             <div key={review.id} className="review-block">
-              <p className="review-attrib">Review by <span className="review-user">{review.user.username}</span> • {review.rating} Stars</p>
+              <p className="review-attrib">Review by <span className="review-user">{review.user.username}</span> {starCalc(review.rating)}</p>
               <p className="review-text">{review.review_text}</p>
             </div>)}
         </div> : null}

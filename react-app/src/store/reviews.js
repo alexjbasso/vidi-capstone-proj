@@ -3,8 +3,8 @@ const LOAD_REVIEWS = 'reviews/LOAD_REVIEWS';
 const LOAD_REVIEW = 'reviews/LOAD_REVIEW';
 const LOAD_USER_REVIEWS = 'reviews/LOAD_USER_REVIEWS';
 const LOAD_FILM_REVIEWS = 'reviews/LOAD_FILM_REVIEWS';
-const ADD_REVIEW = 'reviews/ADD_REVIEW';
-const EDIT_REVIEW = 'reviews/EDIT_REVIEW';
+const ADD_REVIEW_TO_FILM = 'reviews/ADD_REVIEW_TO_FILM';
+const EDIT_REVIEW_OF_FILM = 'reviews/EDIT_REVIEW_OF_FILM';
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
 const CLEAR_REVIEWS = 'reviews/CLEAR_REVIEWS';
 
@@ -44,7 +44,7 @@ export const getReviewByIdAction = (review) => {
 // Create Review Action
 export const addReviewAction = (review) => {
   return {
-    type: ADD_REVIEW,
+    type: ADD_REVIEW_TO_FILM,
     payload: review,
   };
 };
@@ -53,7 +53,7 @@ export const addReviewAction = (review) => {
 // Edit a Review Action
 export const editReviewAction = (review) => {
   return {
-    type: EDIT_REVIEW,
+    type: EDIT_REVIEW_OF_FILM,
     payload: review,
   };
 };
@@ -186,10 +186,10 @@ export default function reviewsReducer(state = initialState, action) {
       return { ...state, allFilmReviews: allFilmReviewsObject };
     case LOAD_REVIEW:
       return { ...state, singleReview: { [action.payload.id]: action.payload } };
-    case ADD_REVIEW:
-      return { ...state, allReviews: { ...state.allReviews, [action.payload.id]: action.payload } };
-    case EDIT_REVIEW:
-      return { ...state, singleReview: { [action.payload.id]: action.payload } };
+    case ADD_REVIEW_TO_FILM:
+      return { ...state, allFilmReviews: { ...state.allFilmReviews, [action.payload.id]: action.payload } };
+    case EDIT_REVIEW_OF_FILM:
+      return { ...state, allFilmReviews: { ...state.allFilmReviews, [action.payload.id]: action.payload } };
     case DELETE_REVIEW:
       const allReviewsObj = { ...state.allReviews };
       delete allReviewsObj[action.payload];

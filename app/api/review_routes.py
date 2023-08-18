@@ -8,7 +8,6 @@ review_routes = Blueprint('review', __name__)
 
 # Get all reviews
 
-
 @review_routes.route("")
 def get_all_reviews():
     """

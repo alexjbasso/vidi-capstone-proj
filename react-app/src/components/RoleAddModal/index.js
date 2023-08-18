@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { getAllPeopleOfUserThunk } from "../../store/people";
+import { getAllPeopleThunk } from "../../store/people";
 import { roleAddPersonToFilmThunk } from "../../store/films";
 import "./RoleAddModal.css"
 
@@ -10,7 +10,7 @@ export default function RoleAddModal({ film, type, person }) {
   const { closeModal } = useModal();
   const user = useSelector(state => state.session?.user);
   // All people created by user sorted by first name
-  const people = Object.values(useSelector(state => state.people.allUserPeople))
+  const people = Object.values(useSelector(state => state.people.allPeople))
     .sort((a, b) => {
       const personA = a.name.toUpperCase();
       const personB = b.name.toUpperCase();
@@ -26,7 +26,7 @@ export default function RoleAddModal({ film, type, person }) {
 
   useEffect(() => {
     if (user) {
-      dispatch(getAllPeopleOfUserThunk());
+      dispatch(getAllPeopleThunk());
     }
   }, [dispatch, user]);
 
@@ -42,7 +42,7 @@ export default function RoleAddModal({ film, type, person }) {
     }
   }, [people.length])
 
-  if (!people.length) return <h1>No people.</h1>
+  if (!people.length) return <div className="add-role-cont" > <h1>Loading...</h1></div >
 
   let selectedPersonRoles = []
   if (selectedPerson) selectedPersonRoles = selectedPerson?.roles

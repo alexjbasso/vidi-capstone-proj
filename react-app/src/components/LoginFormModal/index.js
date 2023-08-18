@@ -48,11 +48,11 @@ function LoginFormModal() {
   return (
     <div id="login-modal-container">
       <div className="modal-close-x">
-        <i className="fa fa-x modal-close-x-button" onClick={closeModal}/>
+        <i className="fa fa-x modal-close-x-button" onClick={closeModal} />
       </div>
       <h1 id="login-text">Log In</h1>
+      <button className="demoUserLink" onClick={demoUserLogin}>Continue with Demo User</button>
       <form onSubmit={handleSubmit} id="login-form">
-        <button className="demoUserLink" onClick={demoUserLogin}>Continue with Demo User</button>
         <ul id="errors-ul">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>

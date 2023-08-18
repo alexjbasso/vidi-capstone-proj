@@ -51,7 +51,7 @@
 }
 
 #login-form::before {
-  top: 92px;
+  top: -15px;
   width: 140%;
   left: -45px
 }
@@ -98,16 +98,18 @@
   color: white;
 }
 
-#login-form button.demoUserLink {
+.demoUserLink {
   background-color: #14181c;
+  margin-top: 20px;
+  padding: 16px 30px;
   border: 1px solid rgb(161, 161, 161);
   margin-bottom: 45px;
-  padding: 16px;
   font-weight: bolder;
   color: #c7d3df;
+  border-radius: 20px;
 }
 
-#login-form button.demoUserLink:hover {
+.demoUserLink:hover {
   background-color: black;
   border: 1px solid white;
 }

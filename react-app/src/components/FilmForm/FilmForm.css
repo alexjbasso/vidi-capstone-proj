@@ -49,6 +49,19 @@
   color: rgb(255, 166, 0);
 }
 
+#submit-film-button:disabled {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(112, 112, 112);
+  color: rgb(0, 0, 0);
+  cursor: not-allowed;
+  width: 46%;
+  border-radius: 20px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
 #submit-film-button {
   margin-top: 10px;
   padding: 10px 20px;
@@ -62,7 +75,7 @@
   transition: background-color 0.5s, color 0.5s;
 }
 
-#submit-film-button:hover {
+#submit-film-button:enabled:hover {
   background-color: rgb(233, 233, 233);
   color: rgb(12, 147, 0);
 }

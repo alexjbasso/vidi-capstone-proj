@@ -175,9 +175,9 @@ export default function filmsReducer(state = initialState, action) {
     case EDIT_FILM:
       return { ...state, singleFilm: { [action.payload.id]: action.payload } };
     case DELETE_FILM:
-      const allFilmsObj = { ...state.allFilms };
-      delete allFilmsObj[action.payload];
-      return { ...state, allFilms: allFilmsObj };
+      const allUserFilmsObj = { ...state.allUserFilms };
+      delete allUserFilmsObj[action.payload];
+      return { ...state, allUserFilms: allUserFilmsObj };
     case CLEAR_FILMS:
       return {};
     default:

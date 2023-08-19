@@ -147,9 +147,6 @@ export const deletePersonThunk = (personId) => async (dispatch) => {
 };
 
 
-
-
-
 // ===Reducer===
 const initialState = {
   allPeople: {},
@@ -178,11 +175,11 @@ export default function peopleReducer(state = initialState, action) {
     case EDIT_PERSON:
       return { ...state, singlePerson: { [action.payload.id]: action.payload } };
     case DELETE_PERSON:
-      const allPeopleObj = { ...state.allPeople };
-      delete allPeopleObj[action.payload];
-      return { ...state, allPeople: allPeopleObj };
-      case CLEAR_PEOPLE:
-        return {};
+      const allUserPeopleObj = { ...state.allUserPeople };
+      delete allUserPeopleObj[action.payload];
+      return { ...state, allUserPeople: allUserPeopleObj };
+    case CLEAR_PEOPLE:
+      return {};
     default:
       return state;
   }

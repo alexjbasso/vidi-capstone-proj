@@ -36,6 +36,7 @@ export default function PersonDetails() {
     else if (toggledRole === 'Editor') string = 'EDITED BY';
     else if (toggledRole === 'Cinematographer') string = 'SHOT BY';
     else if (toggledRole === 'Composer') string = 'WITH MUSIC COMPOSED BY';
+    else if (!toggledRole) return ''
 
     return `FILMS ${string}`
   }
@@ -50,6 +51,7 @@ export default function PersonDetails() {
       setFilteredFilms(person?.roles.filter(role => role.role === toggledRole))
     }
   }, [dispatch, person, toggledRole])
+
 
 
   if (!person) return <h1>This person does not exist.</h1>
@@ -68,14 +70,14 @@ export default function PersonDetails() {
         </div>
 
         <div id="person-film-grid">
-          {filteredFilms.map(film =>
+          {filteredFilms.length ? filteredFilms.map(film =>
             <div className="film-cont" key={film.film.title}>
               <a href={`/film/${film.film.id}`}>
                 <img className="film-grid-img" src={film.film.key_art} />
               </a>
               <span className="tooltip" key={film.film.title}>{film.film.title}</span>
             </div>
-          )}
+          ) : <span style={{ color: "#99AABB" }}>No films.</span>}
         </div>
       </div>
 

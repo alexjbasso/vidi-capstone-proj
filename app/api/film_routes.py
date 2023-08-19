@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Film
+from app.models import db, Film, SeenFilm
 from app.forms.film_form import FilmAdd, FilmEdit
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.api.aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
@@ -147,3 +147,27 @@ def delete_film(id):
     db.session.commit()
 
     return {'message': 'Successfully Deleted'}
+
+# Log a film as seen
+
+@film_routes.route('/<int:id>/seen', methods=['POST'])
+@login_required
+def log_film_as_seen(id):
+    """
+    Log selected film as seen and return seen_films for the film in a list of seen dictionaries
+    """
+    film = Film.query.get(id).to_dict()
+    # If song already has user's like, return error
+    for seen_film in film["views"]:
+        if seen_film["user_id"] == current_user.id:
+            return { "errors": "User has already seen film" }, 405
+
+    # Else create and add new like to song
+    seen_film = SeenFilm(
+        film_id=id,
+        user_id=current_user.id
+    )
+
+    db.session.add(seen_film)
+    db.session.commit()
+    return seen_film.to_dict()

@@ -32,7 +32,7 @@ export default function HomePage({ user, films, people }) {
           </div>
         </div>
 
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img className="banner-ad" src="https://a.ltrbxd.com/resized/sm/upload/j8/gt/r8/ss/pro-950-0-950-0-0.png?k=bc62c7df04"></img> </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img className="upgrade-pic" src="https://a.ltrbxd.com/resized/sm/upload/j8/gt/r8/ss/pro-950-0-950-0-0.png?k=bc62c7df04"></img> </a>
         <div>
           <span className="popular-heading">POPULAR PEOPLE</span>
           <div className="popular-cont" id="featured-people">

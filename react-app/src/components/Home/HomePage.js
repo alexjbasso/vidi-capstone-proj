@@ -23,15 +23,25 @@ export default function HomePage({ user, films, people }) {
         <div>
           <span>POPULAR FILMS</span>
           <div id="featured-films">
-            {featuredFilms.map(film => <a key={film.id} href={`/film/${film.id}`}><img className="home-film-tile" src={film.key_art}></img></a>)}
+            {featuredFilms.map(film =>
+              <div className={`home-film-tile-cont ${film.title === 'Barbie' ? 'barbie-cont' : 'norm-cont'}`}>
+                <a key={film.id} href={`/film/${film.id}`}><img className="home-film-tile" src={film.key_art}></img></a>
+                <span className={`tooltip ${film.title === 'Barbie' ? 'barbie-tool' : 'norm-tool'}`} key={film.title}>{film.title}</span>
+              </div>
+            )}
           </div>
         </div>
 
-        <a  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img className="banner-ad" src="https://a.ltrbxd.com/resized/sm/upload/j8/gt/r8/ss/pro-950-0-950-0-0.png?k=bc62c7df04"></img> </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img className="banner-ad" src="https://a.ltrbxd.com/resized/sm/upload/j8/gt/r8/ss/pro-950-0-950-0-0.png?k=bc62c7df04"></img> </a>
         <div>
           <span>POPULAR PEOPLE</span>
           <div id="featured-people">
-            {featuredPeople.map(person => <a key={person.id} href={`/person/${person.id}`}><img src={person.featured_photo}></img></a>)}
+            {featuredPeople.map(person =>
+              <div class="home-person-tile-cont">
+                <a key={person.id} href={`/person/${person.id}`}><img src={person.featured_photo}></img></a>
+                <span className='tooltip' key={person.name}>{person.name}</span>
+              </div>
+            )}
           </div>
         </div>
       </div>

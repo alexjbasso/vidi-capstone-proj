@@ -17,4 +17,17 @@ p {
 img {
   border: solid 1px rgb(153, 170, 187);
   border-radius: 3px;
+  object-fit: cover;
+}
+
+
+
+/* Barbie Easter Egg */
+
+.barbie-tool {
+  background-color: palevioletred !important;
+}
+
+.barbie-cont img:hover {
+  border: solid 1px pink !important;
 }

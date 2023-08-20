@@ -50,3 +50,42 @@
   border: none !important;
   width: 100%;
 }
+
+
+.home-film-tile-cont,
+.home-person-tile-cont {
+  position: relative;
+  display: inline-block;
+}
+
+.home-film-tile-cont img:hover,
+.home-person-tile-cont img:hover {
+  border: solid 1px rgb(0, 224, 84) !important;
+}
+
+.home-film-tile-cont .tooltip,
+.home-person-tile-cont .tooltip {
+  visibility: hidden;
+  width: fit-content;
+  white-space: nowrap;
+  max-width: 378px;
+  background-color: #1e232b;
+  color: #fff !important;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  /* Position above the image */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.home-film-tile-cont:hover .tooltip,
+.home-person-tile-cont:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

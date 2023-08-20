@@ -46,10 +46,6 @@
   border: solid 1px rgb(0, 224, 84);
 }
 
-.barbie-cont img:hover {
-  border: solid 1px pink !important;
-}
-
 .all-film-tile-cont .tooltip {
   visibility: hidden;
   width: fit-content;
@@ -75,9 +71,7 @@
   opacity: 1;
 }
 
-.barbie-tool {
-  background-color: palevioletred !important;
-}
+
 
 .add-film {
   font-size: 18px;

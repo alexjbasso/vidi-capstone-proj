@@ -35,16 +35,18 @@
 #featured-people {
   display: flex;
   justify-content: space-between;
+  gap: 13px
 }
 
 #featured-films img,
 #featured-people img {
   border: solid 1px rgb(153, 170, 187);
   border-radius: 3px;
-  width: 180px;
-  height: 262.5px;
+  width: 100%;
+  height: 100%;
 }
 
 .banner-ad {
   border: none !important;
+  width: 100%;
 }

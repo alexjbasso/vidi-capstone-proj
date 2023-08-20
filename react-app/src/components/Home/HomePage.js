@@ -23,7 +23,7 @@ export default function HomePage({ user, films, people }) {
         <div>
           <span>POPULAR FILMS</span>
           <div id="featured-films">
-            {featuredFilms.map(film => <a key={film.id} href={`/film/${film.id}`}><img src={film.key_art}></img></a>)}
+            {featuredFilms.map(film => <a key={film.id} href={`/film/${film.id}`}><img className="home-film-tile" src={film.key_art}></img></a>)}
           </div>
         </div>
 

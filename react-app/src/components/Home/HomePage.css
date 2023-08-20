@@ -16,7 +16,7 @@
 #welcome-subtitle {
   margin-bottom: 50px;
   font-size: 20px;
-  text-align: center; 
+  text-align: center;
   color: #c9d3de;
   font-family: "Heiti SC", Helvetica, sans-serif;
 }
@@ -24,7 +24,7 @@
 #home-page-body {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 50px;
 }
 
 #home-page-body span {
@@ -36,6 +36,12 @@
   display: flex;
   justify-content: space-between;
   gap: 13px
+}
+
+.popular-cont {
+  margin-top: 3px;
+  border-top: 1px solid #667788;
+  padding-top: 15px;
 }
 
 #featured-films img,

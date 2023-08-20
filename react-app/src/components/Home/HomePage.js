@@ -21,8 +21,8 @@ export default function HomePage({ user, films, people }) {
       <div id="home-page-body">
 
         <div>
-          <span>POPULAR FILMS</span>
-          <div id="featured-films">
+          <span className="popular-heading">POPULAR FILMS</span>
+          <div className="popular-cont" id="featured-films">
             {featuredFilms.map(film =>
               <div className={`home-film-tile-cont ${film.title === 'Barbie' ? 'barbie-cont' : 'norm-cont'}`}>
                 <a key={film.id} href={`/film/${film.id}`}><img className="home-film-tile" src={film.key_art}></img></a>
@@ -34,8 +34,8 @@ export default function HomePage({ user, films, people }) {
 
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img className="banner-ad" src="https://a.ltrbxd.com/resized/sm/upload/j8/gt/r8/ss/pro-950-0-950-0-0.png?k=bc62c7df04"></img> </a>
         <div>
-          <span>POPULAR PEOPLE</span>
-          <div id="featured-people">
+          <span className="popular-heading">POPULAR PEOPLE</span>
+          <div className="popular-cont" id="featured-people">
             {featuredPeople.map(person =>
               <div class="home-person-tile-cont">
                 <a key={person.id} href={`/person/${person.id}`}><img src={person.featured_photo}></img></a>

@@ -19,6 +19,10 @@
  color: white;
 }
 
+#nav-home-button:hover {
+  color: rgb(136, 153, 170);
+ }
+
 .vidi-eye-logo {
   padding-right: 3px;
   font-size: 24px;

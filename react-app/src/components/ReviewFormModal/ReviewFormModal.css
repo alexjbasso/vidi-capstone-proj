@@ -64,6 +64,11 @@
   color: white;
 }
 
+#submit-review-button:enabled:hover {
+  color: black;
+  background-color: white;
+}
+
 #review-buttons-container .cancel-button {
   padding: 7px 23px;
   border: none;

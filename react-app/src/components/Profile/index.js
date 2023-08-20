@@ -71,7 +71,6 @@ export default function Profile() {
                   <div className="profile-UD-button">
                     <DeleteModalButton modalComponent={<DeleteModal type='person' personId={person.id} id={person.id} />} />
                   </div>
-
                 </div>
               </div>
             ) : <span className="none-found-text">No people.</span>}

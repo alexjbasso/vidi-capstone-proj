@@ -112,6 +112,7 @@
 .demoUserLink:hover {
   background-color: black;
   border: 1px solid white;
+  cursor: pointer;
 }
 
 #login-form ul {

@@ -26,6 +26,11 @@ export default function Profile() {
     }
   }, [dispatch, user]);
 
+  // Refresh reviews after film delete
+  useEffect(() => {
+    dispatch(getAllReviewsOfUserThunk());
+  }, [films.length])
+
   if (!user) return <h1>You need to be logged in to view this page.</h1>
 
   return (
@@ -89,12 +94,7 @@ export default function Profile() {
             ) : <span className="none-found-text">No reviews.</span>}
           </div>
         </div>
-
-
-
       </div>
-
-
     </div>
   )
 }

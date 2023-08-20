@@ -37,6 +37,17 @@
   margin-top: 35px;
 }
 
+#submit-review-button:disabled {
+  padding: 7px 30px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(112, 112, 112);
+  color: rgba(255, 255, 255, 0.866);
+  cursor: not-allowed;
+  border-radius: 20px;
+  transition: background-color 0.5s, color 0.5s
+}
+
 #submit-review-button {
   padding: 7px 30px;
   border: none;
@@ -48,9 +59,9 @@
   transition: background-color 0.5s, color 0.5s
 }
 
-#submit-review-button:hover {
-  background-color: white;
-  color: black;
+#submit-review-button:enabled {
+  background-color: rgb(21, 135, 3);
+  color: white;
 }
 
 #review-buttons-container .cancel-button {

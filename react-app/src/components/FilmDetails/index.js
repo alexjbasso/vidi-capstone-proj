@@ -149,18 +149,18 @@ export default function FilmDetails() {
             </div>
             <span className="seperator"></span>
             <div className="rater-row" id="your-rating-row">
-
               {userReview ?
                 <div id="your-rating-block">
                   <span>Your rating</span>
                   <div id="avg-rating-stars">{starCalc(userReview.rating)}</div>
-                </div> :
-                <ReviewFormButton type="Rate" modalComponent={<ReviewFormModal filmId={film.id} userReview={userReview} type={userReview ? 'Edit' : 'Add'} />} />
+                </div>
+                :
+                user ?
+                  <ReviewFormButton type="Rate" modalComponent={<ReviewFormModal filmId={film.id} userReview={userReview} type={userReview ? 'Edit' : 'Add'} />} />
+                  :
+                  "Log in to rate"
               }
-
-
             </div>
-
 
             <span className="seperator"></span>
             <div className="rater-row">

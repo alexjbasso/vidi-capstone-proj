@@ -25,8 +25,8 @@ export default function PersonForm({ person, type }) {
     if (Object.keys(errorsObj).length === 0) {
       const formData = new FormData();
       formData.append('name', name);
-      formData.append('bio', bio);
-      formData.append('featured_photo', featuredPhoto);
+      if (bio) formData.append('bio', bio);
+      if (featuredPhoto) formData.append('featured_photo', featuredPhoto);
 
       if (type === "Add") {
         person = await dispatch(addPersonThunk(formData))

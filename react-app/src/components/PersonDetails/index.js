@@ -71,11 +71,11 @@ export default function PersonDetails() {
 
         <div id="person-film-grid">
           {filteredFilms.length ? filteredFilms.map(film =>
-            <div className="film-cont" key={film.film.title}>
+            <div className={`film-cont ${film.film.title === 'Barbie' ? 'barbie-cont' : 'norm-cont'}`} key={film.film.title}>
               <a href={`/film/${film.film.id}`}>
                 <img className="film-grid-img" src={film.film.key_art} />
               </a>
-              <span className="tooltip" key={film.film.title}>{film.film.title}</span>
+              <span className={`tooltip ${film.film.title === 'Barbie' ? 'barbie-tool' : 'norm-tool'}`} key={film.film.title}>{film.film.title}</span>
             </div>
           ) : <span style={{ color: "#99AABB" }}>No films.</span>}
         </div>

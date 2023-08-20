@@ -25,10 +25,14 @@ export default function FilmAll() {
       <span id="all-films-header">FILMS{user && <a href="film/new"><i className="fa fa-plus add-film"></i></a>} </span>
       <span id="film-count">There are {allFilms.length} films.</span>
       <div id="all-films-grid">
-        {allFilms.map(film =>
-          <a key={film.id} href={`film/${film.id}`}>
-            <img src={film.key_art} />
-          </a>)}
+        {allFilms.length && allFilms.map(film =>
+          <div className={`all-film-tile-cont ${film.title === 'Barbie' ? 'barbie-cont' : 'norm-cont'}`}>
+            <a key={film.id} href={`film/${film.id}`}>
+              <img src={film.key_art} />
+            </a>
+            <span className={`tooltip ${film.title === 'Barbie' ? 'barbie-tool' : 'norm-tool'}`} key={film.title}>{film.title}</span>
+          </div>
+        )}
       </div>
     </div>
   )

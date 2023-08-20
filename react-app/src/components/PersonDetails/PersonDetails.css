@@ -52,7 +52,7 @@
   height: 229px;
 }
 
-.tooltip {
+.film-cont .tooltip {
   visibility: hidden;
   width: fit-content;
   white-space: nowrap;

@@ -279,6 +279,16 @@ def seed_films():
         key_art="https://a.ltrbxd.com/resized/film-poster/3/4/0/1/7/34017-she-s-gotta-have-it-0-460-0-690-crop.jpg",
         cover_photo="https://a.ltrbxd.com/resized/sm/upload/gm/m0/yy/60/shes-gotta-have-it-1200-1200-675-675-crop-000000.jpg"
     )
+    film28 = Film(
+        user_id=2,
+        title="Princess Mononoke",
+        genre="Fantasy, Adventure, Animation",
+        year=1997,
+        duration=134,
+        synopsis="Ashitaka, a prince of the disappearing Emishi people, is cursed by a demonized boar god and must journey to the west to find a cure. Along the way, he encounters San, a young human woman fighting to protect the forest, and Lady Eboshi, who is trying to destroy it. Ashitaka must find a way to bring balance to this conflict.",
+        key_art="https://a.ltrbxd.com/resized/sm/upload/fu/5h/fp/mj/mNqZOtJIQfFQPjo3hmYLIn8Qqhf-0-460-0-690-crop.jpg?v=aae03975f7",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/xm/8h/pb/zl/princess-mononoke-1920-1920-1080-1080-crop-000000.jpg"
+    )
 
     # film = Film(
     #     user_id=2,
@@ -293,7 +303,7 @@ def seed_films():
 
     db.session.add_all([film1, film2, film3, film4, film5, film6, film7, film8, film9, film10,
                        film11, film12, film13, film14, film15, film16, film17, film18, film19, film20,
-                       film21, film22, film23, film24, film25, film26, film27])
+                       film21, film22, film23, film24, film25, film26, film27, film28])
     db.session.commit()
 
 

@@ -400,6 +400,18 @@ def seed_people():
         featured_photo="https://image.tmdb.org/t/p/w342/fXjcnepCTGfd0bJJs6O2XieCgCP.jpg",
         bio="Tracy Camilla Johns is an American film actress. She is known for her feature film debut in the leading role as Nola Darling in Spike Lee's 1986 film She's Gotta Have It. She was nominated for Best Female Lead for this role at the 1987 Independent Spirit Awards."
     )
+    person67 = Person(
+        user_id=2,
+        name="Yōji Matsuda",
+        featured_photo="https://image.tmdb.org/t/p/w342/42WeHwCymsgJh3mLAyknCdRcef8.jpg",
+        bio="Yōji Matsuda is a Japanese actor and voice actor from Tokyo, Japan."
+    )
+    person68 = Person(
+        user_id=2,
+        name="Joe Hisaishi",
+        featured_photo="https://image.tmdb.org/t/p/w342/jIrjfygShEvsDL9gTkyP4y1k6bm.jpg",
+        bio="Joe Hisaishi is a Japanese composer and director known for over 100 film scores and solo albums dating back to 1981. While possessing a stylistically distinct sound, his music has been known to explore and incorporate different genres."
+    )
 
 
     # person = Person(
@@ -415,7 +427,7 @@ def seed_people():
                        person31, person32, person33, person34, person35, person36, person37, person38, person39, person40,
                        person41, person42, person43, person44, person45, person46, person47, person48, person49, person50,
                        person51, person52, person53, person54, person55, person56, person57, person58, person59, person60,
-                       person61, person62, person63, person64, person65, person66])
+                       person61, person62, person63, person64, person65, person66, person67, person68])
     db.session.commit()
 
 

@@ -167,6 +167,11 @@ def seed_roles():
         film_id=7,
         role='Actor'
     )
+    role106 = Role(
+        person_id=68,
+        film_id=7,
+        role="Composer"
+    )
 
 # Paris Is Burning
     role29 = Role(
@@ -566,8 +571,29 @@ def seed_roles():
         film_id=27,
         role="Actor"
     )
+# Princess Mononoke
+    role107 = Role(
+        person_id=19,
+        film_id=28,
+        role="Director"
+    )
+    role108 = Role(
+        person_id=19,
+        film_id=28,
+        role="Writer"
+    )
+    role109 = Role(
+        person_id=67,
+        film_id=28,
+        role="Actor"
+    )
+    role110 = Role(
+        person_id=68,
+        film_id=28,
+        role="Composer"
+    )
 
-    # role106 = Role(
+    # role107 = Role(
     #     person_id=
     #     film_id=
     #     role=
@@ -582,7 +608,7 @@ def seed_roles():
                         role71, role72, role73, role74, role75, role76, role77, role78, role79, role80,
                         role81, role82, role83, role84, role85, role86, role87, role88, role89, role90,
                         role91, role92, role93, role94, role95, role96, role97, role98, role99, role100,
-                        role101, role102, role103, role104, role105
+                        role101, role102, role103, role104, role105, role106, role107, role108, role109, role110
                         ])
     db.session.commit()
 

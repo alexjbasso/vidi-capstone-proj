@@ -42,7 +42,7 @@ function ProfileButton({ user }) {
   const closeMenu = () => setShowMenu(false);
 
   return (
-    <>
+    <div id="prof-nav-link-button">
       <span onClick={openMenu} style={{ color: "rgb(136, 153, 170)" }}>
         {user ? user.username.toUpperCase() : "LOGIN"} <i className="fa fa-angle-down"></i>
       </span>
@@ -72,7 +72,7 @@ function ProfileButton({ user }) {
         )}
       </div>
 
-    </>
+    </div>
   );
 }
 

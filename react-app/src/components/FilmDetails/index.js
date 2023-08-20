@@ -8,6 +8,7 @@ import RoleAddButton from '../RoleAddButton';
 import RoleAddModal from '../RoleAddModal';
 import ReviewFormButton from "../ReviewFormButton"
 import ReviewFormModal from '../ReviewFormModal';
+import { starCalc } from '../helpers';
 import "./FilmDetails.css"
 
 export default function FilmDetails() {
@@ -47,20 +48,6 @@ export default function FilmDetails() {
   const editors = film.roles.filter(person => person.role === 'Editor')
   const composers = film.roles.filter(person => person.role === 'Composer')
   const dirNames = directors.map(director => director.name)
-
-  const starCalc = (rating) => {
-    const stars = [];
-    if (rating === 0) {
-      for (let i = 0; i < 5; i++) {
-        stars.push(<i className="fa-solid fa-star" key={i} style={{ color: "#grey" }}></i>)
-      }
-    } else {
-      for (let i = 0; i < rating; i++) {
-        stars.push(<i className="fa-solid fa-star" key={i} style={{ color: "#00E054" }}></i>)
-      }
-    }
-    return stars;
-  }
 
   const showShareURL = () => {
     setShareVis("none");

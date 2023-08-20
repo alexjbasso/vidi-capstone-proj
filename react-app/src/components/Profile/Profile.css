@@ -40,7 +40,8 @@
   color: #99AABB;
 }
 
-.tile-container-profile {
+#user-people-grid .tile-container-profile,
+#user-films-grid .tile-container-profile {
   height: 109px;
 }
 
@@ -66,4 +67,49 @@
 
 .profile-UD-button:hover {
   color: rgb(163, 163, 163);
+}
+
+/* Reviews */
+.profile-reviews-cont {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 10px;
+  transition: background-color .2s
+}
+
+.profile-reviews-cont:hover {
+  background-color: #14181c;
+}
+
+#user-reviews-grid {
+  display: flex;
+  flex-direction: column;
+  /* gap: 15px; */
+}
+
+.profile-review-details {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.profile-review-details .review-film-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.profile-review-details .review-film-year {
+  font-size: 15px;
+  font-weight: 300;
+  color: #99AABB;
+}
+
+
+.profile-review-details .review-film-rating {
+  margin-top: 5px;
+  font-size: 12px;
 }

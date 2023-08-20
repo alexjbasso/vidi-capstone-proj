@@ -3,7 +3,7 @@
   margin: 40px 0px;
   justify-content: center;
   gap: 30px;
-  height: 70vh;
+  min-height: 65vh;
 }
 
 #details-right-cont {
@@ -156,5 +156,8 @@
 }
 
 .review-text {
-  color: white;
+  color:  #99AABB;
+  font-size: 15px;
+  padding-right: 5px;
+  padding-bottom: 5px;
 }

@@ -50,4 +50,5 @@ class Film(db.Model):
             'id': self.id,
             'title': self.title,
             'key_art': self.key_art,
+            'year': self.year
         }

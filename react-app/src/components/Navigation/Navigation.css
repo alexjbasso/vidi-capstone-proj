@@ -12,6 +12,18 @@
   align-items: center;
   gap: 20px;
 }
+
+#nav-home-button {
+ font-family: "Sharp Grotesk", sans-serif;
+ font-size: 25px;
+ color: white;
+}
+
+.vidi-eye-logo {
+  padding-right: 3px;
+  font-size: 24px;
+}
+
 .profile-dropdown {
   position: absolute;
   margin-top: 5px;

@@ -9,7 +9,7 @@ function Navigation({ isLoaded }) {
 
 	return (
 		<div id="nav-container">
-			<NavLink exact to="/">HOME</NavLink>
+			<NavLink exact to="/"><span id="nav-home-button"><i class="fa-solid fa-eye vidi-eye-logo"></i>Vidi</span></NavLink>
 
 			<div id="nav-links-cont">
 				<NavLink to="/films">FILMS</NavLink>

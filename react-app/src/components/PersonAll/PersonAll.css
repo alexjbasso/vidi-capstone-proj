@@ -47,3 +47,37 @@
 .add-person:hover {
   color: rgba(0, 224, 86, 0.645);
 }
+
+.all-people-tile-cont {
+  position: relative;
+  display: inline-block;
+}
+
+.all-people-tile-cont img:hover {
+  border: solid 1px rgb(0, 224, 84);
+}
+
+.all-people-tile-cont .tooltip {
+  visibility: hidden;
+  width: fit-content;
+  white-space: nowrap;
+  max-width: 378px;
+  background-color: #1e232b;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  /* Position above the image */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.all-people-tile-cont:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

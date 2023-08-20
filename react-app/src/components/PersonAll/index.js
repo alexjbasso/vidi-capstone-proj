@@ -29,9 +29,13 @@ export default function PersonAll() {
       <span id="person-count">There are {people.length} people.</span>
       <div id="all-people-grid">
         {people.map(person =>
-          <a key={person.id} href={`person/${person.id}`}>
-            <img src={person.featured_photo} />
-          </a>)}
+          <div className="all-people-tile-cont">
+            <a key={person.id} href={`person/${person.id}`}>
+              <img src={person.featured_photo} />
+            </a>
+            <span className="tooltip" key={person.name}>{person.name}</span>
+          </div>
+        )}
       </div>
     </div>
   )

@@ -16,7 +16,13 @@ export default function ReviewFormButton({
     if (onButtonClick) onButtonClick();
   };
 
+  const texter = (type) => {
+    if (type === 'Add') return 'Leave a review';
+    if (type === 'Edit') return 'Edit your review';
+    if (type === 'Rate') return 'Rate this film';
+  }
+
   return (
-    <a style={{color: "#bcd" }} className="review-form-button" onClick={onClick}>{type === 'Add' ? 'Leave a review': 'Edit your review'}</a>
+    <a style={{ color: "#bcd" }} className="review-form-button" onClick={onClick}>{texter(type)}</a>
   );
 }

@@ -20,8 +20,8 @@ export default function RoleAddModal({ film, type, person }) {
     });
   const [selectedPerson, setSelectedPerson] = useState("");
   const [selectedRole, setSelectedRole] = useState("--select--")
-  // console.log(selectedPerson)
-  // console.log(selectedRole)
+  console.log(selectedPerson)
+  console.log(selectedRole)
 
   useEffect(() => {
     if (user) {
@@ -36,7 +36,12 @@ export default function RoleAddModal({ film, type, person }) {
         setSelectedRole("")
         const selectedOption = personSelector.options[personSelector.selectedIndex];
         const objectValue = JSON.parse(selectedOption.getAttribute("data-object"));
-        setSelectedPerson(objectValue);
+        if (selectedOption.getAttribute("data-object") === '{"select":"select"}') {
+          setSelectedPerson("")
+        }
+        else {
+          setSelectedPerson(objectValue);
+        }
       });
     }
   }, [people.length])
@@ -73,7 +78,7 @@ export default function RoleAddModal({ film, type, person }) {
             <select
               id="person-select"
               defaultValue="--select--">
-              <option key="select-person-empty" value="" data-object={JSON.stringify({ null: null })}>--select--</option>
+              <option key="select-person-empty" value="" data-object={JSON.stringify({ 'select': 'select' })}>--select--</option>
               {people.map(person => <option key={person.id} data-object={JSON.stringify(person)}>{person.name}</option>)}
             </select>
           </label>
@@ -92,7 +97,7 @@ export default function RoleAddModal({ film, type, person }) {
             <button
               id="submit-role-button"
               type="submit"
-              disabled={!selectedPerson || selectedPerson === { null: null } || !selectedRole || selectedRole === "--select--"}
+              disabled={!selectedPerson || !selectedRole || selectedRole === "--select--"}
             >Add role
             </button>
             <button

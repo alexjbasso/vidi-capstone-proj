@@ -36,7 +36,6 @@ export default function FilmDetails() {
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));
     dispatch(getAllReviewsOfFilmThunk(id));
-    console.log(film?.avg_rating)
   }, [dispatch, id, Object.values(reviews).length, userReview?.rating]);
 
   if (!film) return <h1>Film not found.</h1>

@@ -20,8 +20,8 @@ export default function RoleAddModal({ film, type, person }) {
     });
   const [selectedPerson, setSelectedPerson] = useState("");
   const [selectedRole, setSelectedRole] = useState("--select--")
-  console.log(selectedPerson)
-  console.log(selectedRole)
+  // console.log(selectedPerson)
+  // console.log(selectedRole)
 
   useEffect(() => {
     if (user) {

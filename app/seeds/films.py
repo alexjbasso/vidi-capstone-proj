@@ -289,6 +289,56 @@ def seed_films():
         key_art="https://a.ltrbxd.com/resized/sm/upload/fu/5h/fp/mj/mNqZOtJIQfFQPjo3hmYLIn8Qqhf-0-460-0-690-crop.jpg?v=aae03975f7",
         cover_photo="https://a.ltrbxd.com/resized/sm/upload/xm/8h/pb/zl/princess-mononoke-1920-1920-1080-1080-crop-000000.jpg"
     )
+    film29 = Film(
+        user_id=2,
+        title="The Evil Dead",
+        genre="Horror",
+        year=1981,
+        duration=85,
+        synopsis="When a group of college students finds a mysterious book and recording in the old wilderness cabin they've rented for the weekend, they unwittingly unleash a demonic force from the surrounding forest.",
+        key_art="https://a.ltrbxd.com/resized/sm/upload/c7/4g/ae/zn/7cpSdCrBY7UhiygkcP57dpixXsW-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/4o/ar/ra/46/the-evil-dead-1200-1200-675-675-crop-000000.jpg"
+    )
+    film30 = Film(
+        user_id=2,
+        title="Evil Dead II",
+        genre="Horror, Comedy",
+        year=1987,
+        duration=84,
+        synopsis="Ash Williams and his girlfriend Linda find a log cabin in the woods with a voice recording from an archeologist who had recorded himself reciting ancient chants from “The Book of the Dead.” As they play the recording an evil power is unleashed taking over Linda's body.",
+        key_art="https://a.ltrbxd.com/resized/sm/upload/p9/tg/s4/ca/dxbIRmIo0rN5R6WGvxnJuUJPh3t-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/h8/ba/ow/2n/evil-dead-ii-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film31 = Film(
+        user_id=2,
+        title="Army of Darkness",
+        genre="Horror, Comedy",
+        year=1992,
+        duration=81,
+        synopsis="A man is accidentally transported to 1300 A.D., where he must battle an army of the dead and retrieve the Necronomicon so he can return home.",
+        key_art="https://a.ltrbxd.com/resized/sm/upload/a7/6d/2x/pn/z7jxLTbnDx4tmLprfClKoUvOPmF-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/aj/s8/rg/re/army-of-darkness-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film32 = Film(
+        user_id=2,
+        title="White Noise",
+        genre="Drama, Science-Fiction, Comedy",
+        year=2022,
+        duration=136,
+        synopsis="Jack Gladney, professor of Hitler studies at The-College-on-the-Hill, husband to Babette, and father to four children/stepchildren, is torn asunder by a chemical spill from a rail car that releases an “Airborne Toxic Event”, forcing Jack to confront his biggest fear - his own mortality.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/6/6/6/2/6/9/666269-white-noise-0-460-0-690-crop.jpg",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/s1/9x/d4/kr/white-1920-1920-1080-1080-crop-000000.jpg"
+    )
+    film33 = Film(
+        user_id=2,
+        title="My Neighbor Totoro",
+        genre="Family, Fantasy, Animation",
+        year=1988,
+        duration=86,
+        synopsis="Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.",
+        key_art="https://a.ltrbxd.com/resized/film-poster/4/7/7/5/6/47756-my-neighbor-totoro-0-460-0-690-crop.jpg?v=749abe71ad",
+        cover_photo="https://a.ltrbxd.com/resized/sm/upload/ag/yo/bf/9w/my-neighbor-totoro-1920-1920-1080-1080-crop-000000.jpg"
+    )
 
     # film = Film(
     #     user_id=2,
@@ -303,7 +353,8 @@ def seed_films():
 
     db.session.add_all([film1, film2, film3, film4, film5, film6, film7, film8, film9, film10,
                        film11, film12, film13, film14, film15, film16, film17, film18, film19, film20,
-                       film21, film22, film23, film24, film25, film26, film27, film28])
+                       film21, film22, film23, film24, film25, film26, film27, film28, film29, film30,
+                       film31, film32, film33])
     db.session.commit()
 
 

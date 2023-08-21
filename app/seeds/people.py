@@ -412,6 +412,30 @@ def seed_people():
         featured_photo="https://image.tmdb.org/t/p/w342/jIrjfygShEvsDL9gTkyP4y1k6bm.jpg",
         bio="Joe Hisaishi is a Japanese composer and director known for over 100 film scores and solo albums dating back to 1981. While possessing a stylistically distinct sound, his music has been known to explore and incorporate different genres."
     )
+    person69 = Person(
+        user_id=2,
+        name="Sam Raimi",
+        featured_photo="https://image.tmdb.org/t/p/w342/8gssvwiPrFRuFRlr5ruKx68k1Jl.jpg",
+        bio='Samuel M. "Sam" Raimi (born October 23, 1959) is an American film director, producer, screenwriter, and actor. He is best known for creating the cult supernatural horror franchise "The Evil Dead"—in which he directed the first three installments (1981-92)—and for directing the original "Spider-Man" trilogy (2002-07) starring Tobey Maguire.',
+    )
+    person70 = Person(
+        user_id=2,
+        name="Bruce Campbell",
+        featured_photo="https://image.tmdb.org/t/p/w342/p9335ljr7luOWsfwZSOlsIzFJKE.jpg",
+        bio="Bruce Lorne Campbell (born June 22, 1958) is an American actor, producer, writer and director. One of his best-known roles is portraying Ash Williams in Sam Raimi's Evil Dead franchise, beginning with the 1978 short film Within the Woods. He has starred in many low-budget cult films such as Crimewave, Maniac Cop, Sundown: The Vampire in Retreat, and Bubba Ho-Tep."
+    )
+    person71 = Person(
+        user_id=2,
+        name="Noriko Hidaka",
+        featured_photo="https://image.tmdb.org/t/p/w342/w757PVYKSDvj2weQrPSCZL5mZh9.jpg",
+        bio="Noriko Itō (伊東 範子, Itō Noriko, born May 31, 1962), better known by the stage name of Noriko Hidaka (日髙 のり子, Hidaka Noriko), is a Japanese actress, voice actress, singer and narrator"
+    )
+    person72 = Person(
+        user_id=2,
+        name="Chika Sakamoto",
+        featured_photo="https://image.tmdb.org/t/p/w342/lIIwnLmcgGpifpRflBq0kLW9EpK.jpg",
+        bio="Chika Sakamoto (坂本 千夏, Sakamoto Chika, August 17, 1959) is a Japanese voice actress (seiyuu) born in Omori, Ota, Tokyo. She is affiliated with Arts Vision."
+    )
 
 
     # person = Person(
@@ -427,7 +451,8 @@ def seed_people():
                        person31, person32, person33, person34, person35, person36, person37, person38, person39, person40,
                        person41, person42, person43, person44, person45, person46, person47, person48, person49, person50,
                        person51, person52, person53, person54, person55, person56, person57, person58, person59, person60,
-                       person61, person62, person63, person64, person65, person66, person67, person68])
+                       person61, person62, person63, person64, person65, person66, person67, person68, person69, person70,
+                       person71, person72])
     db.session.commit()
 
 

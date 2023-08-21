@@ -592,8 +592,109 @@ def seed_roles():
         film_id=28,
         role="Composer"
     )
+# The Evil Dead
+    role111 = Role(
+        person_id=69,
+        film_id=29,
+        role="Director"
+    )
+    role112 = Role(
+        person_id=69,
+        film_id=29,
+        role="Writer"
+    )
+    role113 = Role(
+        person_id=70,
+        film_id=29,
+        role="Actor"
+    )
+# Evil Dead II
+    role114 = Role(
+        person_id=69,
+        film_id=30,
+        role="Director"
+    )
 
-    # role107 = Role(
+    role115 = Role(
+        person_id=69,
+        film_id=30,
+        role="Writer"
+    )
+    role116 = Role(
+        person_id=70,
+        film_id=30,
+        role="Actor"
+    )
+# Army of Darkness
+    role117 = Role(
+        person_id=69,
+        film_id=31,
+        role="Director"
+    )
+    role118 = Role(
+        person_id=69,
+        film_id=31,
+        role="Writer"
+    )
+    role119 = Role(
+        person_id=69,
+        film_id=31,
+        role="Editor"
+    )
+    role120 = Role(
+        person_id=70,
+        film_id=31,
+        role="Actor"
+    )
+# White Noise
+    role121 = Role(
+        person_id=63,
+        film_id=32,
+        role="Director"
+    )
+    role122 = Role(
+        person_id=63,
+        film_id=32,
+        role="Writer"
+    )
+    role123 = Role(
+        person_id=64,
+        film_id=32,
+        role="Actor"
+    )
+    role124 = Role(
+        person_id=11,
+        film_id=32,
+        role="Actor"
+    )
+# My Neighbor Totoro
+    role125 = Role(
+        person_id=19,
+        film_id=33,
+        role="Director"
+    )
+    role126 = Role(
+        person_id=19,
+        film_id=33,
+        role="Writer"
+    )
+    role127 = Role(
+        person_id=71,
+        film_id=33,
+        role="Actor"
+    )
+    role128 = Role(
+        person_id=72,
+        film_id=33,
+        role="Actor"
+    )
+    role129 = Role(
+        person_id=68,
+        film_id=33,
+        role="Composer"
+    )
+
+    # role126 = Role(
     #     person_id=
     #     film_id=
     #     role=
@@ -608,7 +709,9 @@ def seed_roles():
                         role71, role72, role73, role74, role75, role76, role77, role78, role79, role80,
                         role81, role82, role83, role84, role85, role86, role87, role88, role89, role90,
                         role91, role92, role93, role94, role95, role96, role97, role98, role99, role100,
-                        role101, role102, role103, role104, role105, role106, role107, role108, role109, role110
+                        role101, role102, role103, role104, role105, role106, role107, role108, role109, role110,
+                        role111, role112, role113, role114, role115, role116, role117, role118, role119, role120,
+                        role121, role122, role123, role124, role125, role126, role127, role128, role129
                         ])
     db.session.commit()
 

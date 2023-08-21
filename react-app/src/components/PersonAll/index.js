@@ -7,7 +7,6 @@ export default function PersonAll() {
   const dispatch = useDispatch();
   const people = Object.values(useSelector(state => state.people?.allPeople))
   const user = useSelector((state) => state.session.user ? state.session.user : null);
-  console.log(people)
 
   people.sort((a, b) => {
     const nameA = a.name.toUpperCase();
@@ -20,8 +19,6 @@ export default function PersonAll() {
   useEffect(() => {
     dispatch(getAllPeopleThunk());
   }, [dispatch]);
-
-  console.log(people)
 
   return (
     <div id="person-all-container">

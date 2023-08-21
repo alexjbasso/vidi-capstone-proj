@@ -7,7 +7,9 @@ export default function HomePage({ user, films, people }) {
 
   const featuredTitles = ["Barbie", "Spider-Man: Across the Spider-Verse", "Everything Everywhere All at Once", "Paddington 2", "Eternal Sunshine of the Spotless Mind"];
   let featuredFilms = films.filter(film => featuredTitles.includes(film.title))
+  console.log("1:", featuredFilms)
   featuredFilms = [featuredFilms[2], featuredFilms[4], featuredFilms[1], featuredFilms[3], featuredFilms[0]];
+  console.log("2:", featuredFilms)
   const featuredNames = ["Adam Driver", "Spike Lee", "Greta Gerwig", "Hayao Miyazaki", "Margot Robbie"]
   let featuredPeople = people.filter(person => featuredNames.includes(person.name))
   featuredPeople = [featuredPeople[4], featuredPeople[2], featuredPeople[1], featuredPeople[3], featuredPeople[0]];
@@ -24,9 +26,9 @@ export default function HomePage({ user, films, people }) {
           <span className="popular-heading">POPULAR FILMS</span>
           <div className="popular-cont" id="featured-films">
             {featuredFilms.map(film =>
-              <div className={`home-film-tile-cont ${film.title === 'Barbie' ? 'barbie-cont' : 'norm-cont'}`}>
+              film?.id && <div className={`home-film-tile-cont ${film.title === 'Barbie' ? 'barbie-cont' : 'norm-cont'}`}>
                 <a key={film.id} href={`/film/${film.id}`}><img className="home-film-tile" src={film.key_art}></img></a>
-                <span className={`tooltip ${film.title === 'Barbie' ? 'barbie-tool' : 'norm-tool'}`} key={film.title}>{film.title}</span>
+                <span className={`tooltip ${film?.title === 'Barbie' ? 'barbie-tool' : 'norm-tool'}`} key={film.title}>{film.title}</span>
               </div>
             )}
           </div>
@@ -37,7 +39,7 @@ export default function HomePage({ user, films, people }) {
           <span className="popular-heading">POPULAR PEOPLE</span>
           <div className="popular-cont" id="featured-people">
             {featuredPeople.map(person =>
-              <div class="home-person-tile-cont">
+              person?.id && <div class="home-person-tile-cont">
                 <a key={person.id} href={`/person/${person.id}`}><img src={person.featured_photo}></img></a>
                 <span className='tooltip' key={person.name}>{person.name}</span>
               </div>

@@ -2,16 +2,11 @@ import "./HomePage.css";
 
 export default function HomePage({ user, films, people }) {
 
-
-  console.log("people", films)
-
-  const featuredTitles = ["Barbie", "Spider-Man: Across the Spider-Verse", "Everything Everywhere All at Once", "Paddington 2", "Eternal Sunshine of the Spotless Mind"];
-  let featuredFilms = films.filter(film => featuredTitles.includes(film.title))
-  console.log("1:", featuredFilms)
+  const featuredTitles = [5, 17, 4, 15, 1];
+  let featuredFilms = films.filter(film => featuredTitles.includes(film.id))
   featuredFilms = [featuredFilms[2], featuredFilms[4], featuredFilms[1], featuredFilms[3], featuredFilms[0]];
-  console.log("2:", featuredFilms)
-  const featuredNames = ["Adam Driver", "Spike Lee", "Greta Gerwig", "Hayao Miyazaki", "Margot Robbie"]
-  let featuredPeople = people.filter(person => featuredNames.includes(person.name))
+  const featuredNames = [64, 12, 11, 19, 10]
+  let featuredPeople = people.filter(person => featuredNames.includes(person.id))
   featuredPeople = [featuredPeople[4], featuredPeople[2], featuredPeople[1], featuredPeople[3], featuredPeople[0]];
 
   return (
@@ -26,9 +21,9 @@ export default function HomePage({ user, films, people }) {
           <span className="popular-heading">POPULAR FILMS</span>
           <div className="popular-cont" id="featured-films">
             {featuredFilms.map(film =>
-              film?.id && <div className={`home-film-tile-cont ${film.title === 'Barbie' ? 'barbie-cont' : 'norm-cont'}`}>
+              film?.id && <div className={`home-film-tile-cont ${film.id === 5 ? 'barbie-cont' : 'norm-cont'}`}>
                 <a key={film.id} href={`/film/${film.id}`}><img className="home-film-tile" src={film.key_art}></img></a>
-                <span className={`tooltip ${film?.title === 'Barbie' ? 'barbie-tool' : 'norm-tool'}`} key={film.title}>{film.title}</span>
+                <span className={`tooltip ${film?.id === 5 ? 'barbie-tool' : 'norm-tool'}`} key={film.title}>{film.title}</span>
               </div>
             )}
           </div>

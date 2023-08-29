@@ -11,6 +11,7 @@ from .api.film_routes import film_routes
 from .api.person_routes import person_routes
 from .api.role_routes import role_routes
 from .api.review_routes import review_routes
+from .api.seen_routes import seen_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -36,6 +37,8 @@ app.register_blueprint(film_routes, url_prefix='/api/films')
 app.register_blueprint(person_routes, url_prefix='/api/people')
 app.register_blueprint(role_routes, url_prefix='/api/roles')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
+app.register_blueprint(seen_routes, url_prefix='/api/seen')
+
 db.init_app(app)
 Migrate(app, db)
 

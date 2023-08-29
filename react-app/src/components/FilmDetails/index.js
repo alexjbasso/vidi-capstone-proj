@@ -58,7 +58,7 @@ export default function FilmDetails() {
 
       <div id="key-art-cont">
         <img src={film.key_art}></img>
-        <p id="genre-text">{film.genre}</p>
+   
       </div>
 
       <div id="details-right-cont">
@@ -66,6 +66,7 @@ export default function FilmDetails() {
           <div id="film-details-cont">
             <h2 id="title-heading">{film.title.toUpperCase()}</h2>
             {directors.length ? <h4 id="director-heading">Directed by {dirNames.join(', ')}</h4> : null}
+            <h5 id="genre-text">{film.genre}</h5>
             <p>{film.synopsis}</p>
             <div id="credits-cont">
               <span className="credit-toggle"

@@ -41,7 +41,8 @@
 }
 
 #genre-text {
-  text-align: center;
+  margin: 5px 0px 0px 0px;
+  color: rgb(153, 170, 187);
 }
 
 #credits-cont,

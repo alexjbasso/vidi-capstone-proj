@@ -28,7 +28,7 @@ export default function Profile() {
 
   // Refresh reviews after film delete
   useEffect(() => {
-    dispatch(getAllReviewsOfUserThunk());
+    if (user) dispatch(getAllReviewsOfUserThunk());
   }, [films.length])
 
   if (!user) return <h1>You need to be logged in to view this page.</h1>

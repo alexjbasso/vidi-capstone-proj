@@ -3,8 +3,9 @@ import { useModal } from "../../context/Modal";
 import "./DeleteModal.css";
 import { deleteFilmThunk } from "../../store/films";
 import { deletePersonThunk } from "../../store/people";
+import { deleteReviewThunk } from "../../store/reviews";
 
-export default function DeleteModal({ type, filmId, personId }) {
+export default function DeleteModal({ type, filmId, personId, reviewId }) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
@@ -13,6 +14,8 @@ export default function DeleteModal({ type, filmId, personId }) {
       dispatch(deleteFilmThunk(filmId));
     } else if (type === 'person') {
       dispatch(deletePersonThunk(personId));
+    } else if (type === 'review') {
+      dispatch(deleteReviewThunk(reviewId))
     }
     closeModal()
   }

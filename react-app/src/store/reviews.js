@@ -193,7 +193,9 @@ export default function reviewsReducer(state = initialState, action) {
     case DELETE_REVIEW:
       const allReviewsObj = { ...state.allReviews };
       delete allReviewsObj[action.payload];
-      return { ...state, allReviews: allReviewsObj };
+      const allFilmReviewsObj = {...state.allFilmReviews};
+      delete allFilmReviewsObj[action.payload];
+      return { ...state, allReviews: allReviewsObj, allFilmReviews: allFilmReviewsObj };
     case CLEAR_REVIEWS:
       return {};
     default:

@@ -9,6 +9,8 @@ import RoleAddButton from '../RoleAddButton';
 import RoleAddModal from '../RoleAddModal';
 import ReviewFormButton from "../ReviewFormButton"
 import ReviewFormModal from '../ReviewFormModal';
+import DeleteModalButton from '../DeleteModalButton';
+import DeleteModal from '../DeleteModal';
 import { starCalc } from '../helpers';
 import "./FilmDetails.css"
 
@@ -45,6 +47,8 @@ export default function FilmDetails() {
   }, [dispatch, id, user])
 
   if (!film) return <h1>Film not found.</h1>
+
+  console.log(userReview)
 
   const cast = film.roles.filter(person => person.role === 'Actress' || person.role === 'Actor')
   const directors = film.roles.filter(person => person.role === 'Director')
@@ -193,7 +197,7 @@ export default function FilmDetails() {
               <span id="share-url" style={{ display: `${urlVis}` }} >{window.location.href}</span>
             </div>
           </div> :
-            <div id="rater-cont" style={{height: '150px'}}>
+            <div id="rater-cont" style={{ height: '150px' }}>
               <div className="rater-row">
                 Log in to rate or review...
               </div>
@@ -218,7 +222,8 @@ export default function FilmDetails() {
           <span id="review-header">REVIEWS</span>
           {Object.values(reviews).map((review, i) =>
             <div key={review.id} className="review-block" style={{ borderBottom: i === Object.values(reviews).length - 1 ? 'none' : '1px solid rgb(102, 119, 136)' }}>
-              <p className="review-attrib">Review by <span className="review-user">{review.user.username}</span> {starCalc(review.rating)}</p>
+              <p className="review-attrib">Review by <span className="review-user">{review.user.username}</span> {starCalc(review.rating)}
+                {userReview.id === review.id ? <DeleteModalButton modalComponent={<DeleteModal type='review' reviewId={review.id} id={review.id} />} /> : null}</p>
               <p className="review-text">{review.review_text}</p>
             </div>)}
         </div> : null}

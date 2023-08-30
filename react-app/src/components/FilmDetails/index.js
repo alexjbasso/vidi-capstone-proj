@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getFilmByIdThunk } from '../../store/films';
 import { getAllReviewsOfFilmThunk } from "../../store/reviews";
-import { getAllUserViewsThunk, addViewThunk } from '../../store/views';
+import { getAllUserViewsThunk, addViewThunk, removeViewThunk } from '../../store/views';
 import RoleAddButton from '../RoleAddButton';
 import RoleAddModal from '../RoleAddModal';
 import ReviewFormButton from "../ReviewFormButton"
@@ -61,7 +61,7 @@ export default function FilmDetails() {
 
   const viewHandle = () => {
     if (userView) {
-      console.log("view exists")
+      dispatch(removeViewThunk(film.id))
     }
     else {
       dispatch(addViewThunk(film.id));

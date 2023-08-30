@@ -52,13 +52,21 @@ export const addViewThunk = (filmId) => async (dispatch) => {
     }
     return dispatch(addViewAction(view))
   } catch (err) {
-    console.log(err)
     return err;
   }
 }
 
 // Remove View from Film Thunk
+export const removeViewThunk = (filmId) => async (dispatch) => {
+  const response = await fetch(`/api/seen/${filmId}`, {
+    method: 'DELETE',
+  });
 
+  if (response.ok) {
+    dispatch(removeViewAction(filmId));
+    return response;
+  }
+}
 
 
 
@@ -73,11 +81,11 @@ export default function viewsReducer(state = initialState, action) {
     case LOAD_USER_VIEWS:
       const allUserViewsObject = {};
       action.payload.forEach((view) => {
-        allUserViewsObject[view.id] = view;
+        allUserViewsObject[view.film_id] = view;
       });
       return { ...state, userViews: allUserViewsObject };
     case ADD_VIEW:
-      return {...state, userViews: {...state.userViews, [action.payload.id]: action.payload}}
+      return {...state, userViews: {...state.userViews, [action.payload.film_id]: action.payload}}
     case REMOVE_VIEW:
       const userViewsObject = {...state.userViews};
       delete userViewsObject[action.payload];

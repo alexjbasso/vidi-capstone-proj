@@ -222,15 +222,12 @@ export default function FilmDetails() {
           <span id="review-header">REVIEWS</span>
           {Object.values(reviews).map((review, i) =>
             <div key={review.id} className="review-block" style={{ borderBottom: i === Object.values(reviews).length - 1 ? 'none' : '1px solid rgb(102, 119, 136)' }}>
-              <p className="review-attrib">Review by <span className="review-user">{review.user.username}</span> {starCalc(review.rating)}
-                {userReview.id === review.id ? <DeleteModalButton modalComponent={<DeleteModal type='review' reviewId={review.id} id={review.id} />} /> : null}</p>
-              <p className="review-text">{review.review_text}</p>
+              <p className="review-attrib">Review by <span className="review-user">{review.user.username}</span> {starCalc(review.rating)}</p>
+              <p className="review-text">{review.review_text} {userReview && userReview.id === review.id ? <DeleteModalButton modalComponent={<DeleteModal type='review' reviewId={review.id} id={review.id} />} /> : null}</p>
             </div>)}
         </div> : null}
 
       </div>
-
-
 
     </div>
   )

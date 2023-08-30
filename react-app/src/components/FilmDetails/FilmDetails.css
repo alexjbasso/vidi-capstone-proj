@@ -123,6 +123,10 @@
   border-radius: 5px;
 }
 
+#rater-logout {
+  height: 150px !important
+}
+
 .rater-row {
   padding: 27px 0px;
   color: #bcd

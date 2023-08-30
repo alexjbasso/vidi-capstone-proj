@@ -157,7 +157,8 @@ export default function FilmDetails() {
             <p>{film.year} • {film.duration} mins</p>
           </div>
 
-          <div id="rater-cont">
+
+          {user ? <div id="rater-cont">
             <div className="rater-row" id="your-rating-row">
               <div id="seen-toggle-cont">
                 <i id="seen-button" className="fa-solid fa-eye" style={{ color: userView ? "#00E054" : "#bcd" }} onClick={viewHandle} />
@@ -191,8 +192,27 @@ export default function FilmDetails() {
               <span id="share-text" style={{ display: `${shareVis}` }} onMouseEnter={showShareURL}>Share</span>
               <span id="share-url" style={{ display: `${urlVis}` }} >{window.location.href}</span>
             </div>
-          </div>
+          </div> :
+            <div id="rater-cont" style={{height: '150px'}}>
+              <div className="rater-row">
+                Log in to rate or review...
+              </div>
+              <span className="seperator"></span>
+              <div className="rater-row">
+                <span id="share-text" style={{ display: `${shareVis}` }} onMouseEnter={showShareURL}>Share</span>
+                <span id="share-url" style={{ display: `${urlVis}` }} >{window.location.href}</span>
+              </div>
+
+            </div>
+
+          }
+
+
         </div>
+
+
+
+
 
         {Object.values(reviews).length ? <div id="reviews-cont">
           <span id="review-header">REVIEWS</span>

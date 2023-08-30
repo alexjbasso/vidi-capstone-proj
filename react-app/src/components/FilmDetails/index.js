@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getFilmByIdThunk } from '../../store/films';
 import { getAllReviewsOfFilmThunk } from "../../store/reviews";
-import { getAllUserViewsThunk } from '../../store/views';
+import { getAllUserViewsThunk, addViewThunk } from '../../store/views';
 import RoleAddButton from '../RoleAddButton';
 import RoleAddModal from '../RoleAddModal';
 import ReviewFormButton from "../ReviewFormButton"
@@ -38,7 +38,7 @@ export default function FilmDetails() {
   useEffect(() => {
     dispatch(getFilmByIdThunk(id));
     dispatch(getAllReviewsOfFilmThunk(id));
-  }, [dispatch, id, Object.values(reviews).length, userReview?.rating]);
+  }, [dispatch, id, Object.values(reviews).length, userReview?.rating, userView]);
 
   useEffect(() => {
     dispatch(getAllUserViewsThunk());
@@ -58,6 +58,16 @@ export default function FilmDetails() {
     setShareVis("none");
     setURLVis("block");
   };
+
+  const viewHandle = () => {
+    if (userView) {
+      console.log("view exists")
+    }
+    else {
+      dispatch(addViewThunk(film.id));
+    }
+
+  }
 
   return (
     <div id="film-details-page-container">
@@ -148,11 +158,9 @@ export default function FilmDetails() {
           </div>
 
           <div id="rater-cont">
-
             <div className="rater-row" id="your-rating-row">
-
               <div id="seen-toggle-cont">
-                <i id="seen-button" className="fa-solid fa-eye" style={{color: userView ? "#00E054" : "#bcd"}}/>
+                <i id="seen-button" className="fa-solid fa-eye" style={{ color: userView ? "#00E054" : "#bcd" }} onClick={viewHandle} />
                 <span>{userView ? "Watched" : "Watch"}</span>
               </div>
 

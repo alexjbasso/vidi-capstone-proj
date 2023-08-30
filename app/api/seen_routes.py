@@ -37,6 +37,7 @@ def log_film_as_seen(id):
     """
     Log selected film as seen and return seen_films for the film in a list of seen dictionaries
     """
+    print("==================", id)
     film = Film.query.get(id).to_dict()
     # If song already has user's like, return error
     for seen_film in film["views"]:
@@ -69,4 +70,4 @@ def log_film_as_unseen(id):
       db.session.commit()
       return {'message': 'Successfully Deleted'}
     else:
-        return {'message': 'You have not seen this film'}
+        return {'message': 'You have not seen this film'}, 405

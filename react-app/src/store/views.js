@@ -40,6 +40,27 @@ export const getAllUserViewsThunk = () => async (dispatch) => {
   return views;
 }
 
+// Add View to Film Thunk
+export const addViewThunk = (filmId) => async (dispatch) => {
+  try {
+    const response = await fetch(`/api/seen/${filmId}`, {
+      method: 'POST'
+    });
+    const view = await response.json();
+    if (!response.ok) {
+      throw new Error(view);
+    }
+    return dispatch(addViewAction(view))
+  } catch (err) {
+    console.log(err)
+    return err;
+  }
+}
+
+// Remove View from Film Thunk
+
+
+
 
 // ===Reducer===
 const initialState = {
@@ -55,6 +76,13 @@ export default function viewsReducer(state = initialState, action) {
         allUserViewsObject[view.id] = view;
       });
       return { ...state, userViews: allUserViewsObject };
+    case ADD_VIEW:
+      return {...state, userViews: {...state.userViews, [action.payload.id]: action.payload}}
+    case REMOVE_VIEW:
+      const userViewsObject = {...state.userViews};
+      delete userViewsObject[action.payload];
+      return {...state, userViews: userViewsObject}
+
     default:
       return state
   }

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getFilmByIdThunk } from '../../store/films';
 import { getAllReviewsOfFilmThunk } from "../../store/reviews";
+import { getAllUserViewsThunk } from '../../store/views';
 import RoleAddButton from '../RoleAddButton';
 import RoleAddModal from '../RoleAddModal';
 import ReviewFormButton from "../ReviewFormButton"
@@ -15,16 +16,17 @@ export default function FilmDetails() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { id } = useParams();
-  const film = useSelector(state => state.films.singleFilm[id])
-  const reviews = useSelector(state => state.reviews?.allFilmReviews)
-  const user = useSelector((state) => state.session?.user);
+  const film = useSelector(state => state.films.singleFilm[id]);
+  const reviews = useSelector(state => state.reviews?.allFilmReviews);
+  const user = useSelector(state => state.session?.user);
   let userReview;
-  if (user) {
-    userReview = Object.values(reviews).find(review => review.user.id === user.id)
-  }
+  if (user) { userReview = Object.values(reviews).find(review => review.user.id === user.id) }
+  const userViews = useSelector(state => state.views.userViews);
+  const userView = Object.values(userViews).find(view => view.film_id === parseInt(id));
   const [toggledRole, setToggledRole] = useState("CAST");
   const [shareVis, setShareVis] = useState("block");
   const [urlVis, setURLVis] = useState("none");
+
 
   const directToPerson = (id, role) => {
     history.push({
@@ -37,6 +39,10 @@ export default function FilmDetails() {
     dispatch(getFilmByIdThunk(id));
     dispatch(getAllReviewsOfFilmThunk(id));
   }, [dispatch, id, Object.values(reviews).length, userReview?.rating]);
+
+  useEffect(() => {
+    dispatch(getAllUserViewsThunk());
+  }, [dispatch, id, user])
 
   if (!film) return <h1>Film not found.</h1>
 
@@ -58,7 +64,14 @@ export default function FilmDetails() {
 
       <div id="key-art-cont">
         <img src={film.key_art}></img>
-   
+        <div id="metrics-block">
+          <span className="metric" id="view-count"> <i class="fa-solid fa-eye" /> {film?.views.length}</span>
+          {Object.values(reviews).length ?
+            <span className="metric" id="avg-rating-stars"><i className="fa-solid fa-star rating-star"></i>{film.avg_rating.toFixed(2)}</span>
+            : null
+          }
+        </div>
+
       </div>
 
       <div id="details-right-cont">
@@ -138,13 +151,10 @@ export default function FilmDetails() {
 
             <div className="rater-row" id="your-rating-row">
 
-              {Object.values(reviews).length ?
-                <div id="your-rating-block">
-                  <span>Average rating</span>
-                  <div id="avg-rating-stars">{film.avg_rating.toFixed(2)} / 5.00</div>
-                </div> :
-                'No ratings yet'
-              }
+              <div id="seen-toggle-cont">
+                <i id="seen-button" className="fa-solid fa-eye" style={{color: userView ? "#00E054" : "#bcd"}}/>
+                <span>{userView ? "Watched" : "Watch"}</span>
+              </div>
 
             </div>
             <span className="seperator"></span>

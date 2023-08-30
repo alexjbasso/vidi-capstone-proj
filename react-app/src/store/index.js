@@ -4,12 +4,14 @@ import session from './session'
 import filmsReducer from './films';
 import peopleReducer from './people';
 import reviewsReducer from './reviews';
+import viewsReducer from './views';
 
 const rootReducer = combineReducers({
   session,
   films: filmsReducer,
   people: peopleReducer,
-  reviews: reviewsReducer
+  reviews: reviewsReducer,
+  views: viewsReducer
 });
 
 

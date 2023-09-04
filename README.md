@@ -17,8 +17,8 @@ Vidi is a full-stack web application that allows users to explore and review the
     - AWS
 # Key Features
 - User Authentication:
-Users can sign up and log in to their accounts.
-Authentication is handled using a secure login system that hashes each stored password.
+   - Users can sign up and log in to their accounts.
+   - Authentication is handled using a secure login system that hashes each stored password.
 
 - Films:
    - Users can create, read, update, and delete films.
@@ -27,6 +27,11 @@ Authentication is handled using a secure login system that hashes each stored pa
     - Users can create, read, update, and delete people.
 - Reviews:
     - Users can create, read, and edit reviews.
+
+# Screenshots:
+
+![image](./react-app/public/film-page-screenshot.png)
+![image](./react-app/public/person-page-screenshot.png)
 
 # Creator
 Alex Basso

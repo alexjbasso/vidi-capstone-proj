@@ -1,14 +1,14 @@
 #person-form-container {
   display: flex;
   justify-content: center;
-  height: 65vh;
+  height: 72vh;
 }
 
 #person-form {
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 300px;
+  height: 345px;
   gap: 12px;
   background-color: #14171dbc;
   margin-top: 20px;
@@ -31,13 +31,14 @@
   gap: 3px
 }
 
-#person-form input {
+#person-form input, #person-form textarea {
   width: 97%;
   padding: 5px;
   border: 1px solid white;
   border-radius: 4px;
   background-color: rgb(45, 43, 43);
   color: white;
+  font-family: inherit;
 }
 
 #people-button-container {

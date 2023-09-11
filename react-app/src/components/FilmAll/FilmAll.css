@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin: 40px 350px;
-  min-height: 65vh;
+  min-height: 68vh;
 }
 
 #all-films-grid {

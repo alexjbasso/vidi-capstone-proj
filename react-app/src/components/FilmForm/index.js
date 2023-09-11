@@ -166,9 +166,10 @@ export default function FilmForm({ film, type }) {
             <label htmlFor="synopsis">Synopsis</label>
             {errors.synopsis ? <p className="errors">{errors.synopsis}</p> : null}
           </div>
-          <input
+          <textarea
             id="synopsis"
-            type="text"
+            rows="4"
+            cols="33"
             placeholder="Synopsis*"
             onChange={e => setSynopsis(e.target.value)}
             value={synopsis}

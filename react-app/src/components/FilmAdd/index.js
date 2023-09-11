@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import FilmForm from "../FilmForm"
+import "./FilmAdd.css"
 
 export default function FilmAdd() {
   const user = useSelector((state) => state.session?.user);

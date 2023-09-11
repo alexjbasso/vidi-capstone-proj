@@ -1,6 +1,7 @@
 #film-form-container {
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 #film-form {
@@ -29,13 +30,14 @@
   gap: 3px
 }
 
-#film-form input {
+#film-form input, #film-form textarea {
   width: 97%;
   padding: 5px;
   border: 1px solid white;
   border-radius: 4px;
   background-color: rgb(45, 43, 43);
   color: white;
+  font-family: inherit;
 }
 
 #film-button-container {

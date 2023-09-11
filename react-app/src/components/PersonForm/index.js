@@ -78,9 +78,10 @@ export default function PersonForm({ person, type }) {
             <label htmlFor="bio">Bio</label>
             {errors.bio ? <p className="errors">{errors.bio}</p> : null}
           </div>
-          <input
+          <textarea
             id="bio"
-            type="text"
+            rows="5"
+            cols="33"
             placeholder="Bio"
             onChange={e => setBio(e.target.value)}
             value={bio}

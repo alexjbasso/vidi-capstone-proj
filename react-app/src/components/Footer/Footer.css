@@ -3,6 +3,7 @@
   padding: 20px 0px;
   background-color: rgb(44, 52, 64);
   margin-top: 50px;
+  max-height: 125px;
 }
 
 #footer-content {

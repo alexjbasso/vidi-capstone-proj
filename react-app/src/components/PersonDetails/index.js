@@ -63,9 +63,9 @@ export default function PersonDetails() {
         <p id="role-header">{roleHeader()}</p>
         <h2 id="person-name">{person?.name}</h2>
         <div id="select-container">
-          <select id="role-selector" onChange={e => setToggledRole(e.target.value)} defaultValue={toggledRole}>
+          {allRoles.length ? <select id="role-selector" onChange={e => setToggledRole(e.target.value)} defaultValue={toggledRole}>
             {allRoles.map(role => <option key={role} value={role} >{role}</option>)}
-          </select>
+          </select> : <span id="role-selector">&nbsp;</span>}
           {/* <RoleAddButton className="role-add-button" modalComponent={<RoleAddModal person={person} type="film-to-person"/>}/> */}
         </div>
 

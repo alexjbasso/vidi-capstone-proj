@@ -48,8 +48,6 @@ export default function FilmDetails() {
 
   if (!film) return <h1>Film not found.</h1>
 
-  console.log(userReview)
-
   const cast = film.roles.filter(person => person.role === 'Actress' || person.role === 'Actor')
   const directors = film.roles.filter(person => person.role === 'Director')
   const writers = film.roles.filter(person => person.role === 'Writer')

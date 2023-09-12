@@ -28,6 +28,7 @@ export default function FilmDetails() {
   const [toggledRole, setToggledRole] = useState("CAST");
   const [shareVis, setShareVis] = useState("block");
   const [urlVis, setURLVis] = useState("none");
+  const [isLoading, setIsLoading] = useState(true);
 
 
   const directToPerson = (id, role) => {
@@ -37,15 +38,17 @@ export default function FilmDetails() {
     });
   }
 
-  useEffect(() => {
-    dispatch(getFilmByIdThunk(id));
-    dispatch(getAllReviewsOfFilmThunk(id));
+  useEffect(async () => {
+    await dispatch(getFilmByIdThunk(id));
+    await dispatch(getAllReviewsOfFilmThunk(id));
+    setIsLoading(false)
   }, [dispatch, id, Object.values(reviews).length, userReview?.rating, userView]);
 
   useEffect(() => {
     dispatch(getAllUserViewsThunk());
   }, [dispatch, id, user])
 
+  if (isLoading === true) return <h1>Loading...</h1>
   if (!film) return <h1>Film not found.</h1>
 
   const cast = film.roles.filter(person => person.role === 'Actress' || person.role === 'Actor')

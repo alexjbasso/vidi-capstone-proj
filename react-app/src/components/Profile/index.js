@@ -17,12 +17,14 @@ export default function Profile() {
 
   const [hoveredFilm, setHoveredFilm] = useState(-1);
   const [hoveredPerson, setHoveredPerson] = useState(-1);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (user) {
-      dispatch(getAllFilmsOfUserThunk());
-      dispatch(getAllPeopleOfUserThunk());
-      dispatch(getAllReviewsOfUserThunk());
+      await dispatch(getAllFilmsOfUserThunk());
+      await dispatch(getAllPeopleOfUserThunk());
+      await dispatch(getAllReviewsOfUserThunk());
+      setIsLoading(false);
     }
   }, [dispatch, user]);
 
@@ -32,6 +34,8 @@ export default function Profile() {
   }, [films.length])
 
   if (!user) return <h1>You need to be logged in to view this page.</h1>
+
+  if (isLoading === true) return <h1>Loading...</h1>
 
   return (
     <div id="profile-container">

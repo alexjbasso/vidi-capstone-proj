@@ -7,6 +7,7 @@ export default function FilmAll() {
   const dispatch = useDispatch();
   const allFilms = Object.values(useSelector(state => state.films.allFilms))
   const user = useSelector((state) => state.session.user ? state.session.user : null);
+  const [isLoading, setIsLoading] = useState(true);
 
   allFilms.sort((a, b) => {
     const titleA = a.title.toUpperCase();
@@ -16,9 +17,13 @@ export default function FilmAll() {
     return 0;
   });
 
-  useEffect(() => {
-    dispatch(getAllFilmsThunk());
+  useEffect(async () => {
+    await dispatch(getAllFilmsThunk());
+    setIsLoading(false);
+
   }, [dispatch]);
+
+  if (isLoading === true) return <h1>Loading...</h1>
 
   return (
     <div id="film-all-container">

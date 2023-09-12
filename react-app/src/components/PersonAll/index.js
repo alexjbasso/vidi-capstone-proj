@@ -7,6 +7,7 @@ export default function PersonAll() {
   const dispatch = useDispatch();
   const people = Object.values(useSelector(state => state.people?.allPeople))
   const user = useSelector((state) => state.session.user ? state.session.user : null);
+  const [isLoading, setIsLoading] = useState(true);
 
   people.sort((a, b) => {
     const nameA = a.name.toUpperCase();
@@ -16,9 +17,12 @@ export default function PersonAll() {
     return 0;
   });
 
-  useEffect(() => {
-    dispatch(getAllPeopleThunk());
+  useEffect(async () => {
+    await dispatch(getAllPeopleThunk());
+    setIsLoading(false);
   }, [dispatch]);
+
+  if (isLoading === true) return <h1>Loading...</h1>
 
   return (
     <div id="person-all-container">

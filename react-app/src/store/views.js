@@ -90,7 +90,6 @@ export default function viewsReducer(state = initialState, action) {
       const userViewsObject = {...state.userViews};
       delete userViewsObject[action.payload];
       return {...state, userViews: userViewsObject}
-
     default:
       return state
   }

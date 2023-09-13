@@ -48,6 +48,13 @@ class Film(db.Model):
             'avg_rating': (sum([review.to_dict_for_film()['rating'] for review in self.reviews]) / len([review.to_dict_for_film()['rating'] for review in self.reviews])) if len(self.reviews) != 0 else 0,
             'views': [view.to_dict() for view in self.seen_films]
         }
+    
+    def to_dict_all(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'key_art': self.key_art,
+        }
 
     def to_dict_for_review(self):
         return {

@@ -14,6 +14,7 @@ export default function PersonDetails() {
   const location = useLocation();
   const [toggledRole, setToggledRole] = useState(location?.role)
   const [filteredFilms, setFilteredFilms] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
 
   const allRoles = [];
   person?.roles.forEach(role => { if (!allRoles.includes(role.role)) allRoles.push(role.role) });
@@ -41,8 +42,9 @@ export default function PersonDetails() {
     return `FILMS ${string}`
   }
 
-  useEffect(() => {
-    dispatch(getPersonByIdThunk(id));
+  useEffect(async () => {
+    await dispatch(getPersonByIdThunk(id));
+    setIsLoading(false);
   }, [dispatch, id]);
 
 
@@ -53,7 +55,7 @@ export default function PersonDetails() {
   }, [dispatch, person, toggledRole])
 
 
-
+  if (isLoading === true) return <h1>Loading...</h1>
   if (!person) return <h1>This person does not exist.</h1>
 
   return (

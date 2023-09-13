@@ -4,6 +4,7 @@ from app.models import db, Film, SeenFilm
 from app.forms.film_form import FilmAdd, FilmEdit
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.api.aws_helpers import get_unique_filename, upload_file_to_s3, remove_file_from_s3
+from sqlalchemy.orm import joinedload
 
 
 film_routes = Blueprint('films', __name__)
@@ -16,7 +17,8 @@ def get_all_films():
     """
     Query for all films and returns them in a list of film dictionaries
     """
-    return jsonify([film.to_dict() for film in Film.query.all()])
+    # films = Film.query.options(joinedload(Film.roles), joinedload(Film.reviews), joinedload(Film.seen_films)).all()
+    return jsonify([film.to_dict_all() for film in Film.query.all()])
 
 
 @film_routes.route('/current')
@@ -26,7 +28,7 @@ def get_user_films():
     Query for all films created by the current user and return them in a list of film dictionaries
     """
     user_films = Film.query.filter(Film.user_id == current_user.id)
-    films_dict = [film.to_dict() for film in user_films]
+    films_dict = [film.to_dict_all() for film in user_films]
     return jsonify(films_dict)
 
 # Get film by id

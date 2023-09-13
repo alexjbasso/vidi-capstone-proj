@@ -30,6 +30,13 @@ class Person(db.Model):
             'user': self.user.to_dict(),
             'roles': [role.to_dict() for role in self.roles]
         }
+    
+    def to_dict_all(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'featured_photo': self.featured_photo,
+        }
 
     def get_name(self):
         return self.name
